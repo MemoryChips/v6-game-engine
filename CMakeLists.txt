@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 17)
 # set(SOURCE main.cpp src/hello.cpp)
 set(SOURCE sandbox/app.cpp)
 # include_directories(my-opengl/include tests) 
-include_directories(vendor/spdlog/include)
+include_directories(v6/vendor/spdlog/include)
 include_directories(v6/include v6/src)
 include_directories(v6/vendor/glfw/include/GLFW v6/vendor/glfw/deps)
 

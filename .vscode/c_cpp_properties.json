@@ -6,7 +6,7 @@
         "${workspaceFolder}/sandbox/*",
         "${workspaceFolder}/v6/include",
         "${workspaceFolder}/v6/src",
-        "${workspaceFolder}/v6/vendor/spdlog/include/*",
+        "${workspaceFolder}/v6/vendor/spdlog/include/**",
         "${workspaceFolder}/v6/vendor/glm/*",
         "${workspaceFolder}/v6/vendor/imgui/include/*",
         "${workspaceFolder}/v6/vendor/glad/include/*",
