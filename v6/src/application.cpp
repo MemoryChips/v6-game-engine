@@ -1,7 +1,7 @@
 #include "application.h"
 // #include "core.h"
 // #include "events/application-event.h"
-#include "glfw3.h"
+#include "GLFW/glfw3.h"
 #include "input.h"
 
 namespace v6 {
