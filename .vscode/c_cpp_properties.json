@@ -1,0 +1,24 @@
+{
+  "configurations": [
+    {
+      "name": "Linux",
+      "includePath": [
+        "${workspaceFolder}/sandbox/*",
+        "${workspaceFolder}/v6/include",
+        "${workspaceFolder}/v6/src",
+        "${workspaceFolder}/v6/vendor/spdlog/include/*",
+        "${workspaceFolder}/v6/vendor/glm/*",
+        "${workspaceFolder}/v6/vendor/imgui/include/*",
+        "${workspaceFolder}/v6/vendor/glad/include/*",
+        "${workspaceFolder}/v6/vendor/glfw/deps/*",
+        "${workspaceFolder}/v6/vendor/glfw/include"
+      ],
+      "defines": ["IMGUI_IMPL_OPENGL_LOADER_GLAD"],
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "c11",
+      "cppStandard": "c++17",
+      "intelliSenseMode": "gcc-x64"
+    }
+  ],
+  "version": 4
+}

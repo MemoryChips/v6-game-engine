@@ -1,0 +1,13 @@
+main.exe
+.vscode/ipch/*
+build
+vendor/glfw-3.3
+vendor/glm
+imgui.ini
+
+# open-gl copied
+my-opengl
+vendor
+assets
+main.cpp
+v6/vendor
