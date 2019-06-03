@@ -1,6 +1,8 @@
 #include "application.h"
 // #include "core.h"
 // #include "events/application-event.h"
+#include "glad/glad.h"
+
 #include "GLFW/glfw3.h"
 #include "input.h"
 
