@@ -2,6 +2,18 @@
 
 ## Setup Notes
 
+- TODO: Low
+
+1. Find way to remove V6_DEBUG define for production build
+
+- cmake
+
+```bash
+mkdir build
+cd build
+cmake .. -DCMAKE_BUILD_TYPE=Debug
+```
+
 - add glad header before including GLFW
 
 ```c++
