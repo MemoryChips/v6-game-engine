@@ -9,4 +9,4 @@ assets
 v6/vendor/glfw
 v6/vendor/glm
 v6/vendor/imgui
-v6/vendor/spdlog
+# v6/vendor/spdlog

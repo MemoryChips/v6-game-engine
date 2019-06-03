@@ -24,7 +24,7 @@ cmake .. -DCMAKE_BUILD_TYPE=Debug
 
 ## Add submodules - Consider this later
 
-- spdlog
+- spdlog - currently added manually to reduce to only include files
 
 ```bash
 git submodule add https://github.com/gabime/spdlog.git src/v6/vendor/spdlog
