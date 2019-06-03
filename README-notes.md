@@ -1,13 +1,13 @@
 # V6 Game Engine
 
-## Clone to start a new project
+## Setup Notes
 
-```bash
-# local clone
-cd .. # go up one dir from this project dir
-git clone hello-world new-project
-git remote remove origin
-git remote -v # verify remote is no longer hello world project
+- add glad header before including GLFW
+
+```c++
+#include "glad/glad.h"
+// prevent sorting of glad after glfw
+#include "GLFW/glfw3.h"
 ```
 
 ## Add submodules - Consider this later
@@ -54,21 +54,6 @@ git submodule add https://github.com/theCherno/glfw src/v6/vendor/glfw
 cd src/v6/vendor/imgui/
 g++-7 -Wall -c *.cpp -I../../glfw
 ar rvs imgui.a *.o
-```
-
-## Add Premake
-
-This did not work. Using manual make.
-
-Add premake alpha 13 (or later) to folder vendor/bin at the top level NOT within src/v6/vendor.
-
-Excluded from git.
-
-Consider adding license file next to premake5.
-
-```bash
-./vendor/bin/premake5 gmake # run premake
-make
 ```
 
 ## Add Github
