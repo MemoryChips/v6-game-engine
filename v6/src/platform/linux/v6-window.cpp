@@ -15,6 +15,18 @@ static void GLFWErrorCallback(int error, const char *description) {
   LOG_CORE_ERROR("GLFW Error ({0}): {1}", error, description);
 }
 
+static void GLAPIENTRY messageCallback(GLenum source, GLenum type, GLuint id,
+                                       GLenum severity, GLsizei length,
+                                       const GLchar *message,
+                                       const void *userParam) {
+  if (type != 0x8251) {
+    fprintf(stderr,
+            "GL CALLBACK: %s type = 0x%x, severity = 0x%x, message = %s\n",
+            (type == GL_DEBUG_TYPE_ERROR ? "** GL ERROR **" : ""), type,
+            severity, message);
+  }
+}
+
 Window *Window::Create(const WindowProps &props) { return new V6Window(props); }
 
 V6Window::V6Window(const WindowProps &props) { Init(props); }
@@ -44,6 +56,12 @@ void V6Window::Init(const WindowProps &props) {
   V6_CORE_ASSERT(status, "Failed to initialize Glad!");
   glfwSetWindowUserPointer(m_Window, &m_Data);
   SetVSync(true);
+
+  // Enable debugging with new fancy callback
+  // requires 4.0 or above
+  // This must be called after we create a context or something like that
+  glEnable(GL_DEBUG_OUTPUT);
+  glDebugMessageCallback(messageCallback, nullptr);
 
   // Set GLFW callbacks
   glfwSetWindowSizeCallback(
