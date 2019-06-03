@@ -1,13 +1,14 @@
 main.exe
 .vscode/ipch/*
 build
-vendor/glfw-3.3
-vendor/glm
 imgui.ini
 
 # open-gl copied
 my-opengl
-vendor
 assets
-main.cpp
+v6/vendor/glad
+v6/vendor/glfw
+v6/vendor/glm
+v6/vendor/imgui
+v6/vendor/spdlog
 v6/vendor

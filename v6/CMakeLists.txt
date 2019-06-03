@@ -8,6 +8,7 @@ include_directories(vendor/spdlog/include)
 include_directories(vendor/glm)
 include_directories(vendor/imgui/include)
 include_directories(vendor/glfw/include)
+include_directories(vendor/glad/include)
 
 # for imgui lib
 add_subdirectory(vendor/imgui)
