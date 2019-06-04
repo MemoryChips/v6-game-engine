@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(Sandbox)
+project(Sandbox VERSION 1.0.0) # TODO: set define with version and log it
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -13,16 +13,12 @@ include_directories(v6/vendor/imgui/include)
 include_directories(v6/vendor/glm)
 include_directories(v6/vendor/glad/include)
 
-# find_package(OpenGL REQUIRED)
-# include_directories( ${OPENGL_INCLUDE_DIRS}  ${GLUT_INCLUDE_DIRS} )
-# target_link_libraries(${PROJECT_NAME} ${OPENGL_LIBRARIES})
-
 # for the v6 shared library
 add_subdirectory(v6)
 
-# file(GLOB TEST_SOURCES "tests/*.cpp")
+# FIXME: fix this define
+# set(V6_DEMO_VERSION "-DV6_DEMO_VERSION ${PROJECT_VERSION}")
+# set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} ${V6_DEMO_VERSION}")
+
 add_executable(${PROJECT_NAME} ${SOURCE} ${TEST_SOURCES})
 target_link_libraries(${PROJECT_NAME} v6)
-# important that my-opengl comes first. Why?
-# target_link_libraries(${PROJECT_NAME} my-opengl imgui glad glfw)
-# target_link_libraries(${PROJECT_NAME} ${PROJECT_LINK_LIBS})

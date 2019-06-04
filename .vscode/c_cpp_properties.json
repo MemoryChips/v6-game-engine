@@ -13,7 +13,11 @@
         "${workspaceFolder}/v6/vendor/glfw/deps/*",
         "${workspaceFolder}/v6/vendor/glfw/include"
       ],
-      "defines": ["IMGUI_IMPL_OPENGL_LOADER_GLAD", "V6_DEBUG"],
+      "defines": [
+        "IMGUI_IMPL_OPENGL_LOADER_GLAD",
+        "V6_DEBUG",
+        "V6_DEMO_VERSION"
+      ],
       "compilerPath": "/usr/bin/gcc",
       "cStandard": "c11",
       "cppStandard": "c++17",
