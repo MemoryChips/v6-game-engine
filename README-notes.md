@@ -43,44 +43,19 @@ git submodule add https://github.com/gabime/spdlog.git v6/vendor/spdlog
 
 - TODO: below here
 
-- glm
+- glm - study this before doing it
 
 ```bash
-git submodule add https://github.com/g-truc/glm.git src/v6/vendor/glm
+git submodule add https://github.com/g-truc/glm.git v6/vendor/glm
 ```
 
-- imgui
+- imgui - this will not work as is - consider manual commmit
 
 ```bash
-git submodule add https://github.com/TheCherno/imgui.git src/v6/vendor/imgui
+git submodule add https://github.com/TheCherno/imgui.git v6/vendor/imgui
 ```
 
-- GLFW
-
-```bash
-#
-# GLFW
-#
-# still under consideration - maybe just include the files needed from the open-gl project
-git submodule add https://github.com/theCherno/glfw src/v6/vendor/glfw
-# instead copied glfw files from opengl project - compiled earlier in the glfw dir
-# currently this is ignored by git which is a problem to clone the project
-# consider creating a make for glfw or use its cmake in here
-```
-
-## Imgui
-
-```bash
-# in directory src/vendor/imgui
-# TODO: add this to build or create a submodule
-# be sure to delete main.o and main.cpp if not needed for reference
-# before building archive
-cd src/v6/vendor/imgui/
-g++-7 -Wall -c *.cpp -I../../glfw
-ar rvs imgui.a *.o
-```
-
-## Add Github
+## Add Github - Switch to bit bucket and delete this repo
 
 ```bash
 git remote add origin git@github.com:MemoryChips/v6-game-engine.git

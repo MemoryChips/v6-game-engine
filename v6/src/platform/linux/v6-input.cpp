@@ -1,7 +1,7 @@
 // #include "input.h"
 #include "platform/linux/v6-input.h"
+#include "GLFW/glfw3.h"
 #include "application.h"
-#include "glfw3.h"
 #include "v6-pch.h"
 
 #define GET_WINDOW                                                             \
