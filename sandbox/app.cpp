@@ -1,6 +1,8 @@
 #include "app.h"
 
-#define V6_DEMO_VERSION "0.0.1"
+#ifndef V6_DEMO_VERSION
+#define V6_DEMO_VERSION "x.y.z"
+#endif
 
 int main(int argc, char **argv) {
 
