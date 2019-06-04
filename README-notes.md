@@ -43,17 +43,14 @@ git submodule add https://github.com/gabime/spdlog.git v6/vendor/spdlog
 
 - TODO: below here
 
-- glm - study this before doing it
+- glm - since we copy the glm sub dir of the repo do manual update
 
-```bash
-git submodule add https://github.com/g-truc/glm.git v6/vendor/glm
-```
+  - copy glm sub dir from [here](https://github.com/g-truc/glm/tree/master/glm)
 
-- imgui - this will not work as is - consider manual commmit
-
-```bash
-git submodule add https://github.com/TheCherno/imgui.git v6/vendor/imgui
-```
+- imgui - use manual commmit and update
+  - divide files into src and include and update
+  - ignore all sub dirs
+  - manual copy files from [here](https://github.com/ocornut/imgui)
 
 ## Add Github - Switch to bit bucket and delete this repo
 
