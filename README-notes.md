@@ -1,12 +1,14 @@
 # V6 Game Engine
 
-## Setup Notes
+## TODO
 
 - TODO: Low
 
 1. Find way to remove V6_DEBUG define for production build
 
-- cmake
+## Build
+
+- cmake to build
 
 ```bash
 mkdir build
@@ -14,7 +16,12 @@ cd build
 cmake .. -DCMAKE_BUILD_TYPE=Debug
 ```
 
-- add glad header before including GLFW in application.cpp
+## Setup Notes
+
+- create glad loader [here](https://glad.dav1d.de/)
+
+  - creates glad.c and glad.h
+  - add glad header before including GLFW in application.cpp
 
 ```c++
 #include "glad/glad.h"
@@ -22,7 +29,7 @@ cmake .. -DCMAKE_BUILD_TYPE=Debug
 #include "GLFW/glfw3.h"
 ```
 
-## Add submodules - Consider this later
+## Add submodules and manual copied code
 
 - GLFW
 
@@ -33,13 +40,11 @@ cmake .. -DCMAKE_BUILD_TYPE=Debug
 git submodule add https://github.com/glfw/glfw.git v6/vendor/glfw
 ```
 
-- spdlog - currently added manually to reduce to only include files and to fix issues with the code
-  - committed with v6 code
+- spdlog - do manual update to only include files and to fix issues with the code
 
-```bash
-git submodule add https://github.com/gabime/spdlog.git v6/vendor/spdlog
-# git mv v6/vendor/spdlog src/v6/vendor/spdlog # if put in the wrong place
-```
+  - committed with v6 code
+  - copy code [here](https://github.com/gabime/spdlog.git) to v6/vendor/spdlog
+  - several changes needed to fix header file problems - locate these changes before updating
 
 - TODO: below here
 
@@ -48,6 +53,7 @@ git submodule add https://github.com/gabime/spdlog.git v6/vendor/spdlog
   - copy glm sub dir from [here](https://github.com/g-truc/glm/tree/master/glm)
 
 - imgui - use manual commmit and update
+
   - divide files into src and include and update
   - ignore all sub dirs
   - manual copy files from [here](https://github.com/ocornut/imgui)
