@@ -6,7 +6,7 @@ imgui.ini
 # open-gl copied
 my-opengl
 assets
-v6/vendor/glfw
+# v6/vendor/glfw
 v6/vendor/glm
 v6/vendor/imgui
 # v6/vendor/spdlog
