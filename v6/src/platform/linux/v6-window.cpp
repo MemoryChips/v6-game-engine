@@ -45,6 +45,7 @@ void V6Window::Init(const WindowProps &props) {
     // TODO: glfwTerminate on system shutdown
     int success = glfwInit();
     V6_CORE_ASSERT(success, "Could not intialize GLFW!");
+    // Enable glfw error callback
     glfwSetErrorCallback(GLFWErrorCallback);
     s_GLFWInitialized = true;
   }
@@ -57,11 +58,13 @@ void V6Window::Init(const WindowProps &props) {
   glfwSetWindowUserPointer(m_Window, &m_Data);
   SetVSync(true);
 
-  // Enable debugging with new fancy callback
+#ifdef V6_DEBUG
+  // Enable opengl debugging with new fancy callback
   // requires 4.0 or above
   // This must be called after we create a context or something like that
   glEnable(GL_DEBUG_OUTPUT);
   glDebugMessageCallback(messageCallback, nullptr);
+#endif
 
   // Set GLFW callbacks
   glfwSetWindowSizeCallback(
