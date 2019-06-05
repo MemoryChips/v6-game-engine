@@ -51,6 +51,7 @@ git submodule add https://github.com/glfw/glfw.git v6/vendor/glfw
 - glm - since we copy the glm sub dir of the repo do manual update
 
   - copy glm sub dir from [here](https://github.com/g-truc/glm/tree/master/glm)
+  - consider sub module if easier
 
 - imgui - use manual commmit and update
 
@@ -58,9 +59,25 @@ git submodule add https://github.com/glfw/glfw.git v6/vendor/glfw
   - ignore all sub dirs
   - manual copy files from [here](https://github.com/ocornut/imgui)
 
+## Precompile v6-pch.h
+
+- header files that do not change
+
+```bash
+cd v6/include
+g++ -c v6-pch.h -o v6-pch.h.gch -Wall -g -std=c++17
+```
+
 ## Add Github - Switch to bit bucket and delete this repo
 
 ```bash
 git remote add origin git@github.com:MemoryChips/v6-game-engine.git
 git remote -v
+```
+
+## Misc
+
+```bash
+# inspect an archive static library
+nm -C my-opengl/libmy-opengl.a | grep GLClearError
 ```

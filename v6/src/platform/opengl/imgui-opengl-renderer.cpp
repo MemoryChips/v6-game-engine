@@ -68,10 +68,11 @@
 #define _CRT_SECURE_NO_WARNINGS
 #endif
 
-#include "platform/opengl/imgui-opengl-renderer.h"
+#include "v6-pch.h"
+
 #include "glad/glad.h"
 #include "imgui.h"
-#include "v6-pch.h"
+#include "platform/opengl/imgui-opengl-renderer.h"
 #include <stdio.h>
 #if defined(_MSC_VER) && _MSC_VER <= 1500 // MSVC 2008 or earlier
 #include <stddef.h>                       // intptr_t

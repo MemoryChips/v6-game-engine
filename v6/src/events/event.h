@@ -1,7 +1,8 @@
 #pragma once
 
-#include "core.h"
 #include "v6-pch.h"
+
+#include "core.h"
 // #include "v6.h"
 
 namespace v6 {

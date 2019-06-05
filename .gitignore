@@ -3,10 +3,9 @@ main.exe
 build
 imgui.ini
 
-# open-gl copied
-my-opengl
-assets
-# v6/vendor/glfw
+# precompiled headers
+*.h.gch
+
+# vendor TODO:
 v6/vendor/glm
 v6/vendor/imgui
-# v6/vendor/spdlog

@@ -1,14 +1,15 @@
-#include "imgui-layer/imgui-layer.h"
 #include "v6-pch.h"
+
+#include "imgui-layer/imgui-layer.h"
 
 #include "imgui.h"
 #include "platform/opengl/imgui-opengl-renderer.h"
 
 #include "application.h"
 
-// TEMPORARY
 #include "glad/glad.h"
-#include "glfw3.h" // temporary?
+// keep glad ahead of glfw
+#include "GLFW/glfw3.h" // temporary?
 
 namespace v6 {
 

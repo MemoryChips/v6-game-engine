@@ -1,5 +1,4 @@
 #pragma once
-
 #include <algorithm>
 #include <functional>
 #include <iostream>
@@ -12,7 +11,7 @@
 #include <unordered_set>
 #include <vector>
 
-#include "log.h"
+// #include "log.h"
 
 // #define String std::string
 // #define StringStream std::stringstream

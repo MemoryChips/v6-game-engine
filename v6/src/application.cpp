@@ -1,3 +1,5 @@
+#include "v6-pch.h"
+
 #include "application.h"
 // #include "core.h"
 // #include "events/application-event.h"
@@ -5,6 +7,7 @@
 
 #include "GLFW/glfw3.h"
 #include "input.h"
+#include "log.h"
 
 namespace v6 {
 
