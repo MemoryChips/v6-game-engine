@@ -1,4 +1,5 @@
 #include "layer-stack.h"
+#include <algorithm>
 
 namespace v6 {
 

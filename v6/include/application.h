@@ -6,6 +6,7 @@
 #include "events/event.h"
 #include "layer-stack.h"
 #include "window.h"
+#include <memory>
 
 namespace v6 {
 

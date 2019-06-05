@@ -61,7 +61,7 @@ git submodule add https://github.com/glfw/glfw.git v6/vendor/glfw
 
 ## Precompile v6-pch.h
 
-- header files that do not change
+- This is currently not working since it is ignored by build
 
 ```bash
 cd v6/include

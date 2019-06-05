@@ -1,11 +1,7 @@
-#include "v6-pch.h"
-
 #include "imgui-layer/imgui-layer.h"
-
+#include "application.h"
 #include "imgui.h"
 #include "platform/opengl/imgui-opengl-renderer.h"
-
-#include "application.h"
 
 #include "glad/glad.h"
 // keep glad ahead of glfw

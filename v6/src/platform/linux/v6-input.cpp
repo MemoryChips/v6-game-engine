@@ -1,8 +1,6 @@
-// #include "input.h"
 #include "platform/linux/v6-input.h"
 #include "GLFW/glfw3.h"
 #include "application.h"
-#include "v6-pch.h"
 
 #define GET_WINDOW                                                             \
   static_cast<GLFWwindow *>(Application::get().getWindow().GetNativeWindow())

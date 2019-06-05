@@ -1,7 +1,5 @@
-#include "v6-pch.h"
-
-#include "log.h"
 #include "platform/linux/v6-window.h"
+#include "log.h"
 
 #include "events/application-event.h"
 #include "events/key-event.h"
