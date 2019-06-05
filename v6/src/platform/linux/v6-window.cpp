@@ -96,7 +96,7 @@ void V6Window::Init(const WindowProps &props) {
       break;
     }
     case GLFW_REPEAT: {
-      KeyPressedEvent event(key, 1);
+      KeyPressedEvent event(key, 1); // get repeat count from glfw?
       data.EventCallback(event);
       break;
     }
