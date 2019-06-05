@@ -1,6 +1,6 @@
-#include "glad/glad.h"
 // glad first
 #include "GLFW/glfw3.h"
+#include "glad/glad.h"
 
 #include "application.h"
 #include "input.h"
