@@ -18,6 +18,9 @@ Application::Application(/* args */) {
   // Application::sInstance = this;
   pWindow = std::unique_ptr<Window>(Window::Create());
   pWindow->SetEventCallback(BIND_EVENT_FN(onEvent));
+
+  imGuiLayer = new ImGuiLayer();
+  pushOverlay(imGuiLayer);
 }
 
 Application::~Application() {}
@@ -50,6 +53,11 @@ void Application::run() {
       layer->onUpdate();
     // auto [x, y] = Input::getMousePos();
     // LOG_CORE_TRACE("{0}, {1}", x, y);
+    imGuiLayer->begin();
+    for (Layer *layer : layerStack)
+      layer->onImGuiRender();
+    imGuiLayer->end();
+
     pWindow->OnUpdate();
   }
 }

@@ -4,6 +4,7 @@
 #include "core.h"
 #include "events/application-event.h"
 #include "events/event.h"
+#include "imgui-layer/imgui-layer.h"
 #include "layer-stack.h"
 #include "window.h"
 #include <memory>
@@ -17,8 +18,9 @@ private:
   bool running = true;
   bool onWindowClosed(WindowCloseEvent &e);
   LayerStack layerStack;
-
+  ImGuiLayer *imGuiLayer;
   static Application *sInstance;
+
   // static void setAppInstance(Application *pInstance) {
   //   v6::Application::sInstance = pInstance;
   // }

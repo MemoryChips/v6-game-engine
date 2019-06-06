@@ -3,7 +3,7 @@
 
 namespace v6 {
 
-LayerStack::LayerStack() { layerInsert = layers.begin(); }
+LayerStack::LayerStack() {}
 
 LayerStack::~LayerStack() {
   for (Layer *layer : layers)
@@ -11,7 +11,8 @@ LayerStack::~LayerStack() {
 }
 
 void LayerStack::pushLayer(Layer *layer) {
-  layerInsert = layers.emplace(layerInsert, layer);
+  layers.emplace(layers.begin() + layerInsertIndex, layer);
+  layerInsertIndex++;
 }
 
 void LayerStack::pushOverlay(Layer *overlay) { layers.emplace_back(overlay); }
@@ -20,7 +21,7 @@ void LayerStack::popLayer(Layer *layer) {
   auto it = std::find(layers.begin(), layers.end(), layer);
   if (it != layers.end()) {
     layers.erase(it);
-    layerInsert--;
+    layerInsertIndex--;
   }
 }
 
