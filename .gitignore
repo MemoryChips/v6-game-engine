@@ -8,4 +8,4 @@ imgui.ini
 
 # vendor TODO:
 v6/vendor/glm
-v6/vendor/imgui
+# v6/vendor/imgui
