@@ -41,10 +41,7 @@ class Sandbox : public v6::Application {
 private:
   /* data */
 public:
-  Sandbox(/* args */) {
-    pushLayer(new ExampleLayer());
-    pushOverlay(new v6::ImGuiLayer());
-  }
+  Sandbox(/* args */) { pushLayer(new ExampleLayer()); }
   ~Sandbox();
 };
 
