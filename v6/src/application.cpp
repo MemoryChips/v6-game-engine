@@ -49,10 +49,10 @@ void Application::run() {
   while (running) {
     glClearColor(1, 0, 1, 1);
     glClear(GL_COLOR_BUFFER_BIT);
+
     for (Layer *layer : layerStack)
       layer->onUpdate();
-    // auto [x, y] = Input::getMousePos();
-    // LOG_CORE_TRACE("{0}, {1}", x, y);
+
     imGuiLayer->begin();
     for (Layer *layer : layerStack)
       layer->onImGuiRender();

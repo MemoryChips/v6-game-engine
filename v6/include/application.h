@@ -13,17 +13,14 @@ namespace v6 {
 
 class Application {
 private:
-  std::unique_ptr<Window> pWindow;
+  bool onWindowClosed(WindowCloseEvent &e);
 
   bool running = true;
-  bool onWindowClosed(WindowCloseEvent &e);
   LayerStack layerStack;
+  std::unique_ptr<Window> pWindow;
   ImGuiLayer *imGuiLayer;
-  static Application *sInstance;
 
-  // static void setAppInstance(Application *pInstance) {
-  //   v6::Application::sInstance = pInstance;
-  // }
+  static Application *sInstance;
 
 public:
   Application(/* args */);
