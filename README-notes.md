@@ -25,7 +25,7 @@ git tag feb23 -a -m "Commit 7c02 merged but keeps shared lib"
 
 - Normal
 
-1. Add warnings output to V6 build as Sandbox already has
+1. Add warnings output to imgui build as Sandbox and v6 have
 1. Consider going to static library
 
 - Low Priority
