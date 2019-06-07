@@ -15,7 +15,7 @@ git tag feb23 -a -m "Commit 7c02 merged but keeps shared lib"
   - only changed float kept shared lib
   - merged with above commit
 
-- 55fc4392f4bb44d94a54f09522d5545a86dfc48a
+- 55fc4392f4bb44d94a54f09522d5545a86dfc48a Added OpenGL context class
 
   - in progress
 
