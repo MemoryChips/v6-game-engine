@@ -26,7 +26,7 @@ std::pair<double, double> V6Input::getMousePosImpl() {
   std::pair<double, double> pos;
   glfwGetCursorPos(window, &pos.first, &pos.second);
   return pos;
-};
+}
 
 float V6Input::getMouseXImpl() {
   return (float)(getMousePosImpl().first);

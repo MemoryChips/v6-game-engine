@@ -15,10 +15,12 @@ static void GLFWErrorCallback(int error, const char *description) {
   LOG_CORE_ERROR("GLFW Error ({0}): {1}", error, description);
 }
 
-static void GLAPIENTRY messageCallback(GLenum source, GLenum type, GLuint id,
-                                       GLenum severity, GLsizei length,
+static void GLAPIENTRY messageCallback([[maybe_unused]] GLenum source,
+                                       GLenum type, [[maybe_unused]] GLuint id,
+                                       GLenum severity,
+                                       [[maybe_unused]] GLsizei length,
                                        const GLchar *message,
-                                       const void *userParam) {
+                                       [[maybe_unused]] const void *userParam) {
   if (type != 0x8251) {
     fprintf(stderr,
             "GL CALLBACK: %s type = 0x%x, severity = 0x%x, message = %s\n",
@@ -83,8 +85,9 @@ void V6Window::Init(const WindowProps &props) {
     data.EventCallback(event);
   });
 
-  glfwSetKeyCallback(m_Window, [](GLFWwindow *window, int key, int scancode,
-                                  int action, int mods) {
+  glfwSetKeyCallback(m_Window, [](GLFWwindow *window, int key,
+                                  [[maybe_unused]] int scancode, int action,
+                                  [[maybe_unused]] int mods) {
     WindowData &data = *(WindowData *)glfwGetWindowUserPointer(window);
 
     switch (action) {
@@ -113,23 +116,24 @@ void V6Window::Init(const WindowProps &props) {
     data.EventCallback(event);
   });
 
-  glfwSetMouseButtonCallback(
-      m_Window, [](GLFWwindow *window, int button, int action, int mods) {
-        WindowData &data = *(WindowData *)glfwGetWindowUserPointer(window);
+  glfwSetMouseButtonCallback(m_Window, [](GLFWwindow *window, int button,
+                                          int action,
+                                          [[maybe_unused]] int mods) {
+    WindowData &data = *(WindowData *)glfwGetWindowUserPointer(window);
 
-        switch (action) {
-        case GLFW_PRESS: {
-          MouseButtonPressedEvent event(button);
-          data.EventCallback(event);
-          break;
-        }
-        case GLFW_RELEASE: {
-          MouseButtonReleasedEvent event(button);
-          data.EventCallback(event);
-          break;
-        }
-        }
-      });
+    switch (action) {
+    case GLFW_PRESS: {
+      MouseButtonPressedEvent event(button);
+      data.EventCallback(event);
+      break;
+    }
+    case GLFW_RELEASE: {
+      MouseButtonReleasedEvent event(button);
+      data.EventCallback(event);
+      break;
+    }
+    }
+  });
 
   glfwSetScrollCallback(
       m_Window, [](GLFWwindow *window, double xOffset, double yOffset) {

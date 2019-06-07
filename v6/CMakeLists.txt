@@ -28,4 +28,5 @@ add_subdirectory(vendor/glfw)
 
 add_library(v6 SHARED ${V6_LIB_SOURCES})
 # add_library(v6 ${V6_LIB_SOURCES})
+target_compile_options(v6 PRIVATE -Wall -Wextra -pedantic)
 target_link_libraries(v6 glad glfw imgui)
