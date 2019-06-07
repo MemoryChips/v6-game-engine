@@ -46,18 +46,16 @@ git submodule add https://github.com/glfw/glfw.git v6/vendor/glfw
   - copy code [here](https://github.com/gabime/spdlog.git) to v6/vendor/spdlog
   - several changes needed to fix header file problems - locate these changes before updating
 
-- TODO: below here
-
-- glm - since we copy the glm sub dir of the repo do manual update
-
-  - copy glm sub dir from [here](https://github.com/g-truc/glm/tree/master/glm)
-  - consider sub module if easier
-
 - imgui - use manual commmit and update
 
   - divide files into src and include and update
   - ignore all sub dirs
   - manual copy files from [here](https://github.com/ocornut/imgui)
+
+- glm - since we copy the glm sub dir of the repo do manual update
+
+  - copy glm sub dir from [here](https://github.com/g-truc/glm/tree/master/glm)
+  - consider sub module if easier
 
 ## Precompile v6-pch.h
 

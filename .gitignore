@@ -5,7 +5,3 @@ imgui.ini
 
 # precompiled headers
 *.h.gch
-
-# vendor TODO:
-v6/vendor/glm
-# v6/vendor/imgui
