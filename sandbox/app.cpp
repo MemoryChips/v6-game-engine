@@ -4,7 +4,8 @@
 #define V6_DEMO_VERSION "x.y.z"
 #endif
 
-int main(int argc, char **argv) {
+int main([[maybe_unused]] int argc, [[maybe_unused]] char **argv) {
+  // int main() {
 
   v6::Log::init(); // can this be done in run()?
   LOG_CORE_WARN("Initialized log");
