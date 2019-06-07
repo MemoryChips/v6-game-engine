@@ -28,7 +28,7 @@ public:
       if (keyEvent.GetKeyCode() == V6_KEY_TAB) {
         LOG_TRACE("Tab key pressed (event)!");
       }
-      // LOG_TRACE("{0}", e);
+      LOG_TRACE("{0}", (char)keyEvent.GetKeyCode());
     }
   }
 

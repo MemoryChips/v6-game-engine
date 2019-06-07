@@ -1,5 +1,24 @@
 # V6 Game Engine
 
+## Commit Status
+
+- 7c02b7863f1d70af88b7c447b223c9da4dc9e04a
+
+  - merged tag feb23
+
+```bash
+git tag feb23 -a -m "Commit 7c02 merged but keeps shared lib"
+```
+
+- 440d937aebed2315ebfdd66d8856567518038743
+
+  - only changed float kept shared lib
+  - merged with above commit
+
+- 55fc4392f4bb44d94a54f09522d5545a86dfc48a
+
+  - in progress
+
 ## TODO
 
 - TODO: Low
