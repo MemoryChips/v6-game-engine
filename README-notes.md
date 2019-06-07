@@ -21,7 +21,11 @@ git tag feb23 -a -m "Commit 7c02 merged but keeps shared lib"
 
 ## TODO
 
-- TODO: Low
+- High Priority
+
+1. Consider going to static library
+
+- Low Priority
 
 1. Find way to remove V6_DEBUG define for production build
 

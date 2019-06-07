@@ -17,5 +17,7 @@ include_directories(v6/vendor/glad/include)
 add_subdirectory(v6)
 
 add_executable(${PROJECT_NAME} ${SOURCE} ${TEST_SOURCES})
+# target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra -pedantic -Werror)
+target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra -pedantic)
 target_compile_definitions(${PROJECT_NAME} PRIVATE V6_DEMO_VERSION="${PROJECT_VERSION}")
 target_link_libraries(${PROJECT_NAME} v6)

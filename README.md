@@ -17,3 +17,34 @@ Linux Game Engine based on TheCherno Hazel Windows game engine [project](https:/
 glxinfo -B
 glxinfo | grep "version"
 ```
+
+## Render API
+
+- platform specific e.g. opengl, vulkan, direct3d, directx12, metal
+
+  - Render Context
+  - Swap chain
+  - Framebuffer
+  - Vertex Buffer
+  - Index Buffer
+  - Texture
+  - Shader
+  - Statess
+  - Pipelines
+  - Renderer passes
+
+- platform agnostic
+
+  - 2D and 3D renderer
+    - Forward or deferred
+  - Scene Graph
+  - Sorting
+  - Culling
+  - Materials
+  - LOD
+  - Animation
+  - Camera
+  - VFX
+  - PostFX
+  - Other
+    - reflectioins, ambient occlusion
