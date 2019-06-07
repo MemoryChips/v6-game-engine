@@ -1,10 +1,12 @@
 #pragma once
 
+#include "imgui.h"
 #include "v6.h"
 
 class ExampleLayer : public v6::Layer {
 public:
   ExampleLayer() : Layer("Example") {}
+
   void onUpdate() override {
     count++;
     if (count > 5000) {
@@ -14,6 +16,13 @@ public:
     if (v6::Input::isKeyPressed(V6_KEY_TAB))
       LOG_TRACE("Tab key pressed (poll)!");
   }
+
+  virtual void onImGuiRender() override {
+    ImGui::Begin("Test");
+    ImGui::Text("Hello World");
+    ImGui::End();
+  }
+
   void onEvent(v6::Event &e) override {
     // a comment
     if (e.GetEventType() == v6::EventType::MouseMoved) {
