@@ -1,9 +1,9 @@
 #include "platform/linux/v6-window.h"
-#include "log.h"
-
 #include "events/application-event.h"
 #include "events/key-event.h"
 #include "events/mouse-event.h"
+#include "log.h"
+#include "platform/opengl/opengl-context.h"
 
 // #include "glad.h"
 
@@ -54,9 +54,10 @@ void V6Window::Init(const WindowProps &props) {
 
   m_Window = glfwCreateWindow((int)props.width, (int)props.height,
                               m_Data.Title.c_str(), nullptr, nullptr);
-  glfwMakeContextCurrent(m_Window);
-  int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-  V6_CORE_ASSERT(status, "Failed to initialize Glad!");
+
+  m_Context = new OpenGLContext(m_Window);
+  m_Context->Init();
+
   glfwSetWindowUserPointer(m_Window, &m_Data);
   SetVSync(true);
 
@@ -156,7 +157,7 @@ void V6Window::Shutdown() { glfwDestroyWindow(m_Window); }
 
 void V6Window::OnUpdate() {
   glfwPollEvents();
-  glfwSwapBuffers(m_Window);
+  m_Context->SwapBuffers();
 }
 
 void V6Window::SetVSync(bool enabled) {

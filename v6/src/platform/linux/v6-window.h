@@ -1,5 +1,6 @@
 #pragma once
 
+#include "platform/opengl/opengl-context.h"
 #include "window.h"
 
 #include "glad/glad.h"
@@ -33,6 +34,7 @@ private:
 
 private:
   GLFWwindow *m_Window;
+  GraphicsContext *m_Context;
 
   struct WindowData {
     std::string Title;
