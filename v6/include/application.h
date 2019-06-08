@@ -6,6 +6,7 @@
 #include "events/event.h"
 #include "imgui-layer/imgui-layer.h"
 #include "layer-stack.h"
+#include "renderer/buffer.h"
 #include "renderer/shader.h"
 #include "window.h"
 #include <memory>
@@ -20,8 +21,10 @@ private:
   ImGuiLayer *imGuiLayer;
   bool running = true;
   LayerStack layerStack;
-  unsigned int vertexArray, vertexBuffer, indexBuffer;
+  unsigned int vertexArray;
   std::unique_ptr<Shader> m_Shader;
+  std::unique_ptr<VertexBuffer> vertexBuffer;
+  std::unique_ptr<IndexBuffer> indexBuffer;
   static Application *sInstance;
 
 public:

@@ -2,9 +2,17 @@
 
 ## Commit Status
 
+- 7677da4c19f78d7aa5ef8414b71aba2957d0a139 Adds opengl buffer abstraction
+
+  - merged
+
+```bash
+git tag may11 -a -m "Commit 7677 adds opengl buffer abstraction"
+```
+
 - 76ae3b81ddcfacf0315608ae00627320ff98f0bb Our first shader
 
-  - in progress
+  - merged no tag
 
 - f3e38fefcb43a473971fd551beca891b4cf807c6 skipped premake only
 
