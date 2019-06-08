@@ -15,10 +15,11 @@ class Application {
 private:
   bool onWindowClosed(WindowCloseEvent &e);
 
-  bool running = true;
-  LayerStack layerStack;
   std::unique_ptr<Window> pWindow;
   ImGuiLayer *imGuiLayer;
+  bool running = true;
+  LayerStack layerStack;
+  unsigned int vertexArray, vertexBuffer, indexBuffer;
 
   static Application *sInstance;
 

@@ -31,6 +31,7 @@ void OpenGLContext::Init() {
   glfwMakeContextCurrent(m_WindowHandle);
   int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
   V6_ASSERT(status, "Failed to initialize Glad!");
+
 #ifdef V6_DEBUG
   // Enable opengl debugging with new fancy callback
   // requires 4.0 or above
@@ -38,6 +39,11 @@ void OpenGLContext::Init() {
   glEnable(GL_DEBUG_OUTPUT);
   glDebugMessageCallback(messageCallback, nullptr);
 #endif
+
+  LOG_CORE_INFO("OpenGL Info:");
+  LOG_CORE_INFO("  Vendor: {0}", glGetString(GL_VENDOR));
+  LOG_CORE_INFO("  Renderer: {0}", glGetString(GL_RENDERER));
+  LOG_CORE_INFO("  Version: {0}", glGetString(GL_VERSION));
 }
 
 void OpenGLContext::SwapBuffers() { glfwSwapBuffers(m_WindowHandle); }

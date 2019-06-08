@@ -2,18 +2,9 @@
 
 ## Commit Status
 
-- 7c02b7863f1d70af88b7c447b223c9da4dc9e04a
+- e7b5157859db804d336641dce36bfa4ed163c751 Our first triangle
 
-  - merged tag feb23
-
-```bash
-git tag feb23 -a -m "Commit 7c02 merged but keeps shared lib"
-```
-
-- 440d937aebed2315ebfdd66d8856567518038743
-
-  - only changed float kept shared lib
-  - merged with above commit
+  - in progress
 
 - 55fc4392f4bb44d94a54f09522d5545a86dfc48a Added OpenGL context class
 
@@ -21,6 +12,19 @@ git tag feb23 -a -m "Commit 7c02 merged but keeps shared lib"
 
 ```bash
 git tag may11 -a -m "Commit 55fc with ccc8 which I already had"
+```
+
+- 440d937aebed2315ebfdd66d8856567518038743
+
+  - only changed float kept shared lib
+  - merged with below commit
+
+- 7c02b7863f1d70af88b7c447b223c9da4dc9e04a
+
+  - merged tag feb23
+
+```bash
+git tag feb23 -a -m "Commit 7c02 merged but keeps shared lib"
 ```
 
 ## TODO
