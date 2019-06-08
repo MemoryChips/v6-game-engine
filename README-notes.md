@@ -17,7 +17,11 @@ git tag feb23 -a -m "Commit 7c02 merged but keeps shared lib"
 
 - 55fc4392f4bb44d94a54f09522d5545a86dfc48a Added OpenGL context class
 
-  - in progress
+  - merged tag may11
+
+```bash
+git tag may11 -a -m "Commit 55fc with ccc8 which I already had"
+```
 
 ## TODO
 

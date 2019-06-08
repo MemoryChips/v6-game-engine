@@ -15,20 +15,6 @@ static void GLFWErrorCallback(int error, const char *description) {
   LOG_CORE_ERROR("GLFW Error ({0}): {1}", error, description);
 }
 
-static void GLAPIENTRY messageCallback([[maybe_unused]] GLenum source,
-                                       GLenum type, [[maybe_unused]] GLuint id,
-                                       GLenum severity,
-                                       [[maybe_unused]] GLsizei length,
-                                       const GLchar *message,
-                                       [[maybe_unused]] const void *userParam) {
-  if (type != 0x8251) {
-    fprintf(stderr,
-            "GL CALLBACK: %s type = 0x%x, severity = 0x%x, message = %s\n",
-            (type == GL_DEBUG_TYPE_ERROR ? "** GL ERROR **" : ""), type,
-            severity, message);
-  }
-}
-
 Window *Window::Create(const WindowProps &props) { return new V6Window(props); }
 
 V6Window::V6Window(const WindowProps &props) { Init(props); }
@@ -60,14 +46,6 @@ void V6Window::Init(const WindowProps &props) {
 
   glfwSetWindowUserPointer(m_Window, &m_Data);
   SetVSync(true);
-
-#ifdef V6_DEBUG
-  // Enable opengl debugging with new fancy callback
-  // requires 4.0 or above
-  // This must be called after we create a context or something like that
-  glEnable(GL_DEBUG_OUTPUT);
-  glDebugMessageCallback(messageCallback, nullptr);
-#endif
 
   // Set GLFW callbacks
   glfwSetWindowSizeCallback(
