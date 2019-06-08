@@ -2,9 +2,15 @@
 
 ## Commit Status
 
-- e7b5157859db804d336641dce36bfa4ed163c751 Our first triangle
+- 76ae3b81ddcfacf0315608ae00627320ff98f0bb Our first shader
 
   - in progress
+
+- f3e38fefcb43a473971fd551beca891b4cf807c6 skipped premake only
+
+- e7b5157859db804d336641dce36bfa4ed163c751 Our first triangle
+
+  - merged no tag
 
 - 55fc4392f4bb44d94a54f09522d5545a86dfc48a Added OpenGL context class
 
