@@ -7,7 +7,7 @@
   - merged
 
 ```bash
-git tag may11 -a -m "Commit 7677 adds opengl buffer abstraction"
+git tag jun02 -a -m "Commit 7677 adds opengl buffer abstraction"
 ```
 
 - 76ae3b81ddcfacf0315608ae00627320ff98f0bb Our first shader
