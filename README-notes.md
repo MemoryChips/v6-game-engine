@@ -114,11 +114,12 @@ cd v6/include
 g++ -c v6-pch.h -o v6-pch.h.gch -Wall -g -std=c++17
 ```
 
-## Add Github - Switch to bit bucket and delete this repo
+## Add Github
 
 ```bash
-git remote add origin git@github.com:MemoryChips/v6-game-engine.git
+git remote add github git@github.com:MemoryChips/v6-game-engine.git
 git remote -v
+git push -u github master
 ```
 
 ## Misc
