@@ -64,8 +64,6 @@ Application::Application(/* args */) {
   m_Shader.reset(new Shader(vertexSrc, fragmentSrc));
 }
 
-Application::~Application() {}
-
 void Application::pushLayer(Layer *layer) {
   layerStack.pushLayer(layer);
   layer->onAttach();

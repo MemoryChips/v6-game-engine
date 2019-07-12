@@ -11,7 +11,7 @@ namespace v6 {
 class ImGuiLayer : public Layer {
 public:
   ImGuiLayer();
-  ~ImGuiLayer();
+  ~ImGuiLayer() = default;
 
   virtual void onAttach() override;
   virtual void onDetach() override;

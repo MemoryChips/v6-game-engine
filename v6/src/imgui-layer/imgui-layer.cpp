@@ -13,8 +13,6 @@ namespace v6 {
 
 ImGuiLayer::ImGuiLayer() : Layer("ImGuiLayer") {}
 
-ImGuiLayer::~ImGuiLayer() {}
-
 void ImGuiLayer::onAttach() {
   // Setup Dear ImGui context
   IMGUI_CHECKVERSION();

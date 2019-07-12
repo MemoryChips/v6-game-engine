@@ -2,6 +2,14 @@
 
 ## Commit Status
 
+- 0218724a644ea31663336e7a04424086eaab3787 Using default destructors over empty ones
+
+  - merged
+
+```bash
+git tag jun06 -a -m "Commit 3787 Using default destructors over empty ones"
+```
+
 - 6481707b6821702dc5346d35886d8ea9ef6cb79e
 
   - skipped
