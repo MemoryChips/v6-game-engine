@@ -2,6 +2,26 @@
 
 ## Commit Status
 
+- see core.h and log.h for v6 defines that differ from Hazel
+
+- 0d292a31d7b2827799388ffcfa677c90ed0ccb30
+
+```bash
+git tag jun09 -a -m "Commit e8ee Added buffer layout descriptors for vertex buffers"
+```
+
+- e8eef169e95dcc9c2c1c64310c74f1a3d6c20c7e Added buffer layout descriptors for vertex buffers
+
+  - includes log.h updates from 14325440d6894121e5a9c0063b5a54dec82445ee
+
+```bash
+git tag jun09 -a -m "Commit e8ee Added buffer layout descriptors for vertex buffers"
+```
+
+- 5221983ee2384fa213779cc5fa11445b6eb46a3a
+
+  - skipped
+
 - 0218724a644ea31663336e7a04424086eaab3787 Using default destructors over empty ones
 
   - merged
