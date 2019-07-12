@@ -108,7 +108,7 @@ public:
 
   BufferLayout(const std::initializer_list<BufferElement> &elements)
       : m_Elements(elements) {
-    CalculateoffsetsAndStride();
+    calculateOffsetsAndStride();
   }
 
   inline uint32_t GetStride() const { return m_Stride; }
@@ -126,7 +126,7 @@ public:
   }
 
 private:
-  void CalculateoffsetsAndStride() {
+  void calculateOffsetsAndStride() {
     uint32_t offset = 0;
     m_Stride = 0;
     for (auto &element : m_Elements) {
