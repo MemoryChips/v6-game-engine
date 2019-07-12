@@ -79,9 +79,9 @@ Application::Application(/* args */) {
   for (const auto &element : layout) {
     glEnableVertexAttribArray(index);
     glVertexAttribPointer(index, element.GetComponentCount(),
-                          ShaderDataTypeToOpenGLBaseType(element.Type),
-                          element.Normalized ? GL_TRUE : GL_FALSE,
-                          layout.GetStride(), (const void *)element.Offset);
+                          ShaderDataTypeToOpenGLBaseType(element.type),
+                          element.normalized ? GL_TRUE : GL_FALSE,
+                          layout.GetStride(), (const void *)element.offset);
     index++;
   }
 

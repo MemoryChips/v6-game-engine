@@ -55,21 +55,21 @@ static uint32_t ShaderDataTypeSize(ShaderDataType type) {
 }
 
 struct BufferElement {
-  std::string Name;
-  ShaderDataType Type;
-  uint32_t Size;
-  uint32_t Offset;
-  bool Normalized;
+  std::string name;
+  ShaderDataType type;
+  uint32_t size;
+  uint32_t offset;
+  bool normalized;
 
   BufferElement() {}
 
   BufferElement(ShaderDataType type, const std::string &name,
                 bool normalized = false)
-      : Name(name), Type(type), Size(ShaderDataTypeSize(type)), Offset(0),
-        Normalized(normalized) {}
+      : name(name), type(type), size(ShaderDataTypeSize(type)), offset(0),
+        normalized(normalized) {}
 
   uint32_t GetComponentCount() const {
-    switch (Type) {
+    switch (type) {
     case ShaderDataType::None:
       LOG_INFO("Shader type of None being used for component count");
       return 0;
@@ -108,7 +108,7 @@ public:
 
   BufferLayout(const std::initializer_list<BufferElement> &elements)
       : m_Elements(elements) {
-    CalculateOffsetsAndStride();
+    CalculateoffsetsAndStride();
   }
 
   inline uint32_t GetStride() const { return m_Stride; }
@@ -126,13 +126,13 @@ public:
   }
 
 private:
-  void CalculateOffsetsAndStride() {
+  void CalculateoffsetsAndStride() {
     uint32_t offset = 0;
     m_Stride = 0;
     for (auto &element : m_Elements) {
-      element.Offset = offset;
-      offset += element.Size;
-      m_Stride += element.Size;
+      element.offset = offset;
+      offset += element.size;
+      m_Stride += element.size;
     }
   }
 

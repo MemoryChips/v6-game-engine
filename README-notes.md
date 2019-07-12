@@ -4,10 +4,12 @@
 
 - see core.h and log.h for v6 defines that differ from Hazel
 
-- 0d292a31d7b2827799388ffcfa677c90ed0ccb30
+- 0d292a31d7b2827799388ffcfa677c90ed0ccb30 Adds vertex array support
+
+  - in progress
 
 ```bash
-git tag jun09 -a -m "Commit e8ee Added buffer layout descriptors for vertex buffers"
+git tag jun12 -a -m "Commit 0d29 Adds vertex array support"
 ```
 
 - e8eef169e95dcc9c2c1c64310c74f1a3d6c20c7e Added buffer layout descriptors for vertex buffers
