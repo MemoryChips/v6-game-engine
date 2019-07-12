@@ -11,7 +11,6 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char **argv) {
   LOG_CORE_WARN("Initialized log");
   LOG_INFO("Hello from client application");
   LOG_INFO("Demo version: {0}", V6_DEMO_VERSION);
-  LOG_CORE_ERROR("an error: {0}", "that needs to be logged");
   LOG_CORE_TRACE("a trace message: {0}", "that could be ignored");
 
   Sandbox *sandbox = new Sandbox();

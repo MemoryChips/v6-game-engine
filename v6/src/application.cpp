@@ -14,6 +14,9 @@ Application *Application::sInstance = nullptr;
 
 static GLenum ShaderDataTypeToOpenGLBaseType(ShaderDataType type) {
   switch (type) {
+  case ShaderDataType::None:
+    LOG_INFO("Shader type of None being used for opengl data type");
+    return GL_INVALID_ENUM;
   case ShaderDataType::Float:
     return GL_FLOAT;
   case ShaderDataType::Float2:
