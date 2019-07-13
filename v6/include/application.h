@@ -8,6 +8,7 @@
 #include "layer-stack.h"
 #include "renderer/buffer.h"
 #include "renderer/shader.h"
+#include "renderer/vertex-array.h"
 #include "window.h"
 #include <memory>
 
@@ -21,10 +22,11 @@ private:
   ImGuiLayer *imGuiLayer;
   bool running = true;
   LayerStack layerStack;
-  unsigned int vertexArray;
-  std::unique_ptr<Shader> m_Shader;
-  std::unique_ptr<VertexBuffer> vertexBuffer;
-  std::unique_ptr<IndexBuffer> indexBuffer;
+  // unsigned int vertexArray;
+  std::shared_ptr<Shader> pShader;
+  std::shared_ptr<VertexArray> pVertexArray;
+  std::shared_ptr<Shader> pBlueShader;
+  std::shared_ptr<VertexArray> pSquareVA;
   static Application *sInstance;
 
 public:

@@ -6,7 +6,7 @@
 
 - 0d292a31d7b2827799388ffcfa677c90ed0ccb30 Adds vertex array support
 
-  - in progress
+  - merged
 
 ```bash
 git tag jun12 -a -m "Commit 0d29 Adds vertex array support"
