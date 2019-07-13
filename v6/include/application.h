@@ -22,7 +22,6 @@ private:
   ImGuiLayer *imGuiLayer;
   bool running = true;
   LayerStack layerStack;
-  // unsigned int vertexArray;
   std::shared_ptr<Shader> pShader;
   std::shared_ptr<VertexArray> pVertexArray;
   std::shared_ptr<Shader> pBlueShader;

@@ -4,6 +4,25 @@
 
 - see core.h and log.h for v6 defines that differ from Hazel
 
+- d8780e43bf3eb23694ca0c8f48638124f727b0e4 OnDetach must be called before removing from stack
+
+  - also include 1633bb5f85cfab6e273c11fbf4f722c5115cd4a0
+
+  - next tbd
+
+```bash
+git tag jun28 -a -m "Commit 0d29 OnDetach must be called before removing from stack"
+```
+
+- 7b06701a3eb9af0d00ca00f17d5d7e3d9e0863d5
+
+  - more default destructors - skipped
+
+- 4d818edb403d47f070e7a1481d5e8b1477049fbf
+
+  - skipped does not differ from previous 1432...
+  - also skipped: d5f68949fc39ede46545fe2e695891d5d997d45b for same reason
+
 - 0d292a31d7b2827799388ffcfa677c90ed0ccb30 Adds vertex array support
 
   - merged

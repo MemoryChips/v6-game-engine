@@ -1,6 +1,5 @@
-#include "glad/glad.h"
-// glad first
 #include "GLFW/glfw3.h"
+#include "glad/glad.h"
 
 #include "application.h"
 #include "input.h"
@@ -15,7 +14,7 @@ Application *Application::sInstance = nullptr;
 Application::Application(/* args */) {
   V6_ASSERT(!sInstance, "Application already exists!")
   sInstance = this;
-  // Application::sInstance = this;
+
   pWindow = std::unique_ptr<Window>(Window::Create());
   pWindow->SetEventCallback(BIND_EVENT_FN(onEvent));
 
