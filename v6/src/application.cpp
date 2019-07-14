@@ -130,6 +130,7 @@ void Application::run() {
   while (running) {
     RenderCommand::SetClearColor({0.1f, 0.1f, 0.1f, 1});
     RenderCommand::Clear();
+
     Renderer::BeginScene();
 
     pBlueShader->Bind();
