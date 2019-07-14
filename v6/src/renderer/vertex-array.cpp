@@ -2,7 +2,7 @@
 #include "vertex-array.h"
 #include "log.h"
 #include "platform/opengl/opengl-vertex-array.h"
-#include "renderer.h"
+#include "renderer-api.h"
 
 namespace v6 {
 

@@ -3,7 +3,7 @@
 #include "core.h"
 #include "log.h"
 #include "platform/opengl/opengl-buffer.h"
-#include "renderer/renderer.h"
+#include "renderer/renderer-api.h"
 
 namespace v6 {
 
