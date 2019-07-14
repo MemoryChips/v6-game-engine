@@ -112,14 +112,8 @@ Application::Application(/* args */) {
   pBlueShader.reset(new Shader(blueShaderVertexSrc, blueShaderFragmentSrc));
 }
 
-void Application::pushLayer(Layer *layer) {
-  layerStack.pushLayer(layer);
-  layer->onAttach();
-}
-void Application::pushOverlay(Layer *layer) {
-  layerStack.pushOverlay(layer);
-  layer->onAttach();
-}
+void Application::pushLayer(Layer *layer) { layerStack.pushLayer(layer); }
+void Application::pushOverlay(Layer *layer) { layerStack.pushOverlay(layer); }
 
 void Application::onEvent(Event &e) {
   EventDispatcher d(e);

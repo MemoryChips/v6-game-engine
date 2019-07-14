@@ -4,9 +4,13 @@
 
 - see core.h and log.h for v6 defines that differ from Hazel
 
-- d8780e43bf3eb23694ca0c8f48638124f727b0e4 OnDetach must be called before removing from stack
+- cfe95cbee6a8fbc512723f0e6347d1a1babb7749 Layer onattach and onDetach are not called inside layer stack
 
-  - also include 1633bb5f85cfab6e273c11fbf4f722c5115cd4a0
+  - above includes d8780e43bf3eb23694ca0c8f48638124f727b0e4 OnDetach must be called before removing from stack
+
+  - above includes 1633bb5f85cfab6e273c11fbf4f722c5115cd4a0
+
+  - 1adc... skipped
 
   - next tbd
 
