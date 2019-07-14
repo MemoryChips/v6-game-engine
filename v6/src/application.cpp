@@ -1,5 +1,5 @@
 #include "GLFW/glfw3.h"
-#include "glad/glad.h"
+#include "renderer/renderer.h"
 
 #include "application.h"
 #include "input.h"
@@ -128,17 +128,16 @@ void Application::onEvent(Event &e) {
 
 void Application::run() {
   while (running) {
-    glClearColor(0.1f, 0.1f, 0.1f, 1);
-    glClear(GL_COLOR_BUFFER_BIT);
+    RenderCommand::SetClearColor({0.1f, 0.1f, 0.1f, 1});
+    RenderCommand::Clear();
+    Renderer::BeginScene();
 
     pBlueShader->Bind();
-    pSquareVA->Bind();
-    glDrawElements(GL_TRIANGLES, pSquareVA->GetIndexBuffer()->GetCount(),
-                   GL_UNSIGNED_INT, nullptr);
+    Renderer::Submit(pSquareVA);
     pShader->Bind();
-    pVertexArray->Bind();
-    glDrawElements(GL_TRIANGLES, pVertexArray->GetIndexBuffer()->GetCount(),
-                   GL_UNSIGNED_INT, nullptr);
+    Renderer::Submit(pVertexArray);
+
+    Renderer::EndScene();
 
     for (Layer *layer : layerStack)
       layer->onUpdate();

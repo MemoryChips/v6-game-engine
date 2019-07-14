@@ -7,11 +7,11 @@
 namespace v6 {
 
 VertexArray *VertexArray::Create() {
-  switch (Renderer::GetAPI()) {
-  case RendererAPI::None:
-    V6_CORE_ASSERT(false, "RendererAPI::None is currently not supported!");
+  switch (RendererAPI::GetAPI()) {
+  case RendererAPI::API::None:
+    V6_CORE_ASSERT(false, "RendererAPI::API::None is currently not supported!");
     return nullptr;
-  case RendererAPI::OpenGL:
+  case RendererAPI::API::OpenGL:
     return new OpenGLVertexArray();
   }
 
