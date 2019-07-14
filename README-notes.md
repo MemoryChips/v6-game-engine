@@ -4,10 +4,10 @@
 
 - see core.h and log.h for v6 defines that differ from Hazel
 
-- dc9e38223eb71816ca1d34c4c54e60d88bf0512a - Added RendererAPI and RenderCommand architecture
+- dc9e38223eb71816ca1d34c4c54e60d88bf0512a - Adds RendererAPI and RenderCommand architecture
 
 ```bash
-git tag jun28 -a -m "Commit dc9e Added RendererAPI and RenderCommand architecture"
+git tag jul07 -a -m "Commit dc9e Added RendererAPI and RenderCommand architecture"
 ```
 
 - 982dcdfc5afe2ce74cb8297ad4e3c8fad79fc831 - skipped

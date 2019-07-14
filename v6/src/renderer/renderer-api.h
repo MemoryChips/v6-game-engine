@@ -8,14 +8,12 @@ namespace v6 {
 
 class RendererAPI {
 public:
-  enum class API { None = 0, OpenGL = 1 };
+  enum class API { None = 0, OpenGL = 1, OpenGL3 = 2 };
 
 public:
   virtual void SetClearColor(const glm::vec4 &color) = 0;
   virtual void Clear() = 0;
-
   virtual void DrawIndexed(const std::shared_ptr<VertexArray> &vertexArray) = 0;
-
   inline static API GetAPI() { return s_API; }
 
 private:

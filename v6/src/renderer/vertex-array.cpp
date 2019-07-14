@@ -11,6 +11,9 @@ VertexArray *VertexArray::Create() {
   case RendererAPI::API::None:
     V6_CORE_ASSERT(false, "RendererAPI::API::None is currently not supported!");
     return nullptr;
+  case RendererAPI::API::OpenGL3:
+    V6_CORE_ASSERT(false, "RendererAPI::OpenGL3 is currently not supported!");
+    return nullptr;
   case RendererAPI::API::OpenGL:
     return new OpenGLVertexArray();
   }
