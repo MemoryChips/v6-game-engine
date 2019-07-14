@@ -4,6 +4,10 @@
 
 - see core.h and log.h for v6 defines that differ from Hazel
 
+- 982dcdfc5afe2ce74cb8297ad4e3c8fad79fc831 - skipped
+
+- 9b75670ced984969806658a736c0709801ee3f1d merged; untagged
+
 - cfe95cbee6a8fbc512723f0e6347d1a1babb7749 Layer onattach and onDetach are not called inside layer stack
 
   - above includes d8780e43bf3eb23694ca0c8f48638124f727b0e4 OnDetach must be called before removing from stack
@@ -12,7 +16,7 @@
 
   - 1adc... skipped
 
-  - next tbd
+  - merged
 
 ```bash
 git tag jun28 -a -m "Commit 0d29 OnDetach must be called before removing from stack"
