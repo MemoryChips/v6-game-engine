@@ -11,7 +11,7 @@ namespace v6 {
 
 Application *Application::sInstance = nullptr;
 
-Application::Application(/* args */) {
+Application::Application(/* args */) : camera(-1.6f, 1.6f, -0.9f, 0.9f) {
   V6_ASSERT(!sInstance, "Application already exists!")
   sInstance = this;
 
@@ -62,13 +62,16 @@ Application::Application(/* args */) {
 			
 			layout(location = 0) in vec3 a_Position;
 			layout(location = 1) in vec4 a_Color;
+      uniform mat4 u_ViewProjection;
+
  			out vec3 v_Position;
  			out vec4 v_Color;
+
  			void main()
 			{
 				v_Position = a_Position;
 				v_Color = a_Color;
-				gl_Position = vec4(a_Position, 1.0);	
+				gl_Position = u_ViewProjection * vec4(a_Position, 1.0);	
 			}
 		)";
 
@@ -90,11 +93,14 @@ Application::Application(/* args */) {
 			#version 330 core
 			
 			layout(location = 0) in vec3 a_Position;
+
+      uniform mat4 u_ViewProjection;
+
  			out vec3 v_Position;
  			void main()
 			{
 				v_Position = a_Position;
-				gl_Position = vec4(a_Position, 1.0);	
+				gl_Position = u_ViewProjection * vec4(a_Position, 1.0);	
 			}
 		)";
 
@@ -131,12 +137,13 @@ void Application::run() {
     RenderCommand::SetClearColor({0.1f, 0.1f, 0.1f, 1});
     RenderCommand::Clear();
 
-    Renderer::BeginScene();
+    camera.SetPosition({0.5f, 0.5f, 0.5f});
+    camera.SetRotation(45.0f);
 
-    pBlueShader->Bind();
-    Renderer::Submit(pSquareVA);
-    pShader->Bind();
-    Renderer::Submit(pVertexArray);
+    Renderer::BeginScene(camera);
+
+    Renderer::Submit(pBlueShader, pSquareVA);
+    Renderer::Submit(pShader, pVertexArray);
 
     Renderer::EndScene();
 

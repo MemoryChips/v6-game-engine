@@ -4,6 +4,12 @@
 
 - see core.h and log.h for v6 defines that differ from Hazel
 
+- c1d915e415be00207cab1b0ff3f05df28dfb6eb8 - Adds orthographic camera
+
+```bash
+git tag jul07b -a -m "Adds orthographic camera"
+```
+
 - dc9e38223eb71816ca1d34c4c54e60d88bf0512a - Adds RendererAPI and RenderCommand architecture
 
 ```bash

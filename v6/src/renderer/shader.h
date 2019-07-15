@@ -1,5 +1,6 @@
 #pragma once
 
+#include <glm.hpp>
 #include <string>
 
 namespace v6 {
@@ -11,6 +12,8 @@ public:
 
   void Bind() const;
   void Unbind() const;
+
+  void UploadUniformMat4(const std::string &namde, const glm::mat4 &matrix);
 
 private:
   uint32_t rendererId;

@@ -7,6 +7,7 @@
 #include "imgui-layer/imgui-layer.h"
 #include "layer-stack.h"
 #include "renderer/buffer.h"
+#include "renderer/orthographic-camera.h"
 #include "renderer/shader.h"
 #include "renderer/vertex-array.h"
 #include "window.h"
@@ -26,6 +27,7 @@ private:
   std::shared_ptr<VertexArray> pVertexArray;
   std::shared_ptr<Shader> pBlueShader;
   std::shared_ptr<VertexArray> pSquareVA;
+  OrthographicCamera camera;
   static Application *sInstance;
 
 public:
