@@ -1,4 +1,4 @@
-#include "app.h"
+#include "sandbox.h"
 
 #ifndef V6_DEMO_VERSION
 #define V6_DEMO_VERSION "x.y.z"

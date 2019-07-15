@@ -4,6 +4,7 @@
       "name": "Linux",
       "includePath": [
         "${workspaceFolder}/sandbox/*",
+        "${workspaceFolder}/sandbox/include/*",
         "${workspaceFolder}/v6/include",
         "${workspaceFolder}/v6/src",
         "${workspaceFolder}/v6/vendor/spdlog/include",
