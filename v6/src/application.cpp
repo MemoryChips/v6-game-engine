@@ -137,7 +137,7 @@ void Application::run() {
     RenderCommand::SetClearColor({0.1f, 0.1f, 0.1f, 1});
     RenderCommand::Clear();
 
-    camera.SetPosition({0.5f, 0.5f, 0.5f});
+    camera.SetPosition({0.5f, 0.5f, 0.0f});
     camera.SetRotation(45.0f);
 
     Renderer::BeginScene(camera);
