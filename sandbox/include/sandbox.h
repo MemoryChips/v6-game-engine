@@ -11,13 +11,14 @@ public:
   void onEvent(v6::Event &e) override;
 
 private:
-  int count = 0;
-  int mouseMovedCount = 0;
+  std::shared_ptr<v6::Shader> pShader;
+  std::shared_ptr<v6::VertexArray> pVertexArray;
+  std::shared_ptr<v6::Shader> pBlueShader;
+  std::shared_ptr<v6::VertexArray> pSquareVA;
+  v6::OrthographicCamera camera;
 };
 
 class Sandbox : public v6::Application {
-private:
-  /* data */
 public:
   Sandbox(/* args */);
   ~Sandbox();

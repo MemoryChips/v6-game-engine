@@ -23,11 +23,7 @@ private:
   ImGuiLayer *imGuiLayer;
   bool running = true;
   LayerStack layerStack;
-  std::shared_ptr<Shader> pShader;
-  std::shared_ptr<VertexArray> pVertexArray;
-  std::shared_ptr<Shader> pBlueShader;
-  std::shared_ptr<VertexArray> pSquareVA;
-  OrthographicCamera camera;
+
   static Application *sInstance;
 
 public:
