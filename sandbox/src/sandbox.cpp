@@ -3,7 +3,8 @@
 using namespace v6;
 
 ExampleLayer::ExampleLayer()
-    : Layer("Example"), camera(-1.6f, 1.6f, -0.9f, 0.9f) {
+    : Layer("Example"), camera(-1.6f, 1.6f, -0.9f, 0.9f), cameraPosition(0.0f),
+      cameraSpeed(0.1f) {
   pVertexArray.reset(VertexArray::Create());
 
   float vertices[3 * 7] = {-0.5f, -0.5f, 0.0f, 0.8f, 0.2f, 0.8f, 1.0f,
@@ -105,8 +106,8 @@ void ExampleLayer::onUpdate() {
   v6::RenderCommand::SetClearColor({0.1f, 0.1f, 0.1f, 1});
   v6::RenderCommand::Clear();
 
-  camera.SetPosition({0.5f, 0.5f, 0.0f});
-  camera.SetRotation(45.0f);
+  camera.SetPosition(cameraPosition);
+  camera.SetRotation(0.0f);
 
   v6::Renderer::BeginScene(camera);
 
@@ -118,7 +119,17 @@ void ExampleLayer::onUpdate() {
 
 void ExampleLayer::onImGuiRender() {}
 
-void ExampleLayer::onEvent(v6::Event &e) {}
+void ExampleLayer::onEvent(Event &e) {
+  EventDispatcher dispatcher(e);
+  dispatcher.Dispatch<KeyPressedEvent>(
+      V6_BIND_EVENT_FN(ExampleLayer::onKeyPressedEvent));
+}
+bool ExampleLayer::onKeyPressedEvent(KeyPressedEvent &e) {
+  if (e.GetKeyCode() == V6_KEY_LEFT) {
+    cameraPosition.x -= cameraSpeed;
+  }
+  return false;
+}
 
 Sandbox::Sandbox(/* args */) { pushLayer(new ExampleLayer()); }
 Sandbox::~Sandbox() {}

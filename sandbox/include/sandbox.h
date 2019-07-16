@@ -3,22 +3,27 @@
 #include "imgui.h"
 #include "v6.h"
 
-class ExampleLayer : public v6::Layer {
+using namespace v6;
+
+class ExampleLayer : public Layer {
 public:
   ExampleLayer();
   void onUpdate() override;
   virtual void onImGuiRender() override;
-  void onEvent(v6::Event &e) override;
+  void onEvent(Event &e) override;
+  bool onKeyPressedEvent(KeyPressedEvent &e);
 
 private:
   std::shared_ptr<v6::Shader> pShader;
   std::shared_ptr<v6::VertexArray> pVertexArray;
   std::shared_ptr<v6::Shader> pBlueShader;
   std::shared_ptr<v6::VertexArray> pSquareVA;
-  v6::OrthographicCamera camera;
+  OrthographicCamera camera;
+  glm::vec3 cameraPosition;
+  float cameraSpeed;
 };
 
-class Sandbox : public v6::Application {
+class Sandbox : public Application {
 public:
   Sandbox(/* args */);
   ~Sandbox();
