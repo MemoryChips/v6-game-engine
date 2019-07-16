@@ -125,18 +125,21 @@ void ExampleLayer::onEvent(Event &e) {
       V6_BIND_EVENT_FN(ExampleLayer::onKeyPressedEvent));
 }
 bool ExampleLayer::onKeyPressedEvent(KeyPressedEvent &e) {
-  if (e.GetKeyCode() == V6_KEY_LEFT) {
-    cameraPosition.x -= cameraSpeed;
-  }
-  if (e.GetKeyCode() == V6_KEY_RIGHT) {
-    cameraPosition.x += cameraSpeed;
-  }
-  if (e.GetKeyCode() == V6_KEY_UP) {
-    cameraPosition.y -= cameraSpeed;
-  }
-  if (e.GetKeyCode() == V6_KEY_DOWN) {
-    cameraPosition.y += cameraSpeed;
-  }
+  auto keyCode = e.GetKeyCode();
+  LOG_TRACE("key code pressed: {0}", keyCode);
+
+  // if (e.GetKeyCode() == V6_KEY_LEFT) {
+  //   cameraPosition.x -= cameraSpeed;
+  // }
+  // if (e.GetKeyCode() == V6_KEY_RIGHT) {
+  //   cameraPosition.x += cameraSpeed;
+  // }
+  // if (e.GetKeyCode() == V6_KEY_UP) {
+  //   cameraPosition.y -= cameraSpeed;
+  // }
+  // if (e.GetKeyCode() == V6_KEY_DOWN) {
+  //   cameraPosition.y += cameraSpeed;
+  // }
   return false;
 }
 
