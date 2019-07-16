@@ -103,6 +103,18 @@ ExampleLayer::ExampleLayer()
 }
 
 void ExampleLayer::onUpdate() {
+  if (Input::isKeyPressed(V6_KEY_LEFT)) {
+    cameraPosition.x -= cameraSpeed;
+  }
+  if (Input::isKeyPressed(V6_KEY_RIGHT)) {
+    cameraPosition.x += cameraSpeed;
+  }
+  if (Input::isKeyPressed(V6_KEY_UP)) {
+    cameraPosition.y -= cameraSpeed;
+  }
+  if (Input::isKeyPressed(V6_KEY_DOWN)) {
+    cameraPosition.y += cameraSpeed;
+  }
   v6::RenderCommand::SetClearColor({0.1f, 0.1f, 0.1f, 1});
   v6::RenderCommand::Clear();
 
