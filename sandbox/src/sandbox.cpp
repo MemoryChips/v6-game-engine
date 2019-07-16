@@ -128,6 +128,15 @@ bool ExampleLayer::onKeyPressedEvent(KeyPressedEvent &e) {
   if (e.GetKeyCode() == V6_KEY_LEFT) {
     cameraPosition.x -= cameraSpeed;
   }
+  if (e.GetKeyCode() == V6_KEY_RIGHT) {
+    cameraPosition.x += cameraSpeed;
+  }
+  if (e.GetKeyCode() == V6_KEY_UP) {
+    cameraPosition.y -= cameraSpeed;
+  }
+  if (e.GetKeyCode() == V6_KEY_DOWN) {
+    cameraPosition.y += cameraSpeed;
+  }
   return false;
 }
 
