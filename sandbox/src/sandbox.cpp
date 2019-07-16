@@ -4,7 +4,7 @@ using namespace v6;
 
 ExampleLayer::ExampleLayer()
     : Layer("Example"), camera(-1.6f, 1.6f, -0.9f, 0.9f), cameraPosition(0.0f),
-      cameraSpeed(0.1f) {
+      cameraRotation(0.0f), cameraSpeed(0.1f), cameraRotationSpeed(0.1f) {
   pVertexArray.reset(VertexArray::Create());
 
   float vertices[3 * 7] = {-0.5f, -0.5f, 0.0f, 0.8f, 0.2f, 0.8f, 1.0f,
@@ -105,21 +105,25 @@ ExampleLayer::ExampleLayer()
 void ExampleLayer::onUpdate() {
   if (Input::isKeyPressed(V6_KEY_LEFT)) {
     cameraPosition.x -= cameraSpeed;
-  }
-  if (Input::isKeyPressed(V6_KEY_RIGHT)) {
+  } else if (Input::isKeyPressed(V6_KEY_RIGHT)) {
     cameraPosition.x += cameraSpeed;
   }
   if (Input::isKeyPressed(V6_KEY_UP)) {
     cameraPosition.y -= cameraSpeed;
-  }
-  if (Input::isKeyPressed(V6_KEY_DOWN)) {
+  } else if (Input::isKeyPressed(V6_KEY_DOWN)) {
     cameraPosition.y += cameraSpeed;
+  }
+  if (Input::isKeyPressed(V6_KEY_A)) {
+    cameraRotation -= cameraRotationSpeed;
+  }
+  if (Input::isKeyPressed(V6_KEY_D)) {
+    cameraRotation += cameraRotationSpeed;
   }
   v6::RenderCommand::SetClearColor({0.1f, 0.1f, 0.1f, 1});
   v6::RenderCommand::Clear();
 
   camera.SetPosition(cameraPosition);
-  camera.SetRotation(0.0f);
+  camera.SetRotation(cameraRotation);
 
   v6::Renderer::BeginScene(camera);
 

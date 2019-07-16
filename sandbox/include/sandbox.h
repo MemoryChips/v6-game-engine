@@ -21,6 +21,8 @@ private:
   OrthographicCamera camera;
   glm::vec3 cameraPosition;
   float cameraSpeed;
+  float cameraRotation;
+  float cameraRotationSpeed;
 };
 
 class Sandbox : public Application {
