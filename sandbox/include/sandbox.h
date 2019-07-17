@@ -20,8 +20,8 @@ private:
   std::shared_ptr<v6::VertexArray> pSquareVA;
   OrthographicCamera camera;
   glm::vec3 cameraPosition;
-  float cameraSpeed;
   float cameraRotation;
+  float cameraSpeed;
   float cameraRotationSpeed;
 };
 
