@@ -6,10 +6,6 @@
 #include "events/event.h"
 #include "imgui-layer/imgui-layer.h"
 #include "layer-stack.h"
-#include "renderer/buffer.h"
-#include "renderer/orthographic-camera.h"
-#include "renderer/shader.h"
-#include "renderer/vertex-array.h"
 #include "window.h"
 #include <memory>
 
