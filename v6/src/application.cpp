@@ -2,6 +2,7 @@
 #include "renderer/renderer.h"
 
 #include "application.h"
+#include "core/timestep.h"
 #include "input.h"
 #include "log.h"
 
@@ -38,8 +39,11 @@ void Application::onEvent(Event &e) {
 
 void Application::run() {
   while (running) {
+    double time = glfwGetTime();
+    Timestep timestep = time - lastFrameTimeSec;
+    lastFrameTimeSec = time;
     for (Layer *layer : layerStack)
-      layer->onUpdate();
+      layer->onUpdate(timestep.getSeconds());
     imGuiLayer->begin();
     for (Layer *layer : layerStack)
       layer->onImGuiRender();

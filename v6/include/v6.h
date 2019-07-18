@@ -4,6 +4,8 @@
 // #include "layer.h"
 #include "log.h"
 
+#include "core/timestep.h"
+
 #include "input.h"
 #include "key-codes.h"
 #include "mouse-button-codes.h"

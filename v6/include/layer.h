@@ -2,6 +2,7 @@
 
 #include "core.h"
 #include "events/event.h"
+#include "log.h"
 #include <string>
 
 namespace v6 {
@@ -13,7 +14,7 @@ public:
 
   virtual void onAttach() {}
   virtual void onDetach() {}
-  virtual void onUpdate() {}
+  virtual void onUpdate([[maybe_unused]] double tsSecs) {}
   virtual void onImGuiRender() {}
   virtual void onEvent([[maybe_unused]] Event &event) {}
 

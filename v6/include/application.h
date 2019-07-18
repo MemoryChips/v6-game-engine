@@ -19,7 +19,7 @@ private:
   ImGuiLayer *imGuiLayer;
   bool running = true;
   LayerStack layerStack;
-
+  double lastFrameTimeSec;
   static Application *sInstance;
 
 public:

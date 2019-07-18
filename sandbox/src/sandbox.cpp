@@ -4,7 +4,7 @@ using namespace v6;
 
 ExampleLayer::ExampleLayer()
     : Layer("Example"), camera(-1.6f, 1.6f, -0.9f, 0.9f), cameraPosition(0.0f),
-      cameraRotation(0.0f), cameraSpeed(0.1f), cameraRotationSpeed(0.1f) {
+      cameraRotation(0.0f), cameraSpeed(1.0f), cameraRotationSpeed(10.1f) {
   pVertexArray.reset(VertexArray::Create());
 
   float vertices[3 * 7] = {-0.5f, -0.5f, 0.0f, 0.8f, 0.2f, 0.8f, 1.0f,
@@ -102,22 +102,23 @@ ExampleLayer::ExampleLayer()
   pBlueShader.reset(new Shader(blueShaderVertexSrc, blueShaderFragmentSrc));
 }
 
-void ExampleLayer::onUpdate() {
+void ExampleLayer::onUpdate(double tsSec) {
+  // LOG_TRACE("Time step is: {0}", ts);
   if (Input::isKeyPressed(V6_KEY_LEFT)) {
-    cameraPosition.x -= cameraSpeed;
+    cameraPosition.x -= cameraSpeed * tsSec;
   } else if (Input::isKeyPressed(V6_KEY_RIGHT)) {
-    cameraPosition.x += cameraSpeed;
+    cameraPosition.x += cameraSpeed * tsSec;
   }
   if (Input::isKeyPressed(V6_KEY_UP)) {
-    cameraPosition.y -= cameraSpeed;
+    cameraPosition.y -= cameraSpeed * tsSec;
   } else if (Input::isKeyPressed(V6_KEY_DOWN)) {
-    cameraPosition.y += cameraSpeed;
+    cameraPosition.y += cameraSpeed * tsSec;
   }
   if (Input::isKeyPressed(V6_KEY_A)) {
-    cameraRotation -= cameraRotationSpeed;
+    cameraRotation -= cameraRotationSpeed * tsSec;
   }
   if (Input::isKeyPressed(V6_KEY_D)) {
-    cameraRotation += cameraRotationSpeed;
+    cameraRotation += cameraRotationSpeed * tsSec;
   }
   v6::RenderCommand::SetClearColor({0.1f, 0.1f, 0.1f, 1});
   v6::RenderCommand::Clear();
@@ -140,9 +141,9 @@ void ExampleLayer::onEvent(Event &e) {
   dispatcher.Dispatch<KeyPressedEvent>(
       V6_BIND_EVENT_FN(ExampleLayer::onKeyPressedEvent));
 }
-bool ExampleLayer::onKeyPressedEvent(KeyPressedEvent &e) {
-  auto keyCode = e.GetKeyCode();
-  LOG_TRACE("key code pressed: {0}", keyCode);
+bool ExampleLayer::onKeyPressedEvent([[maybe_unused]] KeyPressedEvent &e) {
+  // auto keyCode = e.GetKeyCode();
+  // LOG_TRACE("key code pressed: {0}", keyCode);
 
   // if (e.GetKeyCode() == V6_KEY_LEFT) {
   //   cameraPosition.x -= cameraSpeed;

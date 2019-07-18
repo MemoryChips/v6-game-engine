@@ -8,7 +8,7 @@ using namespace v6;
 class ExampleLayer : public Layer {
 public:
   ExampleLayer();
-  void onUpdate() override;
+  void onUpdate(double tsSec) override;
   virtual void onImGuiRender() override;
   void onEvent(Event &e) override;
   bool onKeyPressedEvent(KeyPressedEvent &e);
