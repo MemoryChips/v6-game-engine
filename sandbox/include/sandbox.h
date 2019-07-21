@@ -2,6 +2,7 @@
 
 #include "imgui.h"
 #include "v6.h"
+#include <gtc/matrix_transform.hpp>
 
 using namespace v6;
 
@@ -23,6 +24,8 @@ private:
   float cameraRotation;
   float cameraSpeed;
   float cameraRotationSpeed;
+
+  glm::vec3 squarePosition;
 };
 
 class Sandbox : public Application {

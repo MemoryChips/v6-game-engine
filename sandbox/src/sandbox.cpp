@@ -4,7 +4,8 @@ using namespace v6;
 
 ExampleLayer::ExampleLayer()
     : Layer("Example"), camera(-1.6f, 1.6f, -0.9f, 0.9f), cameraPosition(0.0f),
-      cameraRotation(0.0f), cameraSpeed(1.0f), cameraRotationSpeed(10.1f) {
+      cameraRotation(0.0f), cameraSpeed(1.0f), cameraRotationSpeed(10.1f),
+      squarePosition(0.0f) {
   pVertexArray.reset(VertexArray::Create());
 
   float vertices[3 * 7] = {-0.5f, -0.5f, 0.0f, 0.8f, 0.2f, 0.8f, 1.0f,
@@ -47,6 +48,7 @@ ExampleLayer::ExampleLayer()
 			layout(location = 0) in vec3 a_Position;
 			layout(location = 1) in vec4 a_Color;
       uniform mat4 u_ViewProjection;
+      uniform mat4 u_Transform;
 
  			out vec3 v_Position;
  			out vec4 v_Color;
@@ -55,7 +57,7 @@ ExampleLayer::ExampleLayer()
 			{
 				v_Position = a_Position;
 				v_Color = a_Color;
-				gl_Position = u_ViewProjection * vec4(a_Position, 1.0);	
+				gl_Position = u_ViewProjection * u_Transform * vec4(a_Position, 1.0);	
 			}
 		)";
 
@@ -79,12 +81,13 @@ ExampleLayer::ExampleLayer()
 			layout(location = 0) in vec3 a_Position;
 
       uniform mat4 u_ViewProjection;
+      uniform mat4 u_Transform;
 
  			out vec3 v_Position;
  			void main()
 			{
 				v_Position = a_Position;
-				gl_Position = u_ViewProjection * vec4(a_Position, 1.0);	
+				gl_Position = u_ViewProjection * u_Transform * vec4(a_Position, 1.0);	
 			}
 		)";
 
@@ -116,10 +119,21 @@ void ExampleLayer::onUpdate(double tsSec) {
   }
   if (Input::isKeyPressed(V6_KEY_A)) {
     cameraRotation -= cameraRotationSpeed * tsSec;
-  }
-  if (Input::isKeyPressed(V6_KEY_D)) {
+  } else if (Input::isKeyPressed(V6_KEY_D)) {
     cameraRotation += cameraRotationSpeed * tsSec;
   }
+
+  if (Input::isKeyPressed(V6_KEY_J)) {
+    squarePosition.x -= cameraSpeed * tsSec;
+  } else if (Input::isKeyPressed(V6_KEY_L)) {
+    squarePosition.x += cameraSpeed * tsSec;
+  }
+  if (Input::isKeyPressed(V6_KEY_I)) {
+    squarePosition.y -= cameraSpeed * tsSec;
+  } else if (Input::isKeyPressed(V6_KEY_K)) {
+    squarePosition.y += cameraSpeed * tsSec;
+  }
+
   v6::RenderCommand::SetClearColor({0.1f, 0.1f, 0.1f, 1});
   v6::RenderCommand::Clear();
 
@@ -128,7 +142,9 @@ void ExampleLayer::onUpdate(double tsSec) {
 
   v6::Renderer::BeginScene(camera);
 
-  v6::Renderer::Submit(pBlueShader, pSquareVA);
+  glm::mat4 transform = glm::translate(glm::mat4(1.0f), squarePosition);
+
+  v6::Renderer::Submit(pBlueShader, pSquareVA, transform);
   v6::Renderer::Submit(pShader, pVertexArray);
 
   v6::Renderer::EndScene();
