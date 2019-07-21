@@ -28,8 +28,8 @@ ExampleLayer::ExampleLayer()
 
   pSquareVA.reset(VertexArray::Create());
 
-  float squareVertices[3 * 4] = {-0.75f, -0.75f, 0.0f, 0.75f,  -0.75f, 0.0f,
-                                 0.75f,  0.75f,  0.0f, -0.75f, 0.75f,  0.0f};
+  float squareVertices[3 * 4] = {-0.5f, -0.5f, 0.0f, 0.5f,  -0.5f, 0.0f,
+                                 0.5f,  0.5f,  0.0f, -0.5f, 0.5f,  0.0f};
 
   std::shared_ptr<VertexBuffer> pSquareVB;
   pSquareVB.reset(VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
