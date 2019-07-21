@@ -5,15 +5,13 @@
 #endif
 
 int main([[maybe_unused]] int argc, [[maybe_unused]] char **argv) {
-  // int main() {
 
   v6::Log::init(); // can this be done in run()?
-  // LOG_CORE_WARN("Initialized log");
-  // LOG_INFO("Hello from client application");
   LOG_INFO("Demo version: {0}", V6_DEMO_VERSION);
 
   Sandbox *sandbox = new Sandbox();
   sandbox->run();
   delete sandbox;
+
   return 0;
 }
