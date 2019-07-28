@@ -142,9 +142,16 @@ void ExampleLayer::onUpdate(double tsSec) {
 
   v6::Renderer::BeginScene(camera);
 
-  glm::mat4 transform = glm::translate(glm::mat4(1.0f), squarePosition);
+  glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 
-  v6::Renderer::Submit(pBlueShader, pSquareVA, transform);
+  for (int y = 0; y < 20; y++) {
+    for (int x = 0; x < 20; x++) {
+      glm::vec3 pos(x * 0.11f, y * 0.11f, 0.0f);
+      glm::mat4 transform = glm::translate(glm::mat4(1.0f), pos) * scale;
+      v6::Renderer::Submit(pBlueShader, pSquareVA, transform);
+    }
+  }
+
   v6::Renderer::Submit(pShader, pVertexArray);
 
   v6::Renderer::EndScene();
