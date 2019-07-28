@@ -147,13 +147,14 @@ void ExampleLayer::onUpdate(double tsSec) {
   glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 
   glm::vec4 blueColor(0.2, 0.3, 0.8, 1.0);
-  glm::vec4 redeColor(0.8, 0.2, 0.3, 1.0);
+  glm::vec4 redColor(0.8, 0.2, 0.3, 1.0);
+
   for (int y = 0; y < 20; y++) {
     for (int x = 0; x < 20; x++) {
       glm::vec3 pos(x * 0.11f, y * 0.11f, 0.0f);
       glm::mat4 transform = glm::translate(glm::mat4(1.0f), pos) * scale;
       if (x % 2 == 0)
-        pFlatColorShader->UploadUniformFloat4("uColor", redeColor);
+        pFlatColorShader->UploadUniformFloat4("uColor", redColor);
       else
         pFlatColorShader->UploadUniformFloat4("uColor", blueColor);
       v6::Renderer::Submit(pFlatColorShader, pSquareVA, transform);
