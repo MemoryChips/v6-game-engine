@@ -75,7 +75,7 @@ ExampleLayer::ExampleLayer()
 		)";
 
   pShader.reset(new Shader(vertexSrc, fragmentSrc));
-  std::string blueShaderVertexSrc = R"(
+  std::string flatColorShaderVertexSrc = R"(
 			#version 330 core
 			
 			layout(location = 0) in vec3 a_Position;
@@ -91,26 +91,28 @@ ExampleLayer::ExampleLayer()
 			}
 		)";
 
-  std::string blueShaderFragmentSrc = R"(
+  std::string flatColorShaderFragmentSrc = R"(
 			#version 330 core
 			
 			layout(location = 0) out vec4 color;
  			in vec3 v_Position;
+      uniform vec4 uColor;
  			void main()
 			{
-				color = vec4(0.2, 0.3, 0.8, 1.0);
+				color = uColor;
 			}
 		)";
 
-  pBlueShader.reset(new Shader(blueShaderVertexSrc, blueShaderFragmentSrc));
+  pFlatColorShader.reset(
+      new Shader(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
 }
 
 void ExampleLayer::onUpdate(double tsSec) {
   // LOG_TRACE("Time step is: {0}", ts);
   if (Input::isKeyPressed(V6_KEY_LEFT)) {
-    cameraPosition.x -= cameraSpeed * tsSec;
-  } else if (Input::isKeyPressed(V6_KEY_RIGHT)) {
     cameraPosition.x += cameraSpeed * tsSec;
+  } else if (Input::isKeyPressed(V6_KEY_RIGHT)) {
+    cameraPosition.x -= cameraSpeed * tsSec;
   }
   if (Input::isKeyPressed(V6_KEY_UP)) {
     cameraPosition.y -= cameraSpeed * tsSec;
@@ -144,11 +146,17 @@ void ExampleLayer::onUpdate(double tsSec) {
 
   glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 
+  glm::vec4 blueColor(0.2, 0.3, 0.8, 1.0);
+  glm::vec4 redeColor(0.8, 0.2, 0.3, 1.0);
   for (int y = 0; y < 20; y++) {
     for (int x = 0; x < 20; x++) {
       glm::vec3 pos(x * 0.11f, y * 0.11f, 0.0f);
       glm::mat4 transform = glm::translate(glm::mat4(1.0f), pos) * scale;
-      v6::Renderer::Submit(pBlueShader, pSquareVA, transform);
+      if (x % 2 == 0)
+        pFlatColorShader->UploadUniformFloat4("uColor", redeColor);
+      else
+        pFlatColorShader->UploadUniformFloat4("uColor", blueColor);
+      v6::Renderer::Submit(pFlatColorShader, pSquareVA, transform);
     }
   }
 

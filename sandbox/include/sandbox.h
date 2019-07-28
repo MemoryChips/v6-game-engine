@@ -17,7 +17,7 @@ public:
 private:
   std::shared_ptr<v6::Shader> pShader;
   std::shared_ptr<v6::VertexArray> pVertexArray;
-  std::shared_ptr<v6::Shader> pBlueShader;
+  std::shared_ptr<v6::Shader> pFlatColorShader;
   std::shared_ptr<v6::VertexArray> pSquareVA;
   OrthographicCamera camera;
   glm::vec3 cameraPosition;
