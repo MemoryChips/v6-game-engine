@@ -1,6 +1,7 @@
 #include "sandbox.h"
 #include "memory"
 #include "platform/opengl/opengl-shader.h"
+#include <gtc/type_ptr.hpp>
 
 using namespace v6;
 
@@ -170,7 +171,11 @@ void ExampleLayer::onUpdate(double tsSec) {
   v6::Renderer::EndScene();
 }
 
-void ExampleLayer::onImGuiRender() {}
+void ExampleLayer::onImGuiRender() {
+  ImGui::Begin("Settings");
+  ImGui::ColorEdit3("Square Color", glm::value_ptr(squareColor));
+  ImGui::End();
+}
 
 void ExampleLayer::onEvent(Event &e) {
   EventDispatcher dispatcher(e);

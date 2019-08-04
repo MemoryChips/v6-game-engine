@@ -14,7 +14,14 @@ public:
   virtual void bind() const override;
   virtual void unbind() const override;
 
+  void UploadUniformInt(const std::string &name, const int &v);
+
+  void UploadUniformFloat(const std::string &name, const float &v);
+  void UploadUniformFloat2(const std::string &name, const glm::vec2 &v);
+  void UploadUniformFloat3(const std::string &name, const glm::vec3 &v);
   void UploadUniformFloat4(const std::string &name, const glm::vec4 &v);
+
+  void UploadUniformMat3(const std::string &name, const glm::mat3 &matrix);
   void UploadUniformMat4(const std::string &name, const glm::mat4 &matrix);
 
 private:

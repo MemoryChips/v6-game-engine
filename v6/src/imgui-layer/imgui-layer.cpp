@@ -81,7 +81,7 @@ void ImGuiLayer::end() {
 }
 
 void ImGuiLayer::onImGuiRender() {
-  static bool show = true;
-  ImGui::ShowDemoWindow(&show);
+  // static bool show = true;
+  // ImGui::ShowDemoWindow(&show);
 }
 } // namespace v6

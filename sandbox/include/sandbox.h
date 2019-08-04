@@ -25,6 +25,8 @@ private:
   float cameraSpeed;
   float cameraRotationSpeed;
 
+  glm::vec3 squareColor;
+
   glm::vec3 squarePosition;
 };
 
