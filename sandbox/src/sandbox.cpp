@@ -161,8 +161,7 @@ void ExampleLayer::onUpdate(double tsSec) {
     }
   }
 
-  // this causes gl matrix error
-  // v6::Renderer::Submit(pShader, pVertexArray);
+  v6::Renderer::Submit(pShader, pVertexArray);
 
   v6::Renderer::EndScene();
 }
