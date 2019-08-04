@@ -153,15 +153,16 @@ void ExampleLayer::onUpdate(double tsSec) {
     for (int x = 0; x < 20; x++) {
       glm::vec3 pos(x * 0.11f, y * 0.11f, 0.0f);
       glm::mat4 transform = glm::translate(glm::mat4(1.0f), pos) * scale;
+      v6::Renderer::Submit(pFlatColorShader, pSquareVA, transform);
       if (x % 2 == 0)
         pFlatColorShader->UploadUniformFloat4("uColor", redColor);
       else
         pFlatColorShader->UploadUniformFloat4("uColor", blueColor);
-      v6::Renderer::Submit(pFlatColorShader, pSquareVA, transform);
     }
   }
 
-  v6::Renderer::Submit(pShader, pVertexArray);
+  // this causes gl matrix error
+  // v6::Renderer::Submit(pShader, pVertexArray);
 
   v6::Renderer::EndScene();
 }
