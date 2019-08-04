@@ -4,6 +4,10 @@
 
 - see core.h and log.h for v6 defines that differ from Hazel
 
+- 3352191dbcd5e18754be70b18a5e6744692a77ca - added manually
+
+- a54b0742646493c6289a15eff036f2eb4cb1b894 - added manually possible error opengl error invalid operation with matrix starts here
+
 - 5dc2ee187fae6a3efa1d13b61faf5ca67e3638bd - skipped
 
 - c1d915e415be00207cab1b0ff3f05df28dfb6eb8 - Adds orthographic camera
