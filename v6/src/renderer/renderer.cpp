@@ -1,5 +1,9 @@
 #include "renderer.h"
 
+// temp work around for submit
+#include "memory"
+#include "platform/opengl/opengl-shader.h"
+
 namespace v6 {
 Renderer::SceneData *Renderer::spSceneData = new Renderer::SceneData;
 void Renderer::BeginScene(OrthographicCamera &camera) {
@@ -11,10 +15,14 @@ void Renderer::EndScene() {}
 void Renderer::Submit(const std::shared_ptr<Shader> &shader,
                       const std::shared_ptr<VertexArray> &vertexArray,
                       const glm::mat4 &transform) {
-  shader->Bind();
-  shader->UploadUniformMat4("u_ViewProjection",
-                            spSceneData->ViewProjectionMatrix);
-  shader->UploadUniformMat4("u_Transform", transform);
+  shader->bind();
+
+  // temp work around for now
+  std::dynamic_pointer_cast<OpenGLShader>(shader)->UploadUniformMat4(
+      "u_ViewProjection", spSceneData->ViewProjectionMatrix);
+  std::dynamic_pointer_cast<OpenGLShader>(shader)->UploadUniformMat4(
+      "u_Transform", transform);
+
   vertexArray->Bind();
   RenderCommand::DrawIndexed(vertexArray);
 }

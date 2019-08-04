@@ -1,4 +1,6 @@
 #include "sandbox.h"
+#include "memory"
+#include "platform/opengl/opengl-shader.h"
 
 using namespace v6;
 
@@ -74,7 +76,7 @@ ExampleLayer::ExampleLayer()
 			}
 		)";
 
-  pShader.reset(new Shader(vertexSrc, fragmentSrc));
+  pShader.reset(v6::Shader::Create(vertexSrc, fragmentSrc));
   std::string flatColorShaderVertexSrc = R"(
 			#version 330 core
 			
@@ -104,7 +106,7 @@ ExampleLayer::ExampleLayer()
 		)";
 
   pFlatColorShader.reset(
-      new Shader(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
+      v6::Shader::Create(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
 }
 
 void ExampleLayer::onUpdate(double tsSec) {
@@ -155,9 +157,11 @@ void ExampleLayer::onUpdate(double tsSec) {
       glm::mat4 transform = glm::translate(glm::mat4(1.0f), pos) * scale;
       v6::Renderer::Submit(pFlatColorShader, pSquareVA, transform);
       if (x % 2 == 0)
-        pFlatColorShader->UploadUniformFloat4("uColor", redColor);
+        std::dynamic_pointer_cast<OpenGLShader>(pFlatColorShader)
+            ->UploadUniformFloat4("uColor", redColor);
       else
-        pFlatColorShader->UploadUniformFloat4("uColor", blueColor);
+        std::dynamic_pointer_cast<OpenGLShader>(pFlatColorShader)
+            ->UploadUniformFloat4("uColor", blueColor);
     }
   }
 

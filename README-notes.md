@@ -4,6 +4,8 @@
 
 - see core.h and log.h for v6 defines that differ from Hazel
 
+- 888b3e8f7b07d16c6a52be0e49bd2526271cab36 - already present in my code
+
 - 3352191dbcd5e18754be70b18a5e6744692a77ca - added manually
 
 - a54b0742646493c6289a15eff036f2eb4cb1b894 - added manually possible error opengl error invalid operation with matrix starts here
