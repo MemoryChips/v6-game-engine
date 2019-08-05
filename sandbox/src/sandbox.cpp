@@ -149,7 +149,8 @@ void ExampleLayer::onUpdate(double tsSec) {
 
   glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 
-  glm::vec4 blueColor(0.2, 0.3, 0.8, 1.0);
+  // glm::vec4 blueColor(0.2, 0.3, 0.8, 1.0);
+  glm::vec4 blueColor(squareColor.x, squareColor.y, squareColor.z, 1.0);
   glm::vec4 redColor(0.8, 0.2, 0.3, 1.0);
 
   for (int y = 0; y < 20; y++) {
