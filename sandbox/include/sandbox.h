@@ -15,10 +15,10 @@ public:
   bool onKeyPressedEvent(KeyPressedEvent &e);
 
 private:
-  std::shared_ptr<v6::Shader> pShader;
-  std::shared_ptr<v6::VertexArray> pVertexArray;
-  std::shared_ptr<v6::Shader> pFlatColorShader;
-  std::shared_ptr<v6::VertexArray> pSquareVA;
+  Ref<v6::Shader> pShader;
+  Ref<v6::VertexArray> pVertexArray;
+  Ref<v6::Shader> pFlatColorShader;
+  Ref<v6::VertexArray> pSquareVA;
   OrthographicCamera camera;
   glm::vec3 cameraPosition;
   float cameraRotation;

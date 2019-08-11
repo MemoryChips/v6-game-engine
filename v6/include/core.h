@@ -1,5 +1,7 @@
 #pragma once
 
+#include "memory"
+
 #ifdef V6_DEBUG
 #define V6_ENABLE_ASSERTS
 #endif
@@ -28,3 +30,10 @@
 #define BIT(x) (1 << x)
 
 #define V6_BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1)
+
+namespace v6 {
+
+template <typename T> using Scope = std::unique_ptr<T>;
+template <typename T> using Ref = std::shared_ptr<T>;
+
+} // namespace v6

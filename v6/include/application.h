@@ -15,7 +15,7 @@ class Application {
 private:
   bool onWindowClosed(WindowCloseEvent &e);
 
-  std::unique_ptr<Window> pWindow;
+  Scope<Window> pWindow;
   ImGuiLayer *imGuiLayer;
   bool running = true;
   LayerStack layerStack;
