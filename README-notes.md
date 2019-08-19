@@ -4,6 +4,8 @@
 
 - see core.h and log.h for v6 defines that differ from Hazel
 
+- 3c147806f0b253e4a288b64e65a81948d63f112e - added manually
+
 - 888b3e8f7b07d16c6a52be0e49bd2526271cab36 - already present in my code
 
 - 3352191dbcd5e18754be70b18a5e6744692a77ca - added manually
@@ -142,6 +144,9 @@ git tag feb23 -a -m "Commit 7c02 merged but keeps shared lib"
 ## Build
 
 - cmake to build
+
+  - run cmake-debug or cmake-prod to setup make file
+  - run make task
 
 ```bash
 mkdir build

@@ -8,9 +8,27 @@
       "options": {
         "cwd": "build"
       },
-      "problemMatcher": [
-        "$gcc"
-      ]
+      "problemMatcher": ["$gcc"]
+    },
+    {
+      "type": "shell",
+      "label": "cmake-prod",
+      "command": "cmake",
+      "args": ["..", "-DCMAKE_BUILD_TYPE=Release"],
+      "options": {
+        "cwd": "prod"
+      },
+      "problemMatcher": ["$gcc"]
+    },
+    {
+      "type": "shell",
+      "label": "cmake-debug",
+      "command": "cmake",
+      "args": ["..", "-DCMAKE_BUILD_TYPE=Debug"],
+      "options": {
+        "cwd": "build"
+      },
+      "problemMatcher": ["$gcc"]
     }
   ],
   "version": "2.0.0"

@@ -1,6 +1,7 @@
 main.exe
 .vscode/ipch/*
 build
+prod
 imgui.ini
 
 # precompiled headers
