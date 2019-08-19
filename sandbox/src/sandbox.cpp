@@ -31,12 +31,20 @@ ExampleLayer::ExampleLayer()
 
   pSquareVA.reset(VertexArray::Create());
 
-  float squareVertices[3 * 4] = {-0.5f, -0.5f, 0.0f, 0.5f,  -0.5f, 0.0f,
-                                 0.5f,  0.5f,  0.0f, -0.5f, 0.5f,  0.0f};
+  // clang-format off
+  float squareVertices[5 * 4] = {
+    -0.5f, -0.5f, 0.0f, 0.0f, 0.0f,  
+    0.5f, -0.5f,  0.0f, 1.0f, 0.0f,
+    0.5f,  0.5f, 0.0f, 1.0f, 1.0f,
+    -0.5f, 0.5f, 0.0f, 0.0f, 1.0f
+  };
 
   Ref<VertexBuffer> pSquareVB;
   pSquareVB.reset(VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
-  pSquareVB->SetLayout({{ShaderDataType::Float3, "a_Position"}});
+  pSquareVB->SetLayout({
+    {ShaderDataType::Float3, "a_Position"},
+    {ShaderDataType::Float2, "a_TexCoord"}
+  });
   pSquareVA->AddVertexBuffer(pSquareVB);
 
   uint32_t squareIndices[6] = {0, 1, 2, 2, 3, 0};
@@ -108,6 +116,39 @@ ExampleLayer::ExampleLayer()
 
   pFlatColorShader.reset(
       v6::Shader::Create(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
+
+  std::string textureShaderVertexSrc = R"(
+			#version 330 core
+			
+			layout(location = 0) in vec3 a_Position;
+			layout(location = 1) in vec2 a_TexCoord;
+
+      uniform mat4 u_ViewProjection;
+      uniform mat4 u_Transform;
+
+      out vec2 v_TexCoord;
+
+ 			void main()
+			{
+				v_TexCoord = a_TexCoord;
+				gl_Position = u_ViewProjection * u_Transform * vec4(a_Position, 1.0);	
+			}
+		)";
+
+  std::string textureShaderFragmentSrc = R"(
+			#version 330 core
+			
+			layout(location = 0) out vec4 color;
+ 			in vec2 v_TexCoord;
+      uniform vec4 uColor;
+ 			void main()
+			{
+				color = vec4(v_TexCoord, 0.0, 1.0);
+			}
+		)";
+
+  pTextureShader.reset(
+      v6::Shader::Create(textureShaderVertexSrc, textureShaderFragmentSrc));
 }
 
 void ExampleLayer::onUpdate(double tsSec) {
@@ -166,8 +207,11 @@ void ExampleLayer::onUpdate(double tsSec) {
             ->UploadUniformFloat4("uColor", blueColor);
     }
   }
+  glm::mat4 scale2 = glm::scale(glm::mat4(1.0f), glm::vec3(1.5f));
+  v6::Renderer::Submit(pTextureShader, pSquareVA, scale2);
 
-  v6::Renderer::Submit(pShader, pVertexArray);
+  // triangle
+  // v6::Renderer::Submit(pShader, pVertexArray);
 
   v6::Renderer::EndScene();
 }
