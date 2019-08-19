@@ -9,6 +9,7 @@
         "${workspaceFolder}/v6/src",
         "${workspaceFolder}/v6/vendor/spdlog/include",
         "${workspaceFolder}/v6/vendor/glm/*",
+        "${workspaceFolder}/v6/vendor/stb-image/*",
         "${workspaceFolder}/v6/vendor/imgui/include/*",
         "${workspaceFolder}/v6/vendor/glad/include/*",
         "${workspaceFolder}/v6/vendor/glfw/deps/*",

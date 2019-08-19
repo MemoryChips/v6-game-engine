@@ -169,6 +169,11 @@ cmake .. -DCMAKE_BUILD_TYPE=Debug
 
 ## Add submodules and manual copied code
 
+- stb-image.h
+
+  - add latest stb-image.h from [github](https://github.com/nothings/stb/blob/master/stb_image.h) to the v6/vendor/stb-image dir
+  - add pragma once to the top of this file
+
 - GLFW
 
 ```bash
