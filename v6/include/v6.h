@@ -17,4 +17,5 @@
 #include "renderer/render-command.h"
 #include "renderer/renderer.h"
 #include "renderer/shader.h"
+#include "renderer/texture.h"
 #include "renderer/vertex-array.h"

@@ -14,7 +14,7 @@ public:
   ~OpenGLTexture2D();
   virtual uint32_t GetWidth() const override { return width; };
   virtual uint32_t GetHeight() const override { return height; };
-  virtual void bind() const override;
+  virtual void bind(uint32_t slot = 0) const override;
 };
 
 } // namespace v6
