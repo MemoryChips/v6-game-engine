@@ -8,6 +8,8 @@ namespace v6 {
 
 OpenGLTexture2D::OpenGLTexture2D(const std::string &path) : path(path) {
   int w, h, channels;
+  stbi_set_flip_vertically_on_load(1); // to accomodate open gl
+
   stbi_uc *data = stbi_load(path.c_str(), &w, &h, &channels, 0);
   V6_CORE_ASSERT(data, "Failed to load image");
   width = w;
@@ -16,7 +18,7 @@ OpenGLTexture2D::OpenGLTexture2D(const std::string &path) : path(path) {
   glCreateTextures(GL_TEXTURE_2D, 1, &rendererId);
   glTextureStorage2D(rendererId, 1, GL_RGB8, width, height);
   glTextureParameteri(rendererId, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-  glTextureParameteri(rendererId, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+  glTextureParameteri(rendererId, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
   glTextureSubImage2D(rendererId, 0, 0, 0, width, height, GL_RGB,
                       GL_UNSIGNED_BYTE, data);
   stbi_image_free(data);

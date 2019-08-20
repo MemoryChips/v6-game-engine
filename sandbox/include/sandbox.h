@@ -15,10 +15,11 @@ public:
   bool onKeyPressedEvent(KeyPressedEvent &e);
 
 private:
-  Ref<v6::Shader> pShader;
-  Ref<v6::VertexArray> pVertexArray;
-  Ref<v6::Shader> pFlatColorShader, pTextureShader;
-  Ref<v6::VertexArray> pSquareVA;
+  Ref<Shader> pShader;
+  Ref<VertexArray> pVertexArray;
+  Ref<Shader> pFlatColorShader, pTextureShader;
+  Ref<Texture2D> pTexture;
+  Ref<VertexArray> pSquareVA;
   OrthographicCamera camera;
   glm::vec3 cameraPosition;
   float cameraRotation;

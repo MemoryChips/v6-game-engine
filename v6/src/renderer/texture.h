@@ -1,5 +1,6 @@
 #pragma once
 #include "core.h"
+#include <string>
 
 namespace v6 {
 
@@ -12,6 +13,7 @@ public:
 };
 
 class Texture2D : public Texture {
+public:
   static Ref<Texture2D> create(const std::string &path);
 };
 

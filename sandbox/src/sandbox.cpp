@@ -1,6 +1,7 @@
 #include "sandbox.h"
 #include "memory"
 #include "platform/opengl/opengl-shader.h"
+#include "v6.h"
 #include <gtc/type_ptr.hpp>
 
 using namespace v6;
@@ -140,15 +141,22 @@ ExampleLayer::ExampleLayer()
 			
 			layout(location = 0) out vec4 color;
  			in vec2 v_TexCoord;
-      uniform vec4 uColor;
+      uniform sampler2D u_Texture;
  			void main()
 			{
-				color = vec4(v_TexCoord, 0.0, 1.0);
+				color = texture(u_Texture, v_TexCoord);
 			}
 		)";
 
   pTextureShader.reset(
-      v6::Shader::Create(textureShaderVertexSrc, textureShaderFragmentSrc));
+      Shader::Create(textureShaderVertexSrc, textureShaderFragmentSrc));
+  
+  pTexture = Texture2D::create("./sandbox/assets/textures/checkerboard.png");
+  
+  std::dynamic_pointer_cast<OpenGLShader>(pTextureShader)->bind();
+  std::dynamic_pointer_cast<OpenGLShader>(pTextureShader)
+            ->UploadUniformInt("u_Texture", 0);
+  // pTexture.reset();
 }
 
 void ExampleLayer::onUpdate(double tsSec) {
@@ -208,6 +216,7 @@ void ExampleLayer::onUpdate(double tsSec) {
     }
   }
   glm::mat4 scale2 = glm::scale(glm::mat4(1.0f), glm::vec3(1.5f));
+  pTexture->bind();
   v6::Renderer::Submit(pTextureShader, pSquareVA, scale2);
 
   // triangle
