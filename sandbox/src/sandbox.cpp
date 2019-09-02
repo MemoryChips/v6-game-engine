@@ -152,6 +152,7 @@ ExampleLayer::ExampleLayer()
       Shader::Create(textureShaderVertexSrc, textureShaderFragmentSrc));
   
   pTexture = Texture2D::create("./sandbox/assets/textures/checkerboard.png");
+  pChernoLogoTexture = Texture2D::create("./sandbox/assets/textures/ChernoLogo.png");
   
   std::dynamic_pointer_cast<OpenGLShader>(pTextureShader)->bind();
   std::dynamic_pointer_cast<OpenGLShader>(pTextureShader)
@@ -217,6 +218,8 @@ void ExampleLayer::onUpdate(double tsSec) {
   }
   glm::mat4 scale2 = glm::scale(glm::mat4(1.0f), glm::vec3(1.5f));
   pTexture->bind();
+  v6::Renderer::Submit(pTextureShader, pSquareVA, scale2);
+  pChernoLogoTexture->bind();
   v6::Renderer::Submit(pTextureShader, pSquareVA, scale2);
 
   // triangle

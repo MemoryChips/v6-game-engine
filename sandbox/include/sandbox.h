@@ -18,8 +18,9 @@ private:
   Ref<Shader> pShader;
   Ref<VertexArray> pVertexArray;
   Ref<Shader> pFlatColorShader, pTextureShader;
-  Ref<Texture2D> pTexture;
+  // Ref<Texture2D> pTexture;
   Ref<VertexArray> pSquareVA;
+  Ref<Texture2D> pTexture, pChernoLogoTexture;
   OrthographicCamera camera;
   glm::vec3 cameraPosition;
   float cameraRotation;

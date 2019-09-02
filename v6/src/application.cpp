@@ -19,6 +19,8 @@ Application::Application(/* args */) {
   pWindow = std::unique_ptr<Window>(Window::Create());
   pWindow->SetEventCallback(BIND_EVENT_FN(onEvent));
 
+  Renderer::init();
+
   imGuiLayer = new ImGuiLayer();
   pushOverlay(imGuiLayer);
 }

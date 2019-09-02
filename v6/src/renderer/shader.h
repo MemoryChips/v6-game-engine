@@ -12,6 +12,7 @@ public:
 
   static Shader *Create(const std::string &vertexSrc,
                         const std::string &framentSource);
+  static Shader *Create(const std::string &filePath);
 };
 
 } // namespace v6

@@ -4,10 +4,18 @@
 #include "log.h"
 #include "vector"
 
+#include <fstream>
+// #include <iostream>
+// #include <sstream>
+
 #include <glad/glad.h>
 #include <gtc/type_ptr.hpp>
 
 namespace v6 {
+
+OpenGLShader::OpenGLShader(const std::string &filePath) {
+  std::string shaderSource = readFile(filePath);
+}
 
 OpenGLShader::OpenGLShader(const std::string &vertexSrc,
                            const std::string &fragmentSrc) {
@@ -110,7 +118,27 @@ OpenGLShader::OpenGLShader(const std::string &vertexSrc,
   glDetachShader(program, fragmentShader);
 }
 
+// void compile(const std::unordered_map<GLenum, std::string> &shaderSources) {}
+
 OpenGLShader::~OpenGLShader() { glDeleteProgram(rendererId); }
+
+// std::unordered_map<GLenum, std::string> preProcess(const std::string &source)
+// {}
+
+std::string OpenGLShader::readFile(const std::string &filePath) {
+  std::ifstream in(filePath, std::ios::in | std::ios::binary);
+  std::string result;
+  if (in) {
+    in.seekg(0, std::ios::end);
+    result.resize(in.tellg());
+    in.seekg(0, std::ios::beg);
+    in.read(&result[0], result.size());
+    in.close();
+  } else {
+    LOG_ERROR("Could not open file: '{0}'", filePath);
+  }
+  return result;
+}
 
 void OpenGLShader::bind() const { glUseProgram(rendererId); }
 

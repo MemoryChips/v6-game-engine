@@ -4,6 +4,20 @@
 
 - see core.h and log.h for v6 defines that differ from Hazel
 
+- 10b4a3efbf4834e350326cf6ed21b2000e467090 - in progress
+
+- 783d2568b6dd60157be82dbc1be582dcbda0f071 - done
+
+- 49c526673eebc61b9d71f1849a02b81d5ad8f880 - done
+
+- f52b813db65cd7275da56003c501914ad1c7515a - done
+
+- 15c30d9e06a921ac130e05f3168fb55a374674d3 - done
+
+- 72061ff6c5695587ce9d966dbf818130ba4d96da - done
+
+- 6340cea5267e059dd3e8c98c3f4f94ac536bb2af - done
+
 - 3c147806f0b253e4a288b64e65a81948d63f112e - added manually
 
 - 888b3e8f7b07d16c6a52be0e49bd2526271cab36 - already present in my code

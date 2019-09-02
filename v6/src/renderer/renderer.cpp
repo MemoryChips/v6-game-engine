@@ -6,6 +6,7 @@
 
 namespace v6 {
 Renderer::SceneData *Renderer::spSceneData = new Renderer::SceneData;
+void Renderer::init() { RenderCommand::init(); }
 void Renderer::BeginScene(OrthographicCamera &camera) {
   spSceneData->ViewProjectionMatrix = camera.GetViewProjectionMatrix();
 }

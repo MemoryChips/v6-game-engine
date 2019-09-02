@@ -7,6 +7,7 @@ namespace v6 {
 
 class Renderer {
 public:
+  static void init();
   static void BeginScene(OrthographicCamera &camera);
   static void EndScene();
   static void Submit(const Ref<Shader> &shader,
