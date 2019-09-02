@@ -4,7 +4,9 @@
 
 - see core.h and log.h for v6 defines that differ from Hazel
 
-- 10b4a3efbf4834e350326cf6ed21b2000e467090 - in progress
+- 070571c41354d488a8c66ceab21044bd5dcd8043 - skipped
+
+- 10b4a3efbf4834e350326cf6ed21b2000e467090 - done
 
 - 783d2568b6dd60157be82dbc1be582dcbda0f071 - done
 
