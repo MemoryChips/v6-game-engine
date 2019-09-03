@@ -40,7 +40,8 @@ void OpenGLShader::compile(
     const std::unordered_map<GLenum, std::string> &shaderSources) {
 
   GLuint program = glCreateProgram();
-  std::vector<GLenum> glShaderIds(shaderSources.size());
+  std::vector<GLenum> glShaderIds;
+  // std::vector<GLenum> glShaderIds(shaderSources.size());
 
   for (auto &kv : shaderSources) {
     const GLenum type = kv.first;
