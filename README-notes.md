@@ -4,6 +4,10 @@
 
 - see core.h and log.h for v6 defines that differ from Hazel
 
+- e8b2ad932372b0121349f34df14e743bb95773fc - done
+
+- 670e86fe430d16a3eb391378db8239775ffc5cca - added to make task
+
 - 070571c41354d488a8c66ceab21044bd5dcd8043 - skipped
 
 - 10b4a3efbf4834e350326cf6ed21b2000e467090 - done
