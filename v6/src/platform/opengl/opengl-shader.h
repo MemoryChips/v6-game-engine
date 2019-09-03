@@ -1,8 +1,13 @@
 #pragma once
 
 #include "renderer/shader.h"
+// #include <glad/glad.h>
 #include <glm.hpp>
 #include <string>
+#include <unordered_map>
+
+// TODO REMOVE
+typedef unsigned int GLenum;
 
 namespace v6 {
 
@@ -27,9 +32,8 @@ public:
 
 private:
   std::string readFile(const std::string &filePath);
-  // std::unordered_map<GLenum, std::string> preProcess(const std::string
-  // &source); void compile(const std::unordered_map<GLenum, std::string>
-  // &shaderSources);
+  std::unordered_map<GLenum, std::string> preProcess(const std::string &source);
+  void compile(const std::unordered_map<GLenum, std::string> &shaderSources);
   uint32_t rendererId;
 };
 
