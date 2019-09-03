@@ -4,6 +4,8 @@
 
 - see core.h and log.h for v6 defines that differ from Hazel
 
+- 30b5c242986c67ab20709980f88ca115e65e1261 - done
+
 - 9cbad6e514e800dd2337ed88403449f445981e3a - done
 
 - e8b2ad932372b0121349f34df14e743bb95773fc - done
