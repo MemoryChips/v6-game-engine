@@ -4,31 +4,45 @@
       "type": "shell",
       "label": "make",
       "command": "make",
-      "args": [],
+      "args": [
+        "-j3"
+      ],
       "options": {
         "cwd": "build"
       },
-      "problemMatcher": ["$gcc"]
+      "problemMatcher": [
+        "$gcc"
+      ]
     },
     {
       "type": "shell",
       "label": "cmake-prod",
       "command": "cmake",
-      "args": ["..", "-DCMAKE_BUILD_TYPE=Release"],
+      "args": [
+        "..",
+        "-DCMAKE_BUILD_TYPE=Release"
+      ],
       "options": {
         "cwd": "prod"
       },
-      "problemMatcher": ["$gcc"]
+      "problemMatcher": [
+        "$gcc"
+      ]
     },
     {
       "type": "shell",
       "label": "cmake-debug",
       "command": "cmake",
-      "args": ["..", "-DCMAKE_BUILD_TYPE=Debug"],
+      "args": [
+        "..",
+        "-DCMAKE_BUILD_TYPE=Debug"
+      ],
       "options": {
         "cwd": "build"
       },
-      "problemMatcher": ["$gcc"]
+      "problemMatcher": [
+        "$gcc"
+      ]
     }
   ],
   "version": "2.0.0"
