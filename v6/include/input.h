@@ -14,8 +14,11 @@ protected:
   virtual std::pair<double, double> getMousePosImpl() = 0;
   virtual float getMouseXImpl() = 0;
   virtual float getMouseYImpl() = 0;
+  Input() = default;
 
 public:
+  Input(const Input &) = delete;
+  Input &operator=(const Input &) = delete;
   static inline bool isKeyPressed(int keyCode) {
     return sInstance->isKeyPressedImpl(keyCode);
   }
