@@ -41,6 +41,7 @@ void OpenGLShader::compile(
 
   GLuint program = glCreateProgram();
   std::vector<GLenum> glShaderIds;
+  glShaderIds.reserve(shaderSources.size());
   // std::vector<GLenum> glShaderIds(shaderSources.size());
 
   for (auto &kv : shaderSources) {
