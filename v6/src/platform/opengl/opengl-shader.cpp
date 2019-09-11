@@ -2,7 +2,8 @@
 #include "opengl-shader.h"
 #include "core.h"
 #include "log.h"
-#include "vector"
+#include <array>
+#include <vector>
 
 #include <fstream>
 // #include <iostream>
@@ -40,9 +41,12 @@ void OpenGLShader::compile(
     const std::unordered_map<GLenum, std::string> &shaderSources) {
 
   GLuint program = glCreateProgram();
-  std::vector<GLenum> glShaderIds;
-  glShaderIds.reserve(shaderSources.size());
-  // std::vector<GLenum> glShaderIds(shaderSources.size());
+  // std::vector<GLenum> glShaderIds;
+  // glShaderIds.reserve(shaderSources.size());
+  V6_CORE_ASSERT(shaderSources.size() <= 12,
+                 "We only support 12 shaders for now");
+  std::array<GLenum, 12> glShaderIds;
+  unsigned int glShaderIDIndex = 0;
 
   for (auto &kv : shaderSources) {
     const GLenum type = kv.first;
@@ -74,7 +78,7 @@ void OpenGLShader::compile(
       break;
     }
     glAttachShader(program, shader);
-    glShaderIds.push_back(shader);
+    glShaderIds[glShaderIDIndex++] = shader;
   }
 
   // Link our program
@@ -104,8 +108,8 @@ void OpenGLShader::compile(
   }
 
   // Always detach shaders after a successful link.
-  for (auto shaderId : glShaderIds) {
-    glDetachShader(program, shaderId);
+  for (unsigned int shaderId = 0; shaderId < glShaderIDIndex; shaderId++) {
+    glDetachShader(program, glShaderIds[shaderId]);
   }
 
   rendererId = program;
