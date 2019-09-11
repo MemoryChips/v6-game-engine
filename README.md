@@ -1,5 +1,7 @@
 # V6 Game Engine
 
+![V6](/v6/resources/Hazel_Logo_Text_Light_Square.png?raw=true "V6")
+
 Linux Game Engine based on TheCherno Hazel Windows game engine [project](https://github.com/TheCherno/Hazel).
 
 ## OpenGl Docs
