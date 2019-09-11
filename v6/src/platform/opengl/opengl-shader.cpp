@@ -41,11 +41,12 @@ void OpenGLShader::compile(
     const std::unordered_map<GLenum, std::string> &shaderSources) {
 
   GLuint program = glCreateProgram();
-  // std::vector<GLenum> glShaderIds;
-  // glShaderIds.reserve(shaderSources.size());
-  V6_CORE_ASSERT(shaderSources.size() <= 12,
-                 "We only support 12 shaders for now");
-  std::array<GLenum, 12> glShaderIds;
+// std::vector<GLenum> glShaderIds;
+// glShaderIds.reserve(shaderSources.size());
+#define NUM_SHADERS 12
+  V6_CORE_ASSERT(shaderSources.size() <= NUM_SHADERS,
+                 "We only support limited shaders for now");
+  std::array<GLenum, NUM_SHADERS> glShaderIds;
   unsigned int glShaderIDIndex = 0;
 
   for (auto &kv : shaderSources) {
