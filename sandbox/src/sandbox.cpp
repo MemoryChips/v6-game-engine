@@ -118,7 +118,7 @@ ExampleLayer::ExampleLayer()
   pFlatColorShader = 
       v6::Shader::Create("FlatColor", flatColorShaderVertexSrc, flatColorShaderFragmentSrc);
 
-  pTextureShader = Shader::Create("./sandbox/assets/shaders/texture.glsl");
+  auto pTextureShader = shaderLibrary.load("./sandbox/assets/shaders/texture.glsl");
   
   pTexture = Texture2D::create("./sandbox/assets/textures/checkerboard.png");
   pChernoLogoTexture = Texture2D::create("./sandbox/assets/textures/ChernoLogo.png");
@@ -126,7 +126,6 @@ ExampleLayer::ExampleLayer()
   std::dynamic_pointer_cast<OpenGLShader>(pTextureShader)->bind();
   std::dynamic_pointer_cast<OpenGLShader>(pTextureShader)
             ->UploadUniformInt("u_Texture", 0);
-  // pTexture.reset();
 }
 
 void ExampleLayer::onUpdate(double tsSec) {
@@ -186,6 +185,7 @@ void ExampleLayer::onUpdate(double tsSec) {
     }
   }
   glm::mat4 scale2 = glm::scale(glm::mat4(1.0f), glm::vec3(1.5f));
+  auto pTextureShader = shaderLibrary.get("texture");
   pTexture->bind();
   v6::Renderer::Submit(pTextureShader, pSquareVA, scale2);
   pChernoLogoTexture->bind();
@@ -209,21 +209,6 @@ void ExampleLayer::onEvent(Event &e) {
       V6_BIND_EVENT_FN(ExampleLayer::onKeyPressedEvent));
 }
 bool ExampleLayer::onKeyPressedEvent([[maybe_unused]] KeyPressedEvent &e) {
-  // auto keyCode = e.GetKeyCode();
-  // LOG_TRACE("key code pressed: {0}", keyCode);
-
-  // if (e.GetKeyCode() == V6_KEY_LEFT) {
-  //   cameraPosition.x -= cameraSpeed;
-  // }
-  // if (e.GetKeyCode() == V6_KEY_RIGHT) {
-  //   cameraPosition.x += cameraSpeed;
-  // }
-  // if (e.GetKeyCode() == V6_KEY_UP) {
-  //   cameraPosition.y -= cameraSpeed;
-  // }
-  // if (e.GetKeyCode() == V6_KEY_DOWN) {
-  //   cameraPosition.y += cameraSpeed;
-  // }
   return false;
 }
 

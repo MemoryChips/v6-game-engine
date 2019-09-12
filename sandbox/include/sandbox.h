@@ -15,10 +15,11 @@ public:
   bool onKeyPressedEvent(KeyPressedEvent &e);
 
 private:
+  ShaderLibrary shaderLibrary;
   Ref<Shader> pShader;
   Ref<VertexArray> pVertexArray;
-  Ref<Shader> pFlatColorShader, pTextureShader;
-  // Ref<Texture2D> pTexture;
+  Ref<Shader> pFlatColorShader;
+  // Ref<Shader> pFlatColorShader, pTextureShader;
   Ref<VertexArray> pSquareVA;
   Ref<Texture2D> pTexture, pChernoLogoTexture;
   OrthographicCamera camera;
