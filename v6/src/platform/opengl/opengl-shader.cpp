@@ -27,10 +27,19 @@ OpenGLShader::OpenGLShader(const std::string &filePath) {
   std::string source = readFile(filePath);
   auto shaderSources = preProcess(source);
   compile(shaderSources);
+  // Extract name from filepath
+  auto lastSlash = filePath.find_last_of("/\\");
+  lastSlash = lastSlash == std::string::npos ? 0 : lastSlash + 1;
+  auto lastDot = filePath.rfind('.');
+  auto count = lastDot == std::string::npos ? filePath.size() - lastSlash
+                                            : lastDot - lastSlash;
+  name = filePath.substr(lastSlash, count);
 }
 
-OpenGLShader::OpenGLShader(const std::string &vertexSrc,
-                           const std::string &fragmentSrc) {
+OpenGLShader::OpenGLShader(const std::string &name,
+                           const std::string &vertexSrc,
+                           const std::string &fragmentSrc)
+    : name(name) {
   std::unordered_map<GLenum, std::string> shaderSources;
   shaderSources[GL_VERTEX_SHADER] = vertexSrc;
   shaderSources[GL_FRAGMENT_SHADER] = fragmentSrc;

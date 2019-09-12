@@ -14,12 +14,13 @@ namespace v6 {
 class OpenGLShader : public Shader {
 public:
   OpenGLShader(const std::string &filePath);
-  OpenGLShader(const std::string &vertexSrc, const std::string &fragmentSrc);
+  OpenGLShader(const std::string &name, const std::string &vertexSrc,
+               const std::string &fragmentSrc);
   ~OpenGLShader();
 
   virtual void bind() const override;
   virtual void unbind() const override;
-
+  virtual const std::string &getName() const override { return name; };
   void UploadUniformInt(const std::string &name, const int &v);
 
   void UploadUniformFloat(const std::string &name, const float &v);
@@ -31,6 +32,7 @@ public:
   void UploadUniformMat4(const std::string &name, const glm::mat4 &matrix);
 
 private:
+  std::string name;
   std::string readFile(const std::string &filePath);
   std::unordered_map<GLenum, std::string> preProcess(const std::string &source);
   void compile(const std::unordered_map<GLenum, std::string> &shaderSources);

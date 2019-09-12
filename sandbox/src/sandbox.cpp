@@ -85,8 +85,8 @@ ExampleLayer::ExampleLayer()
         color = v_Color;
 			}
 		)";
+  pShader = v6::Shader::Create("VertexPosColor",vertexSrc, fragmentSrc);
 
-  pShader.reset(v6::Shader::Create(vertexSrc, fragmentSrc));
   std::string flatColorShaderVertexSrc = R"(
 			#version 330 core
 			
@@ -115,11 +115,10 @@ ExampleLayer::ExampleLayer()
 			}
 		)";
 
-  pFlatColorShader.reset(
-      v6::Shader::Create(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
+  pFlatColorShader = 
+      v6::Shader::Create("FlatColor", flatColorShaderVertexSrc, flatColorShaderFragmentSrc);
 
-  pTextureShader.reset(
-      Shader::Create("./sandbox/assets/shaders/texture.glsl"));
+  pTextureShader = Shader::Create("./sandbox/assets/shaders/texture.glsl");
   
   pTexture = Texture2D::create("./sandbox/assets/textures/checkerboard.png");
   pChernoLogoTexture = Texture2D::create("./sandbox/assets/textures/ChernoLogo.png");
