@@ -4,6 +4,7 @@
 #include "events/event.h"
 #include "log.h"
 #include <string>
+#include "core/timestep.h"
 
 namespace v6 {
 
@@ -14,7 +15,7 @@ public:
 
   virtual void onAttach() {}
   virtual void onDetach() {}
-  virtual void onUpdate([[maybe_unused]] double tsSecs) {}
+  virtual void onUpdate([[maybe_unused]] Timestep tf) {}
   virtual void onImGuiRender() {}
   virtual void onEvent([[maybe_unused]] Event &event) {}
 

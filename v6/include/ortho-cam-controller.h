@@ -11,8 +11,8 @@ class OrthoCamController {
 public:
   OrthoCamController(float aspectRatio, bool rotation = false);
 
-  void OnUpdate(Timestep ts);
-  void OnEvent(Event &e);
+  void onUpdate(Timestep ts);
+  void onEvent(Event &e);
 
   OrthographicCamera &GetCamera() { return m_Camera; }
   const OrthographicCamera &GetCamera() const { return m_Camera; }
