@@ -94,7 +94,22 @@ git submodule update --remote --merge
 
   - divide files into src and include and update
   - ignore all sub dirs
-  - manual copy files from [here](https://github.com/ocornut/imgui)
+  - manually copy files from [here](https://github.com/ocornut/imgui)
+    - copy main dir .h into include; cpp into src
+    - manually copy imgui_impl_opengl3.h and cpp from example dir into include and src
+    - manually copy imgui_impl_glfw.h and cpp from example dir into include and src
+
+    ```bash
+    cd /home/robert/Training/cpp/v6-game-engine/v6/vendor/imgui/include
+    cp /home/robert/Training/cpp/tmp/imgui/*.h .
+    cp /home/robert/Training/cpp/tmp/imgui/examples/imgui_impl_opengl3.h .
+    cp /home/robert/Training/cpp/tmp/imgui/examples/imgui_impl_glfw.h .
+    cd ../src
+    cp /home/robert/Training/cpp/tmp/imgui/*.cpp .
+    cp /home/robert/Training/cpp/tmp/imgui/examples/imgui_impl_opengl3.cpp .
+    cp /home/robert/Training/cpp/tmp/imgui/examples/imgui_impl_glfw.cpp .
+
+    ```
 
 - glm - since we copy the glm sub dir of the repo do manual update
 
