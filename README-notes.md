@@ -4,25 +4,15 @@
 
 - see core.h and log.h for v6 defines that differ from Hazel
 
+- 734ea180bedd2334bdc3f1927635287be1e754ed - glfw updated; imgui NOT
+
+- 0e034759705bb3b8ec5fa942e664798df9487469 - just started
+
 - f50af9637e31595f49f21df3384224e40b5487fa - trivial done
 
 - b576fd9f0326682da8ed8aa1a14abf25dc3bc630 - in progress
 
 - 7d120fb4250ecdebdcdc93137bbec7413a9bb7e2 - done
-
-- 30b5c242986c67ab20709980f88ca115e65e1261 - done
-
-- 9cbad6e514e800dd2337ed88403449f445981e3a - done
-
-- e8b2ad932372b0121349f34df14e743bb95773fc - done
-
-- 670e86fe430d16a3eb391378db8239775ffc5cca - added to make task
-
-- 070571c41354d488a8c66ceab21044bd5dcd8043 - skipped
-
-- 10b4a3efbf4834e350326cf6ed21b2000e467090 - done
-
-- 783d2568b6dd60157be82dbc1be582dcbda0f071 - done
 
 ## TODO
 
@@ -92,9 +82,10 @@ git submodule update --remote --merge
 
 - imgui - use manual commmit and update
 
+  - be sure to download docking branch
   - divide files into src and include and update
   - ignore all sub dirs
-  - manually copy files from [here](https://github.com/ocornut/imgui)
+  - manually copy files from [here](https://github.com/ocornut/imgui) docking branch!
     - copy main dir .h into include; cpp into src
     - manually copy imgui_impl_opengl3.h and cpp from example dir into include and src
     - manually copy imgui_impl_glfw.h and cpp from example dir into include and src

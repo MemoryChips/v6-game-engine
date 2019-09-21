@@ -7,6 +7,7 @@ namespace v6 {
 class OrthographicCamera {
 public:
   OrthographicCamera(float left, float right, float bottom, float top);
+  void setProjection(float left, float right, float bottom, float top);
 
   const glm::vec3 &GetPosition() const { return position; }
   void SetPosition(const glm::vec3 &newPosition) {

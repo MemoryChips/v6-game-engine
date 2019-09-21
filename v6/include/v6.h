@@ -9,6 +9,7 @@
 #include "input.h"
 #include "key-codes.h"
 #include "mouse-button-codes.h"
+#include "ortho-cam-controller.h"
 
 #include "imgui-layer/imgui-layer.h"
 
