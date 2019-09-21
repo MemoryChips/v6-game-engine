@@ -81,6 +81,7 @@ git submodule add https://github.com/glfw/glfw.git v6/vendor/glfw
 # GLFW update submodule
 #
 git submodule update --remote --merge
+# then commit and push
 ```
 
 - spdlog - do manual update to only include files and to fix issues with the code
