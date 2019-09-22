@@ -14,23 +14,23 @@ public:
   void onUpdate(Timestep ts);
   void onEvent(Event &e);
 
-  OrthographicCamera &GetCamera() { return m_Camera; }
-  const OrthographicCamera &GetCamera() const { return m_Camera; }
+  OrthographicCamera &GetCamera() { return camera; }
+  const OrthographicCamera &GetCamera() const { return camera; }
 
 private:
-  bool OnMouseScrolled(MouseScrolledEvent &e);
-  bool OnWindowResized(WindowResizeEvent &e);
+  bool onMouseScrolled(MouseScrolledEvent &e);
+  bool onWindowResized(WindowResizeEvent &e);
 
 private:
-  float m_AspectRatio;
-  float m_ZoomLevel = 1.0f;
-  OrthographicCamera m_Camera;
+  float aspectRatio;
+  float zoomLevel = 1.0f;
+  OrthographicCamera camera;
 
-  bool m_Rotation;
+  bool rotation;
 
-  glm::vec3 m_CameraPosition = {0.0f, 0.0f, 0.0f};
-  float m_CameraRotation = 0.0f;
-  float m_CameraTranslationSpeed = 5.0f, m_CameraRotationSpeed = 180.0f;
+  glm::vec3 cameraPosition = {0.0f, 0.0f, 0.0f};
+  float cameraRotation = 0.0f;
+  float cameraTranslationSpeed = 5.0f, cameraRotationSpeed = 180.0f;
 };
 
 } // namespace v6

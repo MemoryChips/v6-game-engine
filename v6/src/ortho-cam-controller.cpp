@@ -7,58 +7,56 @@
 namespace v6 {
 
 OrthoCamController::OrthoCamController(float aspectRatio, bool rotation)
-    : m_AspectRatio(aspectRatio),
-      m_Camera(-m_AspectRatio * m_ZoomLevel, m_AspectRatio * m_ZoomLevel,
-               -m_ZoomLevel, m_ZoomLevel),
-      m_Rotation(rotation) {}
+    : aspectRatio(aspectRatio),
+      camera(-aspectRatio * zoomLevel, aspectRatio * zoomLevel, -zoomLevel,
+             zoomLevel),
+      rotation(rotation) {}
 
 void OrthoCamController::onUpdate(Timestep ts) {
   if (Input::isKeyPressed(V6_KEY_A))
-    m_CameraPosition.x -= m_CameraTranslationSpeed * ts;
+    cameraPosition.x -= cameraTranslationSpeed * ts;
   else if (Input::isKeyPressed(V6_KEY_D))
-    m_CameraPosition.x += m_CameraTranslationSpeed * ts;
+    cameraPosition.x += cameraTranslationSpeed * ts;
 
   if (Input::isKeyPressed(V6_KEY_W))
-    m_CameraPosition.y += m_CameraTranslationSpeed * ts;
+    cameraPosition.y += cameraTranslationSpeed * ts;
   else if (Input::isKeyPressed(V6_KEY_S))
-    m_CameraPosition.y -= m_CameraTranslationSpeed * ts;
+    cameraPosition.y -= cameraTranslationSpeed * ts;
 
-  if (m_Rotation) {
+  if (rotation) {
     if (Input::isKeyPressed(V6_KEY_Q))
-      m_CameraRotation += m_CameraRotationSpeed * ts;
+      cameraRotation += cameraRotationSpeed * ts;
     if (Input::isKeyPressed(V6_KEY_E))
-      m_CameraRotation -= m_CameraRotationSpeed * ts;
+      cameraRotation -= cameraRotationSpeed * ts;
 
-    m_Camera.SetRotation(m_CameraRotation);
+    camera.SetRotation(cameraRotation);
   }
 
-  m_Camera.SetPosition(m_CameraPosition);
+  camera.SetPosition(cameraPosition);
 
-  m_CameraTranslationSpeed = m_ZoomLevel;
+  cameraTranslationSpeed = zoomLevel;
 }
 
 void OrthoCamController::onEvent(Event &e) {
   EventDispatcher dispatcher(e);
   dispatcher.Dispatch<MouseScrolledEvent>(
-      V6_BIND_EVENT_FN(OrthoCamController::OnMouseScrolled));
+      V6_BIND_EVENT_FN(OrthoCamController::onMouseScrolled));
   dispatcher.Dispatch<WindowResizeEvent>(
-      V6_BIND_EVENT_FN(OrthoCamController::OnWindowResized));
+      V6_BIND_EVENT_FN(OrthoCamController::onWindowResized));
 }
 
-bool OrthoCamController::OnMouseScrolled(MouseScrolledEvent &e) {
-  m_ZoomLevel -= e.GetYOffset() * 0.25f;
-  m_ZoomLevel = std::max(m_ZoomLevel, 0.25f);
-  m_Camera.setProjection(-m_AspectRatio * m_ZoomLevel,
-                         m_AspectRatio * m_ZoomLevel, -m_ZoomLevel,
-                         m_ZoomLevel);
+bool OrthoCamController::onMouseScrolled(MouseScrolledEvent &e) {
+  zoomLevel -= e.GetYOffset() * 0.25f;
+  zoomLevel = std::max(zoomLevel, 0.25f);
+  camera.setProjection(-aspectRatio * zoomLevel, aspectRatio * zoomLevel,
+                       -zoomLevel, zoomLevel);
   return false;
 }
 
-bool OrthoCamController::OnWindowResized(WindowResizeEvent &e) {
-  m_AspectRatio = (float)e.GetWidth() / (float)e.GetHeight();
-  m_Camera.setProjection(-m_AspectRatio * m_ZoomLevel,
-                         m_AspectRatio * m_ZoomLevel, -m_ZoomLevel,
-                         m_ZoomLevel);
+bool OrthoCamController::onWindowResized(WindowResizeEvent &e) {
+  aspectRatio = (float)e.GetWidth() / (float)e.GetHeight();
+  camera.setProjection(-aspectRatio * zoomLevel, aspectRatio * zoomLevel,
+                       -zoomLevel, zoomLevel);
   return false;
 }
 
