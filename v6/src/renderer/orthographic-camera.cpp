@@ -16,6 +16,7 @@ void OrthographicCamera::setProjection(float left, float right, float bottom,
   projectionMatrix = glm::ortho(left, right, bottom, top, -1.0f, 1.0f);
   viewProjectionMatrix = projectionMatrix * viewMatrix;
 }
+
 void OrthographicCamera::RecalculateViewMatrix() {
   glm::mat4 transform =
       glm::translate(glm::mat4(1.0f), position) *

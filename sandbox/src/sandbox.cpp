@@ -125,9 +125,9 @@ ExampleLayer::ExampleLayer()
             ->UploadUniformInt("u_Texture", 0);
 }
 
-void ExampleLayer::onUpdate(Timestep tf) {
+void ExampleLayer::onUpdate(Timestep ts) {
   // Update
-  orthoCamController.onUpdate(tf);
+  orthoCamController.onUpdate(ts);
 
   // Render
   v6::RenderCommand::SetClearColor({0.1f, 0.1f, 0.1f, 1});
