@@ -46,12 +46,17 @@ void Application::run() {
     double time = glfwGetTime();
     Timestep timestep = time - lastFrameTimeSec;
     lastFrameTimeSec = time;
-    for (Layer *layer : layerStack)
-      layer->onUpdate(timestep.getSeconds());
+
+    if (!minimized) {
+      for (Layer *layer : layerStack)
+        layer->onUpdate(timestep.getSeconds());
+    }
+
     imGuiLayer->begin();
     for (Layer *layer : layerStack)
       layer->onImGuiRender();
     imGuiLayer->end();
+
     pWindow->OnUpdate();
   }
 }
@@ -62,8 +67,13 @@ bool Application::onWindowClosed([[maybe_unused]] WindowCloseEvent &e) {
 }
 
 bool Application::onWindowResize([[maybe_unused]] WindowResizeEvent &e) {
-  LOG_INFO("Window resize event with width: ${0}, height: ${1}", e.GetWidth(),
+  LOG_INFO("Window resize event with width: {0}, height: {1}", e.GetWidth(),
            e.GetHeight());
+  if (e.GetWidth() == 0 || e.GetHeight() == 0) {
+    minimized = true;
+    return false;
+  }
+  minimized = false;
   return false;
 }
 

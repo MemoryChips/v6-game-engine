@@ -20,6 +20,7 @@ private:
   Scope<Window> pWindow;
   ImGuiLayer *imGuiLayer;
   bool running = true;
+  bool minimized = false;
   LayerStack layerStack;
   double lastFrameTimeSec;
   static Application *sInstance;
