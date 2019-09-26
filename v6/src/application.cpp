@@ -68,8 +68,13 @@ bool Application::onWindowResize([[maybe_unused]] WindowResizeEvent &e) {
 }
 
 bool Application::onKeyReleased([[maybe_unused]] KeyReleasedEvent &e) {
-  LOG_INFO("Key released event with code: ${0}", e.GetKeyCode());
-  return false;
+  auto k = e.GetKeyCode();
+  LOG_INFO("Key released event with code: {0}", k);
+  if (k == 256) {
+    LOG_WARN("Closing window with escape key: {0}", k);
+    running = false;
+  }
+  return true;
 }
 
 } // namespace v6
