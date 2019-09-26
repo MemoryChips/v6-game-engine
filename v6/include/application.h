@@ -14,6 +14,8 @@ namespace v6 {
 class Application {
 private:
   bool onWindowClosed(WindowCloseEvent &e);
+  bool onWindowResize([[maybe_unused]] WindowResizeEvent &e);
+  bool onKeyReleased([[maybe_unused]] KeyReleasedEvent &e);
 
   Scope<Window> pWindow;
   ImGuiLayer *imGuiLayer;

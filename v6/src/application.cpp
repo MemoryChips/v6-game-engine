@@ -31,6 +31,8 @@ void Application::pushOverlay(Layer *layer) { layerStack.pushOverlay(layer); }
 void Application::onEvent(Event &e) {
   EventDispatcher d(e);
   d.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(onWindowClosed));
+  d.Dispatch<WindowResizeEvent>(BIND_EVENT_FN(onWindowResize));
+  d.Dispatch<KeyReleasedEvent>(BIND_EVENT_FN(onKeyReleased));
   // LOG_CORE_TRACE("{0}", e);
   for (auto it = layerStack.end(); it != layerStack.begin();) {
     (*--it)->onEvent(e);
@@ -57,6 +59,17 @@ void Application::run() {
 bool Application::onWindowClosed([[maybe_unused]] WindowCloseEvent &e) {
   running = false;
   return true;
+}
+
+bool Application::onWindowResize([[maybe_unused]] WindowResizeEvent &e) {
+  LOG_INFO("Window resize event with width: ${0}, height: ${1}", e.GetWidth(),
+           e.GetHeight());
+  return false;
+}
+
+bool Application::onKeyReleased([[maybe_unused]] KeyReleasedEvent &e) {
+  LOG_INFO("Key released event with code: ${0}", e.GetKeyCode());
+  return false;
 }
 
 } // namespace v6

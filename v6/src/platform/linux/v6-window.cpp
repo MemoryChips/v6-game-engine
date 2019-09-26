@@ -55,6 +55,7 @@ void V6Window::Init(const WindowProps &props) {
         data.Height = height;
 
         WindowResizeEvent event(width, height);
+        // LOG_CORE_WARN("{0}, {1}", width, height);
         data.EventCallback(event);
       });
 
