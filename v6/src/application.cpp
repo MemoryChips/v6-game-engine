@@ -70,7 +70,7 @@ bool Application::onWindowClosed([[maybe_unused]] WindowCloseEvent &e) {
 bool Application::onWindowResize([[maybe_unused]] WindowResizeEvent &e) {
   auto w = e.GetWidth();
   auto h = e.GetHeight();
-  LOG_INFO("Window resize event with width: {0}, height: {1}", w, h);
+  // LOG_INFO("Window resize event with width: {0}, height: {1}", w, h);
   if (w == 0 || h == 0) {
     minimized = true;
     return false;
@@ -82,7 +82,7 @@ bool Application::onWindowResize([[maybe_unused]] WindowResizeEvent &e) {
 
 bool Application::onKeyReleased([[maybe_unused]] KeyReleasedEvent &e) {
   auto k = e.GetKeyCode();
-  LOG_INFO("Key released event with code: {0}", k);
+  // LOG_INFO("Key released event with code: {0}", k);
   if (k == V6_KEY_ESCAPE) {
     LOG_WARN("Closing window with escape key: {0}", k);
     running = false;
