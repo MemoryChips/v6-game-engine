@@ -4,6 +4,7 @@
 #include "application.h"
 #include "core/timestep.h"
 #include "input.h"
+#include "key-codes.h"
 #include "log.h"
 
 namespace v6 {
@@ -80,7 +81,7 @@ bool Application::onWindowResize([[maybe_unused]] WindowResizeEvent &e) {
 bool Application::onKeyReleased([[maybe_unused]] KeyReleasedEvent &e) {
   auto k = e.GetKeyCode();
   LOG_INFO("Key released event with code: {0}", k);
-  if (k == 256) {
+  if (k == V6_KEY_ESCAPE) {
     LOG_WARN("Closing window with escape key: {0}", k);
     running = false;
   }
