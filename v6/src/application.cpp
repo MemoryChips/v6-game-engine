@@ -68,13 +68,15 @@ bool Application::onWindowClosed([[maybe_unused]] WindowCloseEvent &e) {
 }
 
 bool Application::onWindowResize([[maybe_unused]] WindowResizeEvent &e) {
-  LOG_INFO("Window resize event with width: {0}, height: {1}", e.GetWidth(),
-           e.GetHeight());
-  if (e.GetWidth() == 0 || e.GetHeight() == 0) {
+  auto w = e.GetWidth();
+  auto h = e.GetHeight();
+  LOG_INFO("Window resize event with width: {0}, height: {1}", w, h);
+  if (w == 0 || h == 0) {
     minimized = true;
     return false;
   }
   minimized = false;
+  Renderer::onWindowResize(w, h);
   return false;
 }
 
