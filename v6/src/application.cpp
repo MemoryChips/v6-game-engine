@@ -84,8 +84,9 @@ bool Application::onKeyReleased([[maybe_unused]] KeyReleasedEvent &e) {
   if (k == V6_KEY_ESCAPE) {
     LOG_WARN("Closing window with escape key: {0}", k);
     running = false;
+    return true;
   }
-  return true;
+  return false;
 }
 
 } // namespace v6
