@@ -10,7 +10,7 @@ include_directories(sandbox/include)
 # TODO: Review these includes likely need them all to include the sub includes of v6.h
 include_directories(v6/vendor/spdlog/include)
 # for sure need v6/include which should be the public api of v6
-include_directories(v6/include v6/src)
+include_directories(v6/include v6/src v6)
 include_directories(v6/vendor/glfw/include/GLFW v6/vendor/glfw/deps)
 
 include_directories(v6/vendor/imgui/include)
