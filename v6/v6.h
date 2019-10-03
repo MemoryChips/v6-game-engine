@@ -20,3 +20,5 @@
 #include "renderer/shader.h"
 #include "renderer/texture.h"
 #include "renderer/vertex-array.h"
+
+#include "platform/opengl/opengl-shader.h"
