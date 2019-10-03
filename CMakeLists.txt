@@ -8,7 +8,8 @@ file(GLOB SOURCES "sandbox/src/*.cpp")
 
 include_directories(sandbox/include)
 # TODO: Review these includes likely need them all to include the sub includes of v6.h
-# this is needed duw to log.h including spdlog
+# TODO: Can precompiled headers help with this
+# this is needed due to log.h including spdlog
 include_directories(v6/vendor/spdlog/include)
 
 # for sure need v6 which should be the public api of v6
