@@ -1,18 +1,24 @@
-#pragma once
-#include <algorithm>
-#include <functional>
-#include <iostream>
-#include <memory>
-#include <utility>
+// #pragma once
 
-#include <sstream>
-#include <string>
-#include <unordered_map>
-#include <unordered_set>
-#include <vector>
+#include "application.h"
+// #include "layer.h"
+#include "log.h"
 
-// #include "log.h"
+#include "core/timestep.h"
 
-// #define String std::string
-// #define StringStream std::stringstream
-// #define OStream std::ostream
+#include "input.h"
+#include "key-codes.h"
+#include "mouse-button-codes.h"
+#include "ortho-cam-controller.h"
+
+#include "imgui-layer/imgui-layer.h"
+
+#include "renderer/buffer.h"
+#include "renderer/orthographic-camera.h"
+#include "renderer/render-command.h"
+#include "renderer/renderer.h"
+#include "renderer/shader.h"
+#include "renderer/texture.h"
+#include "renderer/vertex-array.h"
+
+#include "platform/opengl/opengl-shader.h"
