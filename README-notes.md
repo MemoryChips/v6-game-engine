@@ -42,6 +42,8 @@
 mkdir build
 cd build
 cmake .. -DCMAKE_BUILD_TYPE=Debug
+make -j3 # to build
+make clean
 ```
 
 ## Setup Notes
