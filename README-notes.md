@@ -117,6 +117,8 @@ git submodule update --remote --merge
 
 - This is currently not working since it is ignored by build
 
+- support to be added in version 3.16 of cmake
+
 ```bash
 INCLUDES="-Iinclude -Isrc -Ivendor/spdlog/include -Ivendor/glm"
 g++ $INCLUDES -c v6-pch.h -o v6-pch.h.gch -Wall -g -std=c++17
