@@ -4,6 +4,10 @@
 
 - see core.h and log.h for v6 defines that differ from Hazel
 
+- b62acd9c0c37c3b632bcf93f8ab404537cd0528b - in progress
+
+- 2b37c04ae1c7264f23f6af2d6c384ecc909f3b60 - manual done
+
 - 734ea180bedd2334bdc3f1927635287be1e754ed - glfw updated; imgui NOT
 
 - 0e034759705bb3b8ec5fa942e664798df9487469 - just started
