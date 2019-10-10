@@ -9,6 +9,8 @@
   - 1,2,3 ignore.
   - fb841f8c0100c7c090e03dc62cab64c0bbd2ddff - causes compile issues; commented out
   - 5509204cca7e6607c20294b71b93e5f8264a5825 - done
+  - a3ca6121084c2d69e8534a1b08a632282b5cb1c6 - done
+  - .gitmodules - ignored since my submodule setup differs
 
 - b62acd9c0c37c3b632bcf93f8ab404537cd0528b - done
 
