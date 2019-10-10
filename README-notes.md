@@ -4,7 +4,12 @@
 
 - see core.h and log.h for v6 defines that differ from Hazel
 
-- b62acd9c0c37c3b632bcf93f8ab404537cd0528b - in progress
+- Oct 5 commits 12 total
+
+  - 1,2,3 ignore.
+  - fb841f8c0100c7c090e03dc62cab64c0bbd2ddff - causes compile issues; commented out
+
+- b62acd9c0c37c3b632bcf93f8ab404537cd0528b - done
 
 - 2b37c04ae1c7264f23f6af2d6c384ecc909f3b60 - manual done
 

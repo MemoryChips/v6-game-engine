@@ -39,7 +39,9 @@ enum EventCategory {
   EventCategoryMouseButton = BIT(4)
 };
 
-//   static EventType GetStaticType() { return EventType::##type; }
+// TODO: Is this used? This causes many compile issues
+// #define static EventType GetStaticType(){return EventType::type; }
+// static EventType GetStaticType() { return EventType::##type; }
 // static EventType GetStaticType() { return EventType::None; }
 #define EVENT_CLASS_TYPE(type)                                                 \
   virtual EventType GetEventType() const override { return GetStaticType(); }  \
