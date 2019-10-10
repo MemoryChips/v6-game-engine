@@ -40,9 +40,11 @@ enum EventCategory {
 };
 
 // TODO: Is this used? This causes many compile issues
-// #define static EventType GetStaticType(){return EventType::type; }
-// static EventType GetStaticType() { return EventType::##type; }
-// static EventType GetStaticType() { return EventType::None; }
+// #define EVENT_CLASS_TYPE(type)
+//   static EventType GetStaticType() { return EventType::type; }
+//   virtual EventType GetEventType() const override { return GetStaticType(); }
+//   virtual const char *GetName() const override { return #type; }
+
 #define EVENT_CLASS_TYPE(type)                                                 \
   virtual EventType GetEventType() const override { return GetStaticType(); }  \
   virtual const char *GetName() const override { return #type; }
