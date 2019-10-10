@@ -11,6 +11,11 @@
   - 5509204cca7e6607c20294b71b93e5f8264a5825 - done
   - a3ca6121084c2d69e8534a1b08a632282b5cb1c6 - done
   - .gitmodules - ignored since my submodule setup differs
+  - 033af46fd59623f0a7ffa53344b4d3454ff28da8 - ignored for now until other platforms added
+  - 4e0a190a31bd7672dbf8afcdc6c82a6a1fa0c816 - todo with code along if possible **
+  - 14c3065f47d80a69bcf88b0c0a015b60d5ccb5a1 - done
+  - 32c0f5643c835a6223bdc5d286e85dacf0fb8be6 - todo with code along **
+  - bee34b9d9ad1ef0ee8c67b86059e1daceb3f9b24 - todo with code along **
 
 - b62acd9c0c37c3b632bcf93f8ab404537cd0528b - done
 
