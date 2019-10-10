@@ -120,7 +120,14 @@ void OpenGLShader::compile(
   // Always detach shaders after a successful link.
   for (unsigned int shaderId = 0; shaderId < glShaderIDIndex; shaderId++) {
     glDetachShader(program, glShaderIds[shaderId]);
+    glDeleteShader(glShaderIds[shaderId]);
   }
+  // Hazel code has a bug. It should be as follows but likely cleaned up in the
+  // future This code runs thru entire 12 position array so it fails also for
+  // (auto id : glShaderIds) {
+  //   glDetachShader(program, glShaderIds[id]);
+  //   glDeleteShader(glShaderIds[id]);
+  // }
 
   rendererId = program;
 }
