@@ -6,7 +6,7 @@
 
 namespace v6 {
 
-VertexArray *VertexArray::Create() {
+Ref<VertexArray> VertexArray::Create() {
   switch (RendererAPI::GetAPI()) {
   case RendererAPI::API::None:
     V6_CORE_ASSERT(false, "RendererAPI::API::None is currently not supported!");
@@ -15,7 +15,7 @@ VertexArray *VertexArray::Create() {
     V6_CORE_ASSERT(false, "RendererAPI::OpenGL3 is currently not supported!");
     return nullptr;
   case RendererAPI::API::OpenGL:
-    return new OpenGLVertexArray();
+    return std::make_shared<OpenGLVertexArray>();
   }
 
   V6_CORE_ASSERT(false, "Unknown RendererAPI!");

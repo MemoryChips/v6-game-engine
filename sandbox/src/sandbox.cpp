@@ -1,13 +1,14 @@
 #include "sandbox.h"
 #include "memory"
-// #include "platform/opengl/opengl-shader.h"
+#include "sandbox-2d.h"
+
 #include <gtc/type_ptr.hpp>
 
 using namespace v6;
 
 ExampleLayer::ExampleLayer()
     : Layer("Example"), orthoCamController(1280.0f / 720.0f) {
-  pVertexArray.reset(VertexArray::Create());
+  pVertexArray = VertexArray::Create();
 
   float vertices[3 * 7] = {-0.5f, -0.5f, 0.0f, 0.8f, 0.2f, 0.8f, 1.0f,
                            0.5f,  -0.5f, 0.0f, 0.2f, 0.3f, 0.8f, 1.0f,
@@ -26,7 +27,7 @@ ExampleLayer::ExampleLayer()
       IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
   pVertexArray->SetIndexBuffer(pIndexBuffer);
 
-  pSquareVA.reset(VertexArray::Create());
+  pSquareVA = VertexArray::Create();
 
   // clang-format off
   float squareVertices[5 * 4] = {
@@ -171,5 +172,8 @@ bool ExampleLayer::onKeyPressedEvent([[maybe_unused]] KeyPressedEvent &e) {
   return false;
 }
 
-Sandbox::Sandbox(/* args */) { pushLayer(new ExampleLayer()); }
+Sandbox::Sandbox(/* args */) { 
+  // pushLayer(new ExampleLayer()); 
+  pushLayer(new Sandbox2D()); 
+  }
 Sandbox::~Sandbox() {}
