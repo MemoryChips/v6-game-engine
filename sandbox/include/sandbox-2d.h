@@ -7,7 +7,8 @@
 
 using namespace v6;
 
-class Sandbox2D : public v6::Layer {
+// class Sandbox2D : public v6::Layer {
+class Sandbox2D : public Layer {
 public:
   Sandbox2D();
   virtual ~Sandbox2D() = default;
