@@ -1,15 +1,19 @@
-#include "renderer.h"
+// #include "renderer.h"
+#include "v6-pch.h"
 
 // temp work around for submit
-#include "memory"
-#include "platform/opengl/opengl-shader.h"
+// #include "memory"
+// #include "platform/opengl/opengl-shader.h"
 
 namespace v6 {
 Renderer::SceneData *Renderer::spSceneData = new Renderer::SceneData;
 void Renderer::onWindowResize(uint32_t w, uint32_t h) {
   RenderCommand::SetViewport(0, 0, w, h);
 }
-void Renderer::init() { RenderCommand::init(); }
+void Renderer::init() {
+  RenderCommand::init();
+  Renderer2D::init();
+}
 void Renderer::BeginScene(OrthographicCamera &camera) {
   spSceneData->ViewProjectionMatrix = camera.GetViewProjectionMatrix();
 }

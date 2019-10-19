@@ -47,7 +47,10 @@
     "cinttypes": "cpp",
     "type_traits": "cpp",
     "tuple": "cpp",
-    "typeinfo": "cpp"
+    "typeinfo": "cpp",
+    "iterator": "cpp",
+    "memory_resource": "cpp",
+    "string": "cpp"
   },
   "cmake.configureOnOpen": false,
   "editor.formatOnSave": true
