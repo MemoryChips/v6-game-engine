@@ -8,7 +8,7 @@
   - 0f583671c23c7a5e799269b791bc3d6220f99d22 - skip windows build only
   - 5edf68f3a973f76a93c0ef9eb576ff1fbcfbb9ea - Done
   - 3266b54fb00521a841efc2df2759a935336d7922 - skip PR template only
-  - c0418194eb97fb5399a30c603e887322403cda28 - TODO:
+  - c0418194eb97fb5399a30c603e887322403cda28 - Done
   - 60cf553b80598b06716592147e8753fd2cdcaac1 - manually added
 
 - Oct 17  

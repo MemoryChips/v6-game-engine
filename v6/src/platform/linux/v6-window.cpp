@@ -9,7 +9,7 @@
 
 namespace v6 {
 
-static bool s_GLFWInitialized = false;
+static uint8_t s_GLFWWindowCount = 0;
 
 static void GLFWErrorCallback(int error, const char *description) {
   LOG_CORE_ERROR("GLFW Error ({0}): {1}", error, description);
@@ -29,13 +29,13 @@ void V6Window::Init(const WindowProps &props) {
   LOG_CORE_INFO("Creating window {0} ({1}, {2})", props.title, props.width,
                 props.height);
 
-  if (!s_GLFWInitialized) {
-    // TODO: glfwTerminate on system shutdown
+  if (!s_GLFWWindowCount) {
+    LOG_CORE_INFO("Initializing GLFW");
     int success = glfwInit();
     V6_CORE_ASSERT(success, "Could not intialize GLFW!");
     // Enable glfw error callback
     glfwSetErrorCallback(GLFWErrorCallback);
-    s_GLFWInitialized = true;
+    ++s_GLFWWindowCount;
   }
 
   m_Window = glfwCreateWindow((int)props.width, (int)props.height,
@@ -132,7 +132,13 @@ void V6Window::Init(const WindowProps &props) {
       });
 }
 
-void V6Window::Shutdown() { glfwDestroyWindow(m_Window); }
+void V6Window::Shutdown() {
+  glfwDestroyWindow(m_Window);
+  if (--s_GLFWWindowCount == 0) {
+    LOG_CORE_INFO("Terminating GLFW");
+    glfwTerminate();
+  }
+}
 
 void V6Window::OnUpdate() {
   glfwPollEvents();
