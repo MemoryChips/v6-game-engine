@@ -1,5 +1,6 @@
 #include "renderer2D.h"
 #include "v6-pch.h"
+#include <gtc/matrix_transform.hpp>
 
 namespace v6 {
 
@@ -38,14 +39,16 @@ void Renderer2D::init() {
   pData->pFlatColorShader =
       Shader::Create("sandbox/assets/shaders/flatColor.glsl");
 }
+
 void Renderer2D::shutdown() { delete pData; }
 
 void Renderer2D::beginScene(const OrthographicCamera &camera) {
   pData->pFlatColorShader->bind();
   pData->pFlatColorShader->setMat4("u_ViewProjection",
                                    camera.GetViewProjectionMatrix());
-  pData->pFlatColorShader->setMat4("u_Transform", glm::mat4(1.0f));
+  // pData->pFlatColorShader->setMat4("u_Transform", glm::mat4(1.0f));
 }
+
 void Renderer2D::endScene() {}
 
 // Primitives
@@ -58,6 +61,12 @@ void Renderer2D::drawQuad(const glm::vec3 &position, const glm::vec2 &size,
                           const glm::vec4 color) {
   pData->pFlatColorShader->bind();
   pData->pFlatColorShader->setFloat4("u_Color", color);
+
+  glm::mat4 transform =
+      glm::translate(glm::mat4(1.0f), position) * /* rotation here */
+      glm::scale(glm::mat4(1.0f), {size.x, size.y, 1.0f});
+  pData->pFlatColorShader->setMat4("u_Transform", transform);
+
   pData->pQuadVeretexArray->Bind();
   RenderCommand::DrawIndexed(pData->pQuadVeretexArray);
 }
