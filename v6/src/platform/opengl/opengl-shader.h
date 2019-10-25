@@ -20,7 +20,18 @@ public:
 
   virtual void bind() const override;
   virtual void unbind() const override;
+
+  virtual void setFloat3(const std::string &name, const glm::vec3 &f);
+  virtual void setFloat4(const std::string &name, const glm::vec4 &f);
+  virtual void setMat4(const std::string &name, const glm::mat4 &m);
+
+  // virtual void setFloat3(const std::string &name, const glm::vec3 &f)
+  // override; virtual void setFloat4(const std::string &name, const glm::vec4
+  // &f) override; virtual void setMat4(const std::string &name, const glm::mat4
+  // &m) override;
+
   virtual const std::string &getName() const override { return name; };
+
   void UploadUniformInt(const std::string &name, const int &v);
 
   void UploadUniformFloat(const std::string &name, const float &v);

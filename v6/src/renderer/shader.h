@@ -3,6 +3,8 @@
 #include <string>
 #include <unordered_map>
 
+#include <glm.hpp>
+
 namespace v6 {
 
 class Shader {
@@ -11,6 +13,11 @@ public:
 
   virtual void bind() const = 0;
   virtual void unbind() const = 0;
+
+  virtual void setFloat3(const std::string &name, const glm::vec3 &f) = 0;
+  virtual void setFloat4(const std::string &name, const glm::vec4 &f) = 0;
+  virtual void setMat4(const std::string &name, const glm::mat4 &m) = 0;
+
   virtual const std::string &getName() const = 0;
   static Ref<Shader> Create(const std::string &name,
                             const std::string &vertexSrc,

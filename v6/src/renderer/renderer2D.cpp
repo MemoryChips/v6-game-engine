@@ -41,11 +41,10 @@ void Renderer2D::init() {
 void Renderer2D::shutdown() { delete pData; }
 
 void Renderer2D::beginScene(const OrthographicCamera &camera) {
-  std::dynamic_pointer_cast<OpenGLShader>(pData->pFlatColorShader)->bind();
-  std::dynamic_pointer_cast<v6::OpenGLShader>(pData->pFlatColorShader)
-      ->UploadUniformMat4("u_ViewProjection", camera.GetViewProjectionMatrix());
-  std::dynamic_pointer_cast<v6::OpenGLShader>(pData->pFlatColorShader)
-      ->UploadUniformMat4("u_Transform", glm::mat4(1.0f));
+  pData->pFlatColorShader->bind();
+  pData->pFlatColorShader->setMat4("u_ViewProjection",
+                                   camera.GetViewProjectionMatrix());
+  pData->pFlatColorShader->setMat4("u_Transform", glm::mat4(1.0f));
 }
 void Renderer2D::endScene() {}
 
@@ -57,9 +56,8 @@ void Renderer2D::drawQuad(const glm::vec2 &position, const glm::vec2 &size,
 
 void Renderer2D::drawQuad(const glm::vec3 &position, const glm::vec2 &size,
                           const glm::vec4 color) {
-  std::dynamic_pointer_cast<OpenGLShader>(pData->pFlatColorShader)->bind();
-  std::dynamic_pointer_cast<v6::OpenGLShader>(pData->pFlatColorShader)
-      ->UploadUniformFloat4("u_Color", color);
+  pData->pFlatColorShader->bind();
+  pData->pFlatColorShader->setFloat4("u_Color", color);
   pData->pQuadVeretexArray->Bind();
   RenderCommand::DrawIndexed(pData->pQuadVeretexArray);
 }
