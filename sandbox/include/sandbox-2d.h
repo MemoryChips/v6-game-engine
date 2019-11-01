@@ -24,6 +24,9 @@ private:
   // Temp
   Ref<VertexArray> pSquareVA;
   Ref<Shader> pFlatColorShader;
+  Ref<Texture2D> pCheckerboardTexture;
+  Ref<Texture2D> pShowerPeterArnoTexture;
+  // Ref<Shader> pTextureShader;
   // Ref<Shader> pShader;
 
   glm::vec4 squareColor = {0.2f, 0.3f, 0.8f, 1.0f};

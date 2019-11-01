@@ -21,9 +21,10 @@ public:
   virtual void bind() const override;
   virtual void unbind() const override;
 
-  virtual void setFloat3(const std::string &name, const glm::vec3 &f);
-  virtual void setFloat4(const std::string &name, const glm::vec4 &f);
-  virtual void setMat4(const std::string &name, const glm::mat4 &m);
+  virtual void setInt(const std::string &name, int value) override;
+  virtual void setFloat3(const std::string &name, const glm::vec3 &f) override;
+  virtual void setFloat4(const std::string &name, const glm::vec4 &f) override;
+  virtual void setMat4(const std::string &name, const glm::mat4 &m) override;
 
   // virtual void setFloat3(const std::string &name, const glm::vec3 &f)
   // override; virtual void setFloat4(const std::string &name, const glm::vec4

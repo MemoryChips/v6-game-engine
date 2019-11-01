@@ -23,7 +23,7 @@ private:
   Ref<Shader> pFlatColorShader;
   // Ref<Shader> pFlatColorShader, pTextureShader;
   Ref<VertexArray> pSquareVA;
-  Ref<Texture2D> pTexture, pChernoLogoTexture;
+  Ref<Texture2D> pTexture, pChernoLogoTexture, pShowerPeterArnoTexture;
   OrthoCamController orthoCamController;
   // OrthographicCamera camera;
   // glm::vec3 cameraPosition;

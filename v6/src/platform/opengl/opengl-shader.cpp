@@ -178,6 +178,10 @@ void OpenGLShader::bind() const { glUseProgram(rendererId); }
 
 void OpenGLShader::unbind() const { glUseProgram(0); }
 
+void OpenGLShader::setInt(const std::string &name, int value) {
+  UploadUniformInt(name, value);
+}
+
 void OpenGLShader::setFloat3(const std::string &name, const glm::vec3 &f) {
   UploadUniformFloat3(name, f);
 }

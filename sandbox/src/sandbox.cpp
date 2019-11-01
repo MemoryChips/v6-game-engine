@@ -119,6 +119,7 @@ ExampleLayer::ExampleLayer()
   
   pTexture = Texture2D::create("./sandbox/assets/textures/checkerboard.png");
   pChernoLogoTexture = Texture2D::create("./sandbox/assets/textures/ChernoLogo.png");
+  pShowerPeterArnoTexture = Texture2D::create("./sandbox/assets/textures/shower-peter-arno.png");
   
   std::dynamic_pointer_cast<OpenGLShader>(pTextureShader)->bind();
   std::dynamic_pointer_cast<OpenGLShader>(pTextureShader)

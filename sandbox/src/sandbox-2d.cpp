@@ -12,7 +12,10 @@ void Sandbox2D::onDetach() {}
 
 void Sandbox2D::onEvent(v6::Event &e) { orthoCamController.onEvent(e); }
 
-void Sandbox2D::onAttach() {}
+void Sandbox2D::onAttach() {
+  pCheckerboardTexture =
+      Texture2D::create("./sandbox/assets/textures/checkerboard.png");
+}
 
 void Sandbox2D::onUpdate(Timestep ts) {
   // Update
@@ -27,6 +30,7 @@ void Sandbox2D::onUpdate(Timestep ts) {
                            {0.8f, 0.1f, 0.1f, 1.0f});
   v6::Renderer2D::drawQuad({0.0f, -0.5f}, {0.5f, 0.75f},
                            {0.2f, 0.3f, 0.8f, 1.0f});
+  v6::Renderer2D::drawQuad({0.2f, 0.5f}, {0.5f, 0.5f}, pCheckerboardTexture);
   v6::Renderer2D::endScene();
 }
 
