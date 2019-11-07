@@ -85,6 +85,7 @@ void Renderer2D::drawQuad(const glm::vec2 &position, const glm::vec2 &size,
 }
 void Renderer2D::drawQuad(const glm::vec3 &position, const glm::vec2 &size,
                           const Ref<Texture2D> texture) {
+  // pData->pTextureShader->setFloat4("u_Color", {0.2f, 0.3f, 0.8f, 0.5f});
   pData->pTextureShader->setFloat4("u_Color", glm::vec4(1.0f));
   texture->bind();
   glm::mat4 transform =
