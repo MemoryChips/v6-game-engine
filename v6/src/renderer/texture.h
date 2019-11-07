@@ -9,11 +9,13 @@ public:
   virtual ~Texture() = default;
   virtual uint32_t GetWidth() const = 0;
   virtual uint32_t GetHeight() const = 0;
+  virtual void setData(void *pData, uint32_t size) const = 0;
   virtual void bind(uint32_t slot = 0) const = 0;
 };
 
 class Texture2D : public Texture {
 public:
+  static Ref<Texture2D> create(uint32_t w, uint32_t h);
   static Ref<Texture2D> create(const std::string &path);
 };
 
