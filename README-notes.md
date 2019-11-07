@@ -4,6 +4,12 @@
 
 - see core.h and log.h for v6 defines that differ from Hazel
 
+- Nov 7
+  - 8c35857cc442706ec0196d0298fefa11dfcbe0bf - in progress
+
+- Nov 6
+  - 6791c41095c85e200342c583e6100fdcf73ff933 - Done
+
 - Oct 19
   - 0f583671c23c7a5e799269b791bc3d6220f99d22 - skip windows build only
   - 5edf68f3a973f76a93c0ef9eb576ff1fbcfbb9ea - Done

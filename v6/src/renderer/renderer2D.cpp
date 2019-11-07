@@ -27,7 +27,7 @@ void Renderer2D::init() {
   // clang-format on
 
   Ref<VertexBuffer> pSquareVB;
-  // pSquareVB = VertexBuffer::Create(squareVertices, sizeof(squareVertices));
+
   pSquareVB.reset(VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
   pSquareVB->SetLayout({{ShaderDataType::Float3, "a_Position"},
                         {ShaderDataType::Float2, "a_TexCoord"}});
