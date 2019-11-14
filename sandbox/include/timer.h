@@ -2,11 +2,13 @@
 #include <chrono>
 
 // TODO: Create timer.cpp
+
 using namespace std::chrono;
-class Timer {
+
+template <typename Fn> class Timer {
 
 public:
-  Timer(const char *name) : name(name), stopped(false) {
+  Timer(const char *name, Fn &&func) : name(name), func(func), stopped(false) {
     startTimepoint = high_resolution_clock::now();
   }
   ~Timer() {
@@ -22,12 +24,13 @@ public:
         time_point_cast<microseconds>(endTimepoint).time_since_epoch().count();
     stopped = true;
     float duration = (end - start) * 0.001;
-    LOG_INFO("{1} duration: {0} ms", duration, name);
-    // std::cout << "Duration: " << (end - start) << std::endl;
+    // LOG_INFO("{1} duration: {0} ms", duration, name);
+    func({name, duration});
   }
 
 private:
   const char *name;
+  Fn func;
   time_point<system_clock, nanoseconds> startTimepoint;
   bool stopped;
 };
