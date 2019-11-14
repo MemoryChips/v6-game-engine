@@ -3,8 +3,9 @@
 #include "imgui.h"
 #include <gtc/type_ptr.hpp>
 
-using namespace v6;
+#include "timer.h"
 
+using namespace v6;
 Sandbox2D::Sandbox2D()
     : Layer("Sandbox2D"), orthoCamController(1280.0f / 720.0f) {}
 
@@ -20,6 +21,7 @@ void Sandbox2D::onAttach() {
 }
 
 void Sandbox2D::onUpdate(Timestep ts) {
+  Timer timer("Sandbox2D::onUpdate");
   // Update
   orthoCamController.onUpdate(ts);
 
