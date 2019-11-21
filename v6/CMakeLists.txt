@@ -12,7 +12,8 @@ include_directories(vendor/glad/include)
 include_directories(vendor/stb-image)
 
 # set(COMPILE_DEFINITIONS "V6_DEBUG")
-set(V6_DEBUG_COMPILE "-DV6_DEBUG -DGLFW_INCLUDE_NONE")
+# set(V6_DEBUG_COMPILE "-DV6_DEBUG -DGLFW_INCLUDE_NONE")
+set(V6_DEBUG_COMPILE "-DV6_PROFILE -DV6_DEBUG -DGLFW_INCLUDE_NONE")
 set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} ${V6_DEBUG_COMPILE}")
 
 # for imgui lib

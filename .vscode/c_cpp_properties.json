@@ -8,6 +8,7 @@
         "${workspaceFolder}/v6",
         "${workspaceFolder}/v6/include",
         "${workspaceFolder}/v6/src",
+        "${workspaceFolder}/v6/debug",
         "${workspaceFolder}/v6/vendor/spdlog/include",
         "${workspaceFolder}/v6/vendor/glm/*",
         "${workspaceFolder}/v6/vendor/stb-image/*",
@@ -19,7 +20,8 @@
       "defines": [
         "IMGUI_IMPL_OPENGL_LOADER_GLAD",
         "V6_DEBUG",
-        "V6_DEMO_VERSION"
+        "V6_DEMO_VERSION",
+        "V6_PROFILE"
       ],
       "compilerPath": "/usr/bin/gcc",
       "cStandard": "c11",

@@ -14,6 +14,7 @@ include_directories(v6/vendor/spdlog/include)
 
 # for sure need v6 which should be the public api of v6
 include_directories(v6 v6/include v6/src)
+include_directories(v6 v6/include v6/debug)
 
 include_directories(v6/vendor/glfw/include/GLFW v6/vendor/glfw/deps)
 
