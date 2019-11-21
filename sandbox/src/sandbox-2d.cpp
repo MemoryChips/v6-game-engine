@@ -3,14 +3,7 @@
 #include "imgui.h"
 #include <gtc/type_ptr.hpp>
 
-#include "timer.h"
-
 using namespace v6;
-
-#define PROFILE_SCOPE(name)                                                    \
-  Timer timer##__LINE__(name, [&](ProfileResult profileResult) {               \
-    profileResults.push_back(profileResult);                                   \
-  })
 
 Sandbox2D::Sandbox2D()
     : Layer("Sandbox2D"), orthoCamController(1280.0f / 720.0f) {}
@@ -28,22 +21,22 @@ void Sandbox2D::onAttach() {
 
 void Sandbox2D::onUpdate(Timestep ts) {
 
-  PROFILE_SCOPE("Sandbox2D::onUpdate");
+  V6_PROFILE_FUNCTION();
 
   // Update
   {
-    PROFILE_SCOPE("CameraController::OnUpdate");
+    V6_PROFILE_SCOPE("CameraController::OnUpdate");
     orthoCamController.onUpdate(ts);
   }
 
   // Render
   {
-    PROFILE_SCOPE("Render Prep");
+    V6_PROFILE_SCOPE("Render Prep");
     v6::RenderCommand::SetClearColor({0.1f, 0.1f, 0.1f, 1});
     v6::RenderCommand::Clear();
   }
   {
-    PROFILE_SCOPE("Renderer Draw");
+    V6_PROFILE_SCOPE("Renderer Draw");
     v6::Renderer2D::beginScene(orthoCamController.GetCamera());
     v6::Renderer2D::drawQuad({-1.0f, 0.0f}, {0.8f, 0.8f},
                              {0.8f, 0.1f, 0.1f, 1.0f});
@@ -58,16 +51,11 @@ void Sandbox2D::onUpdate(Timestep ts) {
 }
 
 void Sandbox2D::onImGuiRender() {
+
+  V6_PROFILE_FUNCTION();
+
   ImGui::Begin("Settings");
   ImGui::ColorEdit4("Square Color", glm::value_ptr(squareColor));
-
-  for (auto &result : profileResults) {
-    char label[50];
-    strcpy(label, " %.3f mS");
-    strcat(label, result.name);
-    ImGui::Text(label, result.time);
-  }
-  profileResults.clear();
 
   ImGui::End();
 }

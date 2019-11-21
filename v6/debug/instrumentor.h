@@ -1,12 +1,12 @@
 #pragma once
-namespace v6 {
 
 #include <algorithm>
 #include <chrono>
 #include <fstream>
 #include <string>
-
 #include <thread>
+
+namespace v6 {
 
 struct ProfileResult {
   std::string Name;
@@ -116,15 +116,16 @@ private:
 
 } // namespace v6
 
+#define V6_PROFILE 1 // FIXME: this is also specified in the v6 debug cmakelist
 #if V6_PROFILE
-#define V6_BEGIN_SESSION(name, filepath)                                       \
-  ::v6::Instrumentor::get().BeginSession(name, filepath)
-#define V6_END_SESSION() ::v6::Instrumentor::get().EndSession()
-#define V6_PROFILE_SCOPE(name) ::v6::InstrumentorTimer timer##__LINE__;
-#define V6_PROFILE_FUNCTION() V6_PROFILE_SCOPE(__FUNCSIG__)
+#define V6_PROFILE_BEGIN_SESSION(name, filepath)                               \
+  ::v6::Instrumentor::get().beginSession(name, filepath)
+#define V6_PROFILE_END_SESSION() ::v6::Instrumentor::get().endSession()
+#define V6_PROFILE_SCOPE(name) ::v6::InstrumentationTimer timer##__LINE__(name);
+#define V6_PROFILE_FUNCTION() V6_PROFILE_SCOPE(__FUNCTION__)
 #else
-#define V6_BEGIN_SESSION(name, filepath)
-#define V6_END_SESSION()
+#define V6_PROFILE_BEGIN_SESSION(name, filepath)
+#define V6_PROFILE_END_SESSION()
 #define V6_PROFILE_SCOPE(name)
 #define V6_PROFILE_FUNCTION()
 #endif

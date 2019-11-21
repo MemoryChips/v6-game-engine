@@ -23,3 +23,5 @@
 #include "renderer/vertex-array.h"
 
 #include "platform/opengl/opengl-shader.h"
+
+#include "instrumentor.h"

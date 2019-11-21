@@ -6,3 +6,5 @@ imgui.ini
 
 # precompiled headers
 *.h.gch
+
+sandbox-*
