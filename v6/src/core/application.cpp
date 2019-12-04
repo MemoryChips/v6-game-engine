@@ -46,6 +46,7 @@ void Application::pushOverlay(Layer *layer) {
 }
 
 void Application::onEvent(Event &e) {
+  V6_PROFILE_FUNCTION();
   EventDispatcher d(e);
   d.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(onWindowClosed));
   d.Dispatch<WindowResizeEvent>(BIND_EVENT_FN(onWindowResize));
@@ -59,21 +60,27 @@ void Application::onEvent(Event &e) {
 }
 
 void Application::run() {
+  V6_PROFILE_FUNCTION();
   while (running) {
+    V6_PROFILE_SCOPE("RunLoop")
     double time = glfwGetTime();
     Timestep timestep = time - lastFrameTimeSec;
     lastFrameTimeSec = time;
 
     if (!minimized) {
-      for (Layer *layer : layerStack)
-        layer->onUpdate(timestep.getSeconds());
+      {
+        V6_PROFILE_SCOPE("LayerStack OnUpdates")
+        for (Layer *layer : layerStack)
+          layer->onUpdate(timestep.getSeconds());
+      }
+      imGuiLayer->begin();
+      {
+        V6_PROFILE_SCOPE("LayerStack onImGuiRender")
+        for (Layer *layer : layerStack)
+          layer->onImGuiRender();
+      }
+      imGuiLayer->end();
     }
-
-    imGuiLayer->begin();
-    for (Layer *layer : layerStack)
-      layer->onImGuiRender();
-    imGuiLayer->end();
-
     pWindow->OnUpdate();
   }
 }
@@ -84,6 +91,7 @@ bool Application::onWindowClosed([[maybe_unused]] WindowCloseEvent &e) {
 }
 
 bool Application::onWindowResize([[maybe_unused]] WindowResizeEvent &e) {
+  V6_PROFILE_FUNCTION();
   auto w = e.GetWidth();
   auto h = e.GetHeight();
   // LOG_INFO("Window resize event with width: {0}, height: {1}", w, h);
