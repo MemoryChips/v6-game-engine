@@ -37,10 +37,12 @@ Application::~Application() {
 void Application::pushLayer(Layer *layer) {
   V6_PROFILE_FUNCTION();
   layerStack.pushLayer(layer);
+  layer->onAttach();
 }
 void Application::pushOverlay(Layer *layer) {
   V6_PROFILE_FUNCTION();
   layerStack.pushOverlay(layer);
+  layer->onAttach();
 }
 
 void Application::onEvent(Event &e) {
