@@ -11,6 +11,7 @@ void Renderer::onWindowResize(uint32_t w, uint32_t h) {
   RenderCommand::SetViewport(0, 0, w, h);
 }
 void Renderer::init() {
+  V6_PROFILE_FUNCTION();
   RenderCommand::init();
   Renderer2D::init();
 }

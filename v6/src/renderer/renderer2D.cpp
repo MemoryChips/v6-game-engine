@@ -14,6 +14,8 @@ static R2DStorage *pData;
 
 void Renderer2D::init() {
 
+  V6_PROFILE_FUNCTION();
+
   pData = new R2DStorage();
   pData->pQuadVeretexArray = VertexArray::Create();
 

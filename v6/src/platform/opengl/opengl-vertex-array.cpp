@@ -1,4 +1,5 @@
 #include "opengl-vertex-array.h"
+#include "instrumentor.h"
 #include "log.h"
 
 #include <glad/glad.h>
@@ -39,18 +40,27 @@ static GLenum ShaderDataTypeToOpenGLBaseType(ShaderDataType type) {
 }
 
 OpenGLVertexArray::OpenGLVertexArray() {
+  V6_PROFILE_FUNCTION();
   glCreateVertexArrays(1, &m_RendererID);
 }
 
 OpenGLVertexArray::~OpenGLVertexArray() {
+  V6_PROFILE_FUNCTION();
   glDeleteVertexArrays(1, &m_RendererID);
 }
 
-void OpenGLVertexArray::Bind() const { glBindVertexArray(m_RendererID); }
+void OpenGLVertexArray::Bind() const {
+  V6_PROFILE_FUNCTION();
+  glBindVertexArray(m_RendererID);
+}
 
-void OpenGLVertexArray::Unbind() const { glBindVertexArray(0); }
+void OpenGLVertexArray::Unbind() const {
+  V6_PROFILE_FUNCTION();
+  glBindVertexArray(0);
+}
 
 void OpenGLVertexArray::AddVertexBuffer(const Ref<VertexBuffer> &vertexBuffer) {
+  V6_PROFILE_FUNCTION();
   V6_CORE_ASSERT(vertexBuffer->GetLayout().GetElements().size(),
                  "Vertex Buffer has no layout!");
 
@@ -71,6 +81,7 @@ void OpenGLVertexArray::AddVertexBuffer(const Ref<VertexBuffer> &vertexBuffer) {
 }
 
 void OpenGLVertexArray::SetIndexBuffer(const Ref<IndexBuffer> &indexBuffer) {
+  V6_PROFILE_FUNCTION();
   glBindVertexArray(m_RendererID);
   indexBuffer->Bind();
 

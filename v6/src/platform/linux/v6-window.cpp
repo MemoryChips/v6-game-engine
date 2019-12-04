@@ -22,9 +22,13 @@ V6Window::V6Window(const WindowProps &props) {
   Init(props);
 }
 
-V6Window::~V6Window() { Shutdown(); }
+V6Window::~V6Window() {
+  V6_PROFILE_FUNCTION();
+  Shutdown();
+}
 
 void V6Window::Init(const WindowProps &props) {
+  V6_PROFILE_FUNCTION();
   m_Data.Title = props.title;
   m_Data.Width = props.width;
   m_Data.Height = props.height;
@@ -136,6 +140,7 @@ void V6Window::Init(const WindowProps &props) {
 }
 
 void V6Window::Shutdown() {
+  V6_PROFILE_FUNCTION();
   glfwDestroyWindow(m_Window);
   if (--s_GLFWWindowCount == 0) {
     LOG_CORE_INFO("Terminating GLFW");
@@ -144,11 +149,15 @@ void V6Window::Shutdown() {
 }
 
 void V6Window::OnUpdate() {
+  V6_PROFILE_FUNCTION();
   glfwPollEvents();
   m_Context->SwapBuffers();
 }
 
 void V6Window::SetVSync(bool enabled) {
+
+  V6_PROFILE_FUNCTION();
+
   if (enabled)
     glfwSwapInterval(1);
   else

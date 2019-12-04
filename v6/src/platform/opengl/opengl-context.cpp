@@ -1,5 +1,6 @@
 #include "platform/opengl/opengl-context.h"
 #include "core.h"
+#include "instrumentor.h" // TODO: should this be in core.h?
 #include "log.h"
 #include <glad/glad.h>
 
@@ -28,6 +29,7 @@ OpenGLContext::OpenGLContext(GLFWwindow *windowHandle)
 }
 
 void OpenGLContext::Init() {
+  V6_PROFILE_FUNCTION();
   glfwMakeContextCurrent(m_WindowHandle);
   int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
   V6_ASSERT(status, "Failed to initialize Glad!");
@@ -56,6 +58,9 @@ void OpenGLContext::Init() {
 #endif
 }
 
-void OpenGLContext::SwapBuffers() { glfwSwapBuffers(m_WindowHandle); }
+void OpenGLContext::SwapBuffers() {
+  V6_PROFILE_FUNCTION();
+  glfwSwapBuffers(m_WindowHandle);
+}
 
 } // namespace v6
