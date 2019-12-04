@@ -28,7 +28,8 @@ private:
 
 public:
   Application(/* args */);
-  virtual ~Application() = default;
+  virtual ~Application();
+  // virtual ~Application() = default;
   void run();
   void onEvent(Event &e);
   void pushLayer(Layer *layer);

@@ -8,6 +8,7 @@ namespace v6 {
 class Renderer {
 public:
   static void init();
+  static void shutdown();
   static void onWindowResize(uint32_t w, uint32_t h);
   static void BeginScene(OrthographicCamera &camera);
   static void EndScene();

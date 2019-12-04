@@ -1,7 +1,7 @@
 #include "application.h"
 
 #include "GLFW/glfw3.h"
-// #include "renderer/renderer.h"
+#include "renderer/renderer.h"
 
 // #include "core/timestep.h"
 // #include "input.h"
@@ -28,6 +28,8 @@ Application::Application(/* args */) {
   imGuiLayer = new ImGuiLayer();
   pushOverlay(imGuiLayer);
 }
+
+Application::~Application() { Renderer::shutdown(); }
 
 void Application::pushLayer(Layer *layer) { layerStack.pushLayer(layer); }
 void Application::pushOverlay(Layer *layer) { layerStack.pushOverlay(layer); }
