@@ -42,12 +42,14 @@ void V6Window::Init(const WindowProps &props) {
     V6_CORE_ASSERT(success, "Could not intialize GLFW!");
     // Enable glfw error callback
     glfwSetErrorCallback(GLFWErrorCallback);
-    ++s_GLFWWindowCount;
   }
 
-  m_Window = glfwCreateWindow((int)props.width, (int)props.height,
-                              m_Data.Title.c_str(), nullptr, nullptr);
-
+  {
+    V6_PROFILE_SCOPE("glfwCreateWindow")
+    m_Window = glfwCreateWindow((int)props.width, (int)props.height,
+                                m_Data.Title.c_str(), nullptr, nullptr);
+    ++s_GLFWWindowCount;
+  }
   m_Context = new OpenGLContext(m_Window);
   m_Context->Init();
 
