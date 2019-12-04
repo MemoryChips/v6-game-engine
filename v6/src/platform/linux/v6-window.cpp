@@ -37,6 +37,7 @@ void V6Window::Init(const WindowProps &props) {
                 props.height);
 
   if (!s_GLFWWindowCount) {
+    V6_PROFILE_SCOPE("glfwInit")
     LOG_CORE_INFO("Initializing GLFW");
     int success = glfwInit();
     V6_CORE_ASSERT(success, "Could not intialize GLFW!");
