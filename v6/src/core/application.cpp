@@ -29,10 +29,19 @@ Application::Application(/* args */) {
   pushOverlay(imGuiLayer);
 }
 
-Application::~Application() { Renderer::shutdown(); }
+Application::~Application() {
+  V6_PROFILE_FUNCTION();
+  Renderer::shutdown();
+}
 
-void Application::pushLayer(Layer *layer) { layerStack.pushLayer(layer); }
-void Application::pushOverlay(Layer *layer) { layerStack.pushOverlay(layer); }
+void Application::pushLayer(Layer *layer) {
+  V6_PROFILE_FUNCTION();
+  layerStack.pushLayer(layer);
+}
+void Application::pushOverlay(Layer *layer) {
+  V6_PROFILE_FUNCTION();
+  layerStack.pushOverlay(layer);
+}
 
 void Application::onEvent(Event &e) {
   EventDispatcher d(e);
