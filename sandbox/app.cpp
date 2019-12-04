@@ -1,3 +1,5 @@
+#define V6_PROFILE
+
 #include "sandbox.h"
 
 #ifndef V6_DEMO_VERSION

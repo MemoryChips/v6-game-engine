@@ -116,8 +116,8 @@ private:
 
 } // namespace v6
 
-#define V6_PROFILE // FIXME: this is also specified in the v6 debug but does not
-                   // work
+// #define V6_PROFILE // FIXME: this is also specified in the v6 debug but does
+// not work
 // cmakelist
 #ifdef V6_PROFILE
 #define V6_PROFILE_BEGIN_SESSION(name, filepath)                               \
