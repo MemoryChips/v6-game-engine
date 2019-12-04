@@ -8,11 +8,12 @@ using namespace v6;
 Sandbox2D::Sandbox2D()
     : Layer("Sandbox2D"), orthoCamController(1280.0f / 720.0f) {}
 
-void Sandbox2D::onDetach() {}
+void Sandbox2D::onDetach() { V6_PROFILE_FUNCTION(); }
 
 void Sandbox2D::onEvent(v6::Event &e) { orthoCamController.onEvent(e); }
 
 void Sandbox2D::onAttach() {
+  V6_PROFILE_FUNCTION();
   pCheckerboardTexture =
       Texture2D::create("./sandbox/assets/textures/checkerboard.png");
   pShowerPeterArnoTexture =

@@ -1,5 +1,5 @@
 #include "ortho-cam-controller.h"
-// #include "hzpch.h"
+#include "instrumentor.h"
 
 #include "input.h"
 #include "key-codes.h"
@@ -13,6 +13,7 @@ OrthoCamController::OrthoCamController(float aspectRatio, bool rotation)
       rotation(rotation) {}
 
 void OrthoCamController::onUpdate(Timestep ts) {
+  V6_PROFILE_FUNCTION();
   if (Input::isKeyPressed(V6_KEY_A))
     cameraPosition.x -= cameraTranslationSpeed * ts;
   else if (Input::isKeyPressed(V6_KEY_D))
@@ -38,6 +39,7 @@ void OrthoCamController::onUpdate(Timestep ts) {
 }
 
 void OrthoCamController::onEvent(Event &e) {
+  V6_PROFILE_FUNCTION();
   EventDispatcher dispatcher(e);
   dispatcher.Dispatch<MouseScrolledEvent>(
       V6_BIND_EVENT_FN(OrthoCamController::onMouseScrolled));
@@ -46,6 +48,7 @@ void OrthoCamController::onEvent(Event &e) {
 }
 
 bool OrthoCamController::onMouseScrolled(MouseScrolledEvent &e) {
+  V6_PROFILE_FUNCTION();
   zoomLevel -= e.GetYOffset() * 0.25f;
   zoomLevel = std::max(zoomLevel, 0.25f);
   camera.setProjection(-aspectRatio * zoomLevel, aspectRatio * zoomLevel,
@@ -54,6 +57,7 @@ bool OrthoCamController::onMouseScrolled(MouseScrolledEvent &e) {
 }
 
 bool OrthoCamController::onWindowResized(WindowResizeEvent &e) {
+  V6_PROFILE_FUNCTION();
   aspectRatio = (float)e.GetWidth() / (float)e.GetHeight();
   camera.setProjection(-aspectRatio * zoomLevel, aspectRatio * zoomLevel,
                        -zoomLevel, zoomLevel);
