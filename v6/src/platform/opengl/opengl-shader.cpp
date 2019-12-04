@@ -1,6 +1,7 @@
 // #include "hzpch.h"
 #include "opengl-shader.h"
 #include "core.h"
+#include "instrumentor.h"
 #include "log.h"
 #include <array>
 #include <vector>
@@ -24,6 +25,7 @@ static GLenum shaderTypeFromString(const std::string &type) {
 }
 
 OpenGLShader::OpenGLShader(const std::string &filePath) {
+  V6_PROFILE_FUNCTION();
   std::string source = readFile(filePath);
   auto shaderSources = preProcess(source);
   compile(shaderSources);
@@ -40,6 +42,7 @@ OpenGLShader::OpenGLShader(const std::string &name,
                            const std::string &vertexSrc,
                            const std::string &fragmentSrc)
     : name(name) {
+  V6_PROFILE_FUNCTION();
   std::unordered_map<GLenum, std::string> shaderSources;
   shaderSources[GL_VERTEX_SHADER] = vertexSrc;
   shaderSources[GL_FRAGMENT_SHADER] = fragmentSrc;
@@ -49,9 +52,8 @@ OpenGLShader::OpenGLShader(const std::string &name,
 void OpenGLShader::compile(
     const std::unordered_map<GLenum, std::string> &shaderSources) {
 
+  V6_PROFILE_FUNCTION();
   GLuint program = glCreateProgram();
-// std::vector<GLenum> glShaderIds;
-// glShaderIds.reserve(shaderSources.size());
 #define NUM_SHADERS 12
   V6_CORE_ASSERT(shaderSources.size() <= NUM_SHADERS,
                  "We only support limited shaders for now");
@@ -132,10 +134,14 @@ void OpenGLShader::compile(
   rendererId = program;
 }
 
-OpenGLShader::~OpenGLShader() { glDeleteProgram(rendererId); }
+OpenGLShader::~OpenGLShader() {
+  V6_PROFILE_FUNCTION();
+  glDeleteProgram(rendererId);
+}
 
 std::unordered_map<GLenum, std::string>
 OpenGLShader::preProcess(const std::string &source) {
+  V6_PROFILE_FUNCTION();
   std::unordered_map<GLenum, std::string> shaderSources;
   const char *typeToken = "#type";
   size_t typeTokenLength = strlen(typeToken);
@@ -160,6 +166,7 @@ OpenGLShader::preProcess(const std::string &source) {
 }
 
 std::string OpenGLShader::readFile(const std::string &filePath) {
+  V6_PROFILE_FUNCTION();
   std::ifstream in(filePath, std::ios::in | std::ios::binary);
   std::string result;
   if (in) {
@@ -174,21 +181,31 @@ std::string OpenGLShader::readFile(const std::string &filePath) {
   return result;
 }
 
-void OpenGLShader::bind() const { glUseProgram(rendererId); }
+void OpenGLShader::bind() const {
+  V6_PROFILE_FUNCTION();
+  glUseProgram(rendererId);
+}
 
-void OpenGLShader::unbind() const { glUseProgram(0); }
+void OpenGLShader::unbind() const {
+  V6_PROFILE_FUNCTION();
+  glUseProgram(0);
+}
 
 void OpenGLShader::setInt(const std::string &name, int value) {
+  V6_PROFILE_FUNCTION();
   UploadUniformInt(name, value);
 }
 
 void OpenGLShader::setFloat3(const std::string &name, const glm::vec3 &f) {
+  V6_PROFILE_FUNCTION();
   UploadUniformFloat3(name, f);
 }
 void OpenGLShader::setFloat4(const std::string &name, const glm::vec4 &f) {
+  V6_PROFILE_FUNCTION();
   UploadUniformFloat4(name, f);
 }
 void OpenGLShader::setMat4(const std::string &name, const glm::mat4 &m) {
+  V6_PROFILE_FUNCTION();
   UploadUniformMat4(name, m);
 }
 

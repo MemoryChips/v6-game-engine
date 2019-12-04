@@ -50,16 +50,20 @@ void Renderer2D::init() {
   pData->pTextureShader->setInt("u_Texture", 0);
 }
 
-void Renderer2D::shutdown() { delete pData; }
+void Renderer2D::shutdown() {
+  V6_PROFILE_FUNCTION();
+  delete pData;
+}
 
 void Renderer2D::beginScene(const OrthographicCamera &camera) {
+  V6_PROFILE_FUNCTION();
 
   pData->pTextureShader->bind();
   pData->pTextureShader->setMat4("u_ViewProjection",
                                  camera.GetViewProjectionMatrix());
 }
 
-void Renderer2D::endScene() {}
+void Renderer2D::endScene() { V6_PROFILE_FUNCTION(); }
 
 // Primitives
 void Renderer2D::drawQuad(const glm::vec2 &position, const glm::vec2 &size,
@@ -69,6 +73,7 @@ void Renderer2D::drawQuad(const glm::vec2 &position, const glm::vec2 &size,
 
 void Renderer2D::drawQuad(const glm::vec3 &position, const glm::vec2 &size,
                           const glm::vec4 color) {
+  V6_PROFILE_FUNCTION();
   pData->pTextureShader->setFloat4("u_Color", color);
   pData->pWhiteTexture->bind();
 
@@ -87,7 +92,7 @@ void Renderer2D::drawQuad(const glm::vec2 &position, const glm::vec2 &size,
 }
 void Renderer2D::drawQuad(const glm::vec3 &position, const glm::vec2 &size,
                           const Ref<Texture2D> texture) {
-  // pData->pTextureShader->setFloat4("u_Color", {0.2f, 0.3f, 0.8f, 0.5f});
+  V6_PROFILE_FUNCTION();
   pData->pTextureShader->setFloat4("u_Color", glm::vec4(1.0f));
   texture->bind();
   glm::mat4 transform =
