@@ -1,11 +1,12 @@
-#include "GLFW/glfw3.h"
-#include "renderer/renderer.h"
-
 #include "application.h"
-#include "core/timestep.h"
-#include "input.h"
-#include "key-codes.h"
-#include "log.h"
+
+#include "GLFW/glfw3.h"
+// #include "renderer/renderer.h"
+
+// #include "core/timestep.h"
+// #include "input.h"
+// #include "key-codes.h"
+// #include "log.h"
 
 namespace v6 {
 
@@ -14,6 +15,8 @@ namespace v6 {
 Application *Application::sInstance = nullptr;
 
 Application::Application(/* args */) {
+
+  V6_PROFILE_FUNCTION();
   V6_ASSERT(!sInstance, "Application already exists!")
   sInstance = this;
 

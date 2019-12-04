@@ -2,8 +2,8 @@
 #include "events/application-event.h"
 #include "events/key-event.h"
 #include "events/mouse-event.h"
-#include "log.h"
-#include "platform/opengl/opengl-context.h"
+// #include "log.h"
+// #include "platform/opengl/opengl-context.h"
 
 // #include "glad.h"
 
@@ -17,7 +17,10 @@ static void GLFWErrorCallback(int error, const char *description) {
 
 Window *Window::Create(const WindowProps &props) { return new V6Window(props); }
 
-V6Window::V6Window(const WindowProps &props) { Init(props); }
+V6Window::V6Window(const WindowProps &props) {
+  V6_PROFILE_FUNCTION();
+  Init(props);
+}
 
 V6Window::~V6Window() { Shutdown(); }
 

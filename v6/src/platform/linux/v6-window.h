@@ -1,6 +1,7 @@
 #pragma once
 
 #include "platform/opengl/opengl-context.h"
+#include "v6-pch.h"
 #include "window.h"
 
 #include "GLFW/glfw3.h"
