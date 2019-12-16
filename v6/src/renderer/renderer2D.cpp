@@ -75,6 +75,7 @@ void Renderer2D::drawQuad(const glm::vec3 &position, const glm::vec2 &size,
                           const glm::vec4 color) {
   V6_PROFILE_FUNCTION();
   pData->pTextureShader->setFloat4("u_Color", color);
+  pData->pTextureShader->setFloat("u_TilingFactor", 1.0);
   pData->pWhiteTexture->bind();
 
   glm::mat4 transform =
@@ -87,13 +88,16 @@ void Renderer2D::drawQuad(const glm::vec3 &position, const glm::vec2 &size,
 }
 
 void Renderer2D::drawQuad(const glm::vec2 &position, const glm::vec2 &size,
-                          const Ref<Texture2D> texture) {
-  drawQuad({position.x, position.y, 0.0f}, size, texture);
+                          const Ref<Texture2D> texture,
+                          const float tilingFactor) {
+  drawQuad({position.x, position.y, 0.0f}, size, texture, tilingFactor);
 }
 void Renderer2D::drawQuad(const glm::vec3 &position, const glm::vec2 &size,
-                          const Ref<Texture2D> texture) {
+                          const Ref<Texture2D> texture,
+                          const float tilingFactor) {
   V6_PROFILE_FUNCTION();
   pData->pTextureShader->setFloat4("u_Color", glm::vec4(1.0f));
+  pData->pTextureShader->setFloat("u_TilingFactor", tilingFactor);
   texture->bind();
   glm::mat4 transform =
       glm::translate(glm::mat4(1.0f), position) * /* rotation here */

@@ -44,7 +44,7 @@ void Sandbox2D::onUpdate(Timestep ts) {
     v6::Renderer2D::drawQuad({0.5f, -0.5f}, {0.5f, 0.75f},
                              {0.2f, 0.3f, 0.8f, 1.0f});
     v6::Renderer2D::drawQuad({0.2f, 0.5f, -0.1f}, {5.0f, 5.0f},
-                             pCheckerboardTexture);
+                             pCheckerboardTexture, 10.0f);
     // v6::Renderer2D::drawQuad({0.0f, 0.5f}, {0.8f, 0.8f},
     //                          pShowerPeterArnoTexture); // Fails. Too big?
     v6::Renderer2D::endScene();

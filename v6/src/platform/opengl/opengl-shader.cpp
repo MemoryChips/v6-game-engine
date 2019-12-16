@@ -196,6 +196,11 @@ void OpenGLShader::setInt(const std::string &name, int value) {
   UploadUniformInt(name, value);
 }
 
+void OpenGLShader::setFloat(const std::string &name, const float &f) {
+  V6_PROFILE_FUNCTION();
+  UploadUniformFloat(name, f);
+}
+
 void OpenGLShader::setFloat3(const std::string &name, const glm::vec3 &f) {
   V6_PROFILE_FUNCTION();
   UploadUniformFloat3(name, f);
@@ -214,9 +219,9 @@ void OpenGLShader::UploadUniformInt(const std::string &name, const int &v) {
   glUniform1i(location, v);
 }
 
-void OpenGLShader::UploadUniformFloat(const std::string &name, const float &v) {
+void OpenGLShader::UploadUniformFloat(const std::string &name, const float &f) {
   GLint location = glGetUniformLocation(rendererId, name.c_str());
-  glUniform1f(location, v);
+  glUniform1f(location, f);
 }
 
 void OpenGLShader::UploadUniformFloat2(const std::string &name,

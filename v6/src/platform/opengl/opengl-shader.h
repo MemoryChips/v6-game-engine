@@ -22,6 +22,7 @@ public:
   virtual void unbind() const override;
 
   virtual void setInt(const std::string &name, int value) override;
+  virtual void setFloat(const std::string &name, const float &f) override;
   virtual void setFloat3(const std::string &name, const glm::vec3 &f) override;
   virtual void setFloat4(const std::string &name, const glm::vec4 &f) override;
   virtual void setMat4(const std::string &name, const glm::mat4 &m) override;
@@ -35,7 +36,7 @@ public:
 
   void UploadUniformInt(const std::string &name, const int &v);
 
-  void UploadUniformFloat(const std::string &name, const float &v);
+  void UploadUniformFloat(const std::string &name, const float &f);
   void UploadUniformFloat2(const std::string &name, const glm::vec2 &v);
   void UploadUniformFloat3(const std::string &name, const glm::vec3 &v);
   void UploadUniformFloat4(const std::string &name, const glm::vec4 &v);
