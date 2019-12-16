@@ -23,6 +23,20 @@ public:
   static void drawQuad(const glm::vec3 &position, const glm::vec2 &size,
                        const Ref<Texture2D> texture,
                        const float tilingFactor = 1.0f);
+  static void drawRotatedQuad(const glm::vec2 &position, const glm::vec2 &size,
+                              const float &rotationRadians,
+                              const glm::vec4 color);
+  static void drawRotatedQuad(const glm::vec3 &position, const glm::vec2 &size,
+                              const float &rotation, const glm::vec4 color);
+  static void drawRotatedQuad(const glm::vec2 &positionRadians,
+                              const glm::vec2 &size,
+                              const float &rotationRadians,
+                              const Ref<Texture2D> texture,
+                              const float tilingFactor = 1.0f);
+  static void drawRotatedQuad(const glm::vec3 &position, const glm::vec2 &size,
+                              const float &rotationRadians,
+                              const Ref<Texture2D> texture,
+                              const float tilingFactor = 1.0f);
 };
 
 } // namespace v6
