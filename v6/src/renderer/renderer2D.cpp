@@ -89,14 +89,17 @@ void Renderer2D::drawQuad(const glm::vec3 &position, const glm::vec2 &size,
 
 void Renderer2D::drawQuad(const glm::vec2 &position, const glm::vec2 &size,
                           const Ref<Texture2D> texture,
-                          const float tilingFactor) {
-  drawQuad({position.x, position.y, 0.0f}, size, texture, tilingFactor);
+                          const float tilingFactor,
+                          const glm::vec4 &tintColor) {
+  drawQuad({position.x, position.y, 0.0f}, size, texture, tilingFactor,
+           tintColor);
 }
 void Renderer2D::drawQuad(const glm::vec3 &position, const glm::vec2 &size,
                           const Ref<Texture2D> texture,
-                          const float tilingFactor) {
+                          const float tilingFactor,
+                          const glm::vec4 &tintColor) {
   V6_PROFILE_FUNCTION();
-  pData->pTextureShader->setFloat4("u_Color", glm::vec4(1.0f));
+  pData->pTextureShader->setFloat4("u_Color", tintColor);
   pData->pTextureShader->setFloat("u_TilingFactor", tilingFactor);
   texture->bind();
   glm::mat4 transform = glm::translate(glm::mat4(1.0f), position) *
@@ -136,17 +139,19 @@ void Renderer2D::drawRotatedQuad(const glm::vec2 &position,
                                  const glm::vec2 &size,
                                  const float &rotationRadians,
                                  const Ref<Texture2D> texture,
-                                 const float tilingFactor) {
+                                 const float tilingFactor,
+                                 const glm::vec4 &tintColor) {
   drawRotatedQuad({position.x, position.y, 0.0f}, size, rotationRadians,
-                  texture, tilingFactor);
+                  texture, tilingFactor, tintColor);
 }
 void Renderer2D::drawRotatedQuad(const glm::vec3 &position,
                                  const glm::vec2 &size,
                                  const float &rotationRadians,
                                  const Ref<Texture2D> texture,
-                                 const float tilingFactor) {
+                                 const float tilingFactor,
+                                 const glm::vec4 &tintColor) {
   V6_PROFILE_FUNCTION();
-  pData->pTextureShader->setFloat4("u_Color", glm::vec4(1.0f));
+  pData->pTextureShader->setFloat4("u_Color", tintColor);
   pData->pTextureShader->setFloat("u_TilingFactor", tilingFactor);
   texture->bind();
   glm::mat4 transform =

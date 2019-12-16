@@ -46,11 +46,12 @@ void Sandbox2D::onUpdate(Timestep ts) {
     //                          {0.8f, 0.1f, 0.1f, 1.0f});
     v6::Renderer2D::drawQuad({0.5f, -0.5f}, {0.5f, 0.75f},
                              {0.2f, 0.3f, 0.8f, 1.0f});
-    // v6::Renderer2D::drawRotatedQuad({0.2f, 0.5f, -0.1f}, {5.0f, 5.0f},
-    //                                 3.14159f / 4.0F, pCheckerboardTexture,
-    //                                 10.0f);
-    v6::Renderer2D::drawQuad({0.2f, 0.5f, -0.1f}, {5.0f, 5.0f},
-                             pCheckerboardTexture, 10.0f);
+    v6::Renderer2D::drawRotatedQuad({0.2f, 0.5f, -0.1f}, {5.0f, 5.0f},
+                                    3.14159f / 4.0F, pCheckerboardTexture,
+                                    10.0f, glm::vec4(1.0f, 0.9f, 0.9f, 1.0f));
+    // v6::Renderer2D::drawQuad({0.2f, 0.5f, -0.1f}, {5.0f, 5.0f},
+    //                          pCheckerboardTexture, 10.0f,
+    //                          glm::vec4(1.0f, 0.9f, 0.9f, 1.0f));
     // v6::Renderer2D::drawQuad({0.0f, 0.5f}, {0.8f, 0.8f},
     //                          pShowerPeterArnoTexture);
     v6::Renderer2D::endScene();
