@@ -4,6 +4,9 @@
 
 - see core.h and log.h for v6 defines that differ from Hazel
 
+- Nov 14?
+  - ccccfdca228c33ab89448239694b7f992b029f15 - in progress
+
 - Nov 7
   - 8c35857cc442706ec0196d0298fefa11dfcbe0bf - in progress
 
