@@ -1,27 +1,24 @@
 #include "application.h"
 
 #include "GLFW/glfw3.h"
+#include "core.h"
 #include "renderer/renderer.h"
-
-// #include "core/timestep.h"
-// #include "input.h"
-// #include "key-codes.h"
-// #include "log.h"
 
 namespace v6 {
 
-#define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
+// #define BIND_EVENT_FN(x) std::bind(&Application::x, this,
+// std::placeholders::_1)
 
 Application *Application::sInstance = nullptr;
 
-Application::Application(/* args */) {
+Application::Application() {
 
   V6_PROFILE_FUNCTION();
   V6_ASSERT(!sInstance, "Application already exists!")
   sInstance = this;
 
   pWindow = std::unique_ptr<Window>(Window::Create());
-  pWindow->SetEventCallback(BIND_EVENT_FN(onEvent));
+  pWindow->SetEventCallback(V6_BIND_EVENT_FN(Application::onEvent));
 
   Renderer::init();
 
@@ -48,9 +45,9 @@ void Application::pushOverlay(Layer *layer) {
 void Application::onEvent(Event &e) {
   V6_PROFILE_FUNCTION();
   EventDispatcher d(e);
-  d.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(onWindowClosed));
-  d.Dispatch<WindowResizeEvent>(BIND_EVENT_FN(onWindowResize));
-  d.Dispatch<KeyReleasedEvent>(BIND_EVENT_FN(onKeyReleased));
+  d.Dispatch<WindowCloseEvent>(V6_BIND_EVENT_FN(Application::onWindowClosed));
+  d.Dispatch<WindowResizeEvent>(V6_BIND_EVENT_FN(Application::onWindowResize));
+  d.Dispatch<KeyReleasedEvent>(V6_BIND_EVENT_FN(Application::onKeyReleased));
   // LOG_CORE_TRACE("{0}", e);
   for (auto it = layerStack.end(); it != layerStack.begin();) {
     (*--it)->onEvent(e);
