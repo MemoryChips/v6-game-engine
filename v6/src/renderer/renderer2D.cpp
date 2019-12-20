@@ -28,17 +28,21 @@ void Renderer2D::init() {
   };
   // clang-format on
 
-  Ref<VertexBuffer> pSquareVB;
-
-  pSquareVB.reset(VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
+  Ref<VertexBuffer> pSquareVB =
+      VertexBuffer::Create(squareVertices, sizeof(squareVertices));
+  // pSquareVB.reset(VertexBuffer::Create(squareVertices,
+  // sizeof(squareVertices)));
+  // pSquareVB.reset(VertexBuffer::Create(squareVertices,
+  // sizeof(squareVertices)));
   pSquareVB->SetLayout({{ShaderDataType::Float3, "a_Position"},
                         {ShaderDataType::Float2, "a_TexCoord"}});
   pData->pQuadVeretexArray->AddVertexBuffer(pSquareVB);
 
   uint32_t squareIndices[6] = {0, 1, 2, 2, 3, 0};
-  Ref<IndexBuffer> pSquareIB;
-  pSquareIB.reset(IndexBuffer::Create(squareIndices, sizeof(squareIndices) /
-                                                         sizeof(uint32_t)));
+  Ref<IndexBuffer> pSquareIB = IndexBuffer::Create(
+      squareIndices, sizeof(squareIndices) / sizeof(uint32_t));
+  // pSquareIB.reset(IndexBuffer::Create(squareIndices, sizeof(squareIndices) /
+  //                                                        sizeof(uint32_t)));
   pData->pQuadVeretexArray->SetIndexBuffer(pSquareIB);
 
   pData->pWhiteTexture = Texture2D::create(1, 1);

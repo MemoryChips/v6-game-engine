@@ -14,17 +14,16 @@ ExampleLayer::ExampleLayer()
                            0.5f,  -0.5f, 0.0f, 0.2f, 0.3f, 0.8f, 1.0f,
                            0.0f,  0.5f,  0.0f, 0.8f, 0.8f, 0.2f, 1.0f};
 
-  Ref<VertexBuffer> pVertexBuffer;
-  pVertexBuffer.reset(VertexBuffer::Create(vertices, sizeof(vertices)));
+  Ref<VertexBuffer> pVertexBuffer =
+      VertexBuffer::Create(vertices, sizeof(vertices));
   BufferLayout layout = {{ShaderDataType::Float3, "a_Position"},
                          {ShaderDataType::Float4, "a_Color"}};
   pVertexBuffer->SetLayout(layout);
   pVertexArray->AddVertexBuffer(pVertexBuffer);
 
   uint32_t indices[3] = {0, 1, 2};
-  Ref<IndexBuffer> pIndexBuffer;
-  pIndexBuffer.reset(
-      IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
+  Ref<IndexBuffer> pIndexBuffer =
+      IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t));
   pVertexArray->SetIndexBuffer(pIndexBuffer);
 
   pSquareVA = VertexArray::Create();
@@ -37,8 +36,7 @@ ExampleLayer::ExampleLayer()
     -0.5f, 0.5f, 0.0f, 0.0f, 1.0f
   };
 
-  Ref<VertexBuffer> pSquareVB;
-  pSquareVB.reset(VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
+  Ref<VertexBuffer> pSquareVB = VertexBuffer::Create(squareVertices, sizeof(squareVertices));
   pSquareVB->SetLayout({
     {ShaderDataType::Float3, "a_Position"},
     {ShaderDataType::Float2, "a_TexCoord"}
@@ -46,9 +44,8 @@ ExampleLayer::ExampleLayer()
   pSquareVA->AddVertexBuffer(pSquareVB);
 
   uint32_t squareIndices[6] = {0, 1, 2, 2, 3, 0};
-  Ref<IndexBuffer> pSquareIB;
-  pSquareIB.reset(IndexBuffer::Create(squareIndices, sizeof(squareIndices) /
-                                                         sizeof(uint32_t)));
+  Ref<IndexBuffer> pSquareIB = IndexBuffer::Create(squareIndices, sizeof(squareIndices) /
+                                                         sizeof(uint32_t));
   pSquareVA->SetIndexBuffer(pSquareIB);
 
   std::string vertexSrc = R"(

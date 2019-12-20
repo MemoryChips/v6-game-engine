@@ -7,7 +7,7 @@
 
 namespace v6 {
 
-VertexBuffer *VertexBuffer::Create(float *vertices, uint32_t size) {
+Ref<VertexBuffer> VertexBuffer::Create(float *vertices, uint32_t size) {
   switch (RendererAPI::GetAPI()) {
   case RendererAPI::API::None:
     V6_CORE_ASSERT(false, "RendererAPI::None is currently not supported!");
@@ -16,14 +16,15 @@ VertexBuffer *VertexBuffer::Create(float *vertices, uint32_t size) {
     V6_CORE_ASSERT(false, "RendererAPI::OpenGL3 is currently not supported!");
     return nullptr;
   case RendererAPI::API::OpenGL:
-    return new OpenGLVertexBuffer(vertices, size);
+    // return new OpenGLVertexBuffer(vertices, size);
+    return CreateRef<OpenGLVertexBuffer>(vertices, size);
   }
 
   V6_CORE_ASSERT(false, "Unknown RendererAPI!");
   return nullptr;
 }
 
-IndexBuffer *IndexBuffer::Create(uint32_t *indices, uint32_t size) {
+Ref<IndexBuffer> IndexBuffer::Create(uint32_t *indices, uint32_t size) {
   switch (RendererAPI::GetAPI()) {
   case RendererAPI::API::None:
     V6_CORE_ASSERT(false, "RendererAPI::None is currently not supported!");
@@ -32,7 +33,7 @@ IndexBuffer *IndexBuffer::Create(uint32_t *indices, uint32_t size) {
     V6_CORE_ASSERT(false, "RendererAPI::OpenGL3 is currently not supported!");
     return nullptr;
   case RendererAPI::API::OpenGL:
-    return new OpenGLIndexBuffer(indices, size);
+    return CreateRef<OpenGLIndexBuffer>(indices, size);
   }
 
   V6_CORE_ASSERT(false, "Unknown RendererAPI!");
