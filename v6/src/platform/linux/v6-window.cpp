@@ -15,7 +15,9 @@ static void GLFWErrorCallback(int error, const char *description) {
   LOG_CORE_ERROR("GLFW Error ({0}): {1}", error, description);
 }
 
-Window *Window::Create(const WindowProps &props) { return new V6Window(props); }
+Scope<Window> Window::Create(const WindowProps &props) {
+  return CreateScope<V6Window>(props);
+}
 
 V6Window::V6Window(const WindowProps &props) {
   V6_PROFILE_FUNCTION();

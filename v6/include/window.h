@@ -34,8 +34,7 @@ public:
 
   virtual void *GetNativeWindow() const = 0;
 
-  // FIXME: Unable to change this to Scope<Window>
-  static Window *Create(const WindowProps &props = WindowProps());
+  static Scope<Window> Create(const WindowProps &props = WindowProps());
 };
 
 } // namespace v6

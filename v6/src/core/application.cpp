@@ -17,7 +17,8 @@ Application::Application() {
   V6_ASSERT(!sInstance, "Application already exists!")
   sInstance = this;
 
-  pWindow = std::unique_ptr<Window>(Window::Create());
+  pWindow = Window::Create();
+  // pWindow = std::unique_ptr<Window>(Window::Create());
   pWindow->SetEventCallback(V6_BIND_EVENT_FN(Application::onEvent));
 
   Renderer::init();
