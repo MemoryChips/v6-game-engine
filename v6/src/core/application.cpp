@@ -6,9 +6,6 @@
 
 namespace v6 {
 
-// #define BIND_EVENT_FN(x) std::bind(&Application::x, this,
-// std::placeholders::_1)
-
 Application *Application::sInstance = nullptr;
 
 Application::Application() {
@@ -18,7 +15,6 @@ Application::Application() {
   sInstance = this;
 
   pWindow = Window::Create();
-  // pWindow = std::unique_ptr<Window>(Window::Create());
   pWindow->SetEventCallback(V6_BIND_EVENT_FN(Application::onEvent));
 
   Renderer::init();
