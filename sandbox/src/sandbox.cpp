@@ -118,9 +118,12 @@ ExampleLayer::ExampleLayer()
   pChernoLogoTexture = Texture2D::create("./sandbox/assets/textures/ChernoLogo.png");
   pShowerPeterArnoTexture = Texture2D::create("./sandbox/assets/textures/shower-peter-arno.png");
   
-  std::dynamic_pointer_cast<OpenGLShader>(pTextureShader)->bind();
-  std::dynamic_pointer_cast<OpenGLShader>(pTextureShader)
-            ->UploadUniformInt("u_Texture", 0);
+  pTextureShader->bind();
+  pTextureShader->setInt("u_Texture", 0);
+  // pTextureShader->UploadUniformInt("u_Texture", 0);
+  // std::dynamic_pointer_cast<OpenGLShader>(pTextureShader)->bind();
+  // std::dynamic_pointer_cast<OpenGLShader>(pTextureShader)
+  //           ->UploadUniformInt("u_Texture", 0);
 }
 
 void ExampleLayer::onUpdate(Timestep ts) {
