@@ -1,6 +1,7 @@
 #pragma once
 
 // #include "my-stream.h"
+#include "core.h"
 #include "spdlog/fmt/ostr.h"
 #include "spdlog/spdlog.h"
 
@@ -8,17 +9,13 @@ namespace v6 {
 
 class Log {
 private:
-  static std::shared_ptr<spdlog::logger> coreLogger;
-  static std::shared_ptr<spdlog::logger> clientLogger;
+  static Ref<spdlog::logger> coreLogger;
+  static Ref<spdlog::logger> clientLogger;
 
 public:
   static void init();
-  inline static std::shared_ptr<spdlog::logger> &GetCoreLogger() {
-    return coreLogger;
-  }
-  inline static std::shared_ptr<spdlog::logger> &GetClientLogger() {
-    return clientLogger;
-  }
+  inline static Ref<spdlog::logger> &GetCoreLogger() { return coreLogger; }
+  inline static Ref<spdlog::logger> &GetClientLogger() { return clientLogger; }
 };
 
 } // namespace v6
