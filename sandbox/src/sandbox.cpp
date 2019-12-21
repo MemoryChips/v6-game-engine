@@ -79,7 +79,7 @@ ExampleLayer::ExampleLayer()
         color = v_Color;
 			}
 		)";
-  pShader = v6::Shader::Create("VertexPosColor",vertexSrc, fragmentSrc);
+  pShader = Shader::Create("VertexPosColor",vertexSrc, fragmentSrc);
 
   std::string flatColorShaderVertexSrc = R"(
 			#version 330 core
@@ -110,7 +110,7 @@ ExampleLayer::ExampleLayer()
 		)";
 
   pFlatColorShader = 
-      v6::Shader::Create("FlatColor", flatColorShaderVertexSrc, flatColorShaderFragmentSrc);
+      Shader::Create("FlatColor", flatColorShaderVertexSrc, flatColorShaderFragmentSrc);
 
   auto pTextureShader = shaderLibrary.load("./sandbox/assets/shaders/texture.glsl");
   
@@ -120,10 +120,6 @@ ExampleLayer::ExampleLayer()
   
   pTextureShader->bind();
   pTextureShader->setInt("u_Texture", 0);
-  // pTextureShader->UploadUniformInt("u_Texture", 0);
-  // std::dynamic_pointer_cast<OpenGLShader>(pTextureShader)->bind();
-  // std::dynamic_pointer_cast<OpenGLShader>(pTextureShader)
-  //           ->UploadUniformInt("u_Texture", 0);
 }
 
 void ExampleLayer::onUpdate(Timestep ts) {
@@ -149,9 +145,9 @@ void ExampleLayer::onUpdate(Timestep ts) {
   
   glm::mat4 scale2 = glm::scale(glm::mat4(1.0f), glm::vec3(1.5f));
   pTexture->bind();
-  v6::Renderer::Submit(pTextureShader, pSquareVA, scale2);
+  Renderer::Submit(pTextureShader, pSquareVA, scale2);
   pChernoLogoTexture->bind();
-  v6::Renderer::Submit(pTextureShader, pSquareVA, scale2);
+  Renderer::Submit(pTextureShader, pSquareVA, scale2);
 
   // triangle
   // v6::Renderer::Submit(pShader, pVertexArray);
