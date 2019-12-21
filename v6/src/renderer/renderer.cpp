@@ -29,11 +29,13 @@ void Renderer::Submit(const Ref<Shader> &shader,
                       const glm::mat4 &transform) {
   shader->bind();
 
+  shader->setMat4("u_ViewProjection", spSceneData->ViewProjectionMatrix);
+  shader->setMat4("u_Transform", transform);
   // temp work around for now
-  std::dynamic_pointer_cast<OpenGLShader>(shader)->UploadUniformMat4(
-      "u_ViewProjection", spSceneData->ViewProjectionMatrix);
-  std::dynamic_pointer_cast<OpenGLShader>(shader)->UploadUniformMat4(
-      "u_Transform", transform);
+  // std::dynamic_pointer_cast<OpenGLShader>(shader)->UploadUniformMat4(
+  //     "u_ViewProjection", spSceneData->ViewProjectionMatrix);
+  // std::dynamic_pointer_cast<OpenGLShader>(shader)->UploadUniformMat4(
+  //     "u_Transform", transform);
 
   vertexArray->Bind();
   RenderCommand::DrawIndexed(vertexArray);

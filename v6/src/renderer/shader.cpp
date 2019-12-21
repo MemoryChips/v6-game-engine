@@ -39,7 +39,7 @@ Ref<Shader> Shader::Create(const std::string &filePath) {
     V6_CORE_ASSERT(false, "RendererAPI::OpenGL3 is currently not supported!");
     return nullptr;
   case RendererAPI::API::OpenGL:
-    return std::make_shared<OpenGLShader>(filePath);
+    return CreateRef<OpenGLShader>(filePath);
   }
 
   V6_CORE_ASSERT(false, "Unknown RendererAPI!");
@@ -57,7 +57,7 @@ Ref<Shader> Shader::Create(const std::string &name,
     V6_CORE_ASSERT(false, "RendererAPI::OpenGL3 is currently not supported!");
     return nullptr;
   case RendererAPI::API::OpenGL:
-    return std::make_shared<OpenGLShader>(name, vertexSrc, fragmentSource);
+    return CreateRef<OpenGLShader>(name, vertexSrc, fragmentSource);
   }
 
   V6_CORE_ASSERT(false, "Unknown RendererAPI!");
