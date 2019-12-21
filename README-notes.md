@@ -4,8 +4,11 @@
 
 - see core.h and log.h for v6 defines that differ from Hazel
 
+- Dec 8 - ignored
+
 - Nov 23
-  - be33737454bf0993eb93bb374a3f12064825e5a2 - in progress
+  - 749b66558e1295921ceedcef02866b2c43480e75 - ignored
+  - be33737454bf0993eb93bb374a3f12064825e5a2 - done
   - a957b5bd28d96bb34defeb6d85bb5bd3e21efdd4 - done
 
 - Nov 19

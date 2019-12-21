@@ -45,11 +45,19 @@ void Application::onEvent(Event &e) {
   d.Dispatch<WindowCloseEvent>(V6_BIND_EVENT_FN(Application::onWindowClosed));
   d.Dispatch<WindowResizeEvent>(V6_BIND_EVENT_FN(Application::onWindowResize));
   d.Dispatch<KeyReleasedEvent>(V6_BIND_EVENT_FN(Application::onKeyReleased));
-  // LOG_CORE_TRACE("{0}", e);
-  for (auto it = layerStack.end(); it != layerStack.begin();) {
-    (*--it)->onEvent(e);
-    if (e.Handled)
-      break;
+
+  // for (auto it = layerStack.end(); it != layerStack.begin();) {
+  //   (*--it)->onEvent(e);
+  //   if (e.Handled)
+  //     break;
+  // }
+
+  for (auto it = layerStack.rbegin(); it != layerStack.rend(); ++it) {
+    {
+      (*it)->onEvent(e);
+      if (e.Handled)
+        break;
+    }
   }
 }
 
