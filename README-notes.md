@@ -4,8 +4,20 @@
 
 - see core.h and log.h for v6 defines that differ from Hazel
 
+- Nov 23
+  - be33737454bf0993eb93bb374a3f12064825e5a2 - in progress
+  - a957b5bd28d96bb34defeb6d85bb5bd3e21efdd4 - done
+
+- Nov 19
+  - 37849a303c061f68a875a1e78e582123a7570f07 - done manually
+  - 95fda7fc98a18946826272ae34e62cdd141cba57 - done manually
+
+- Nov 14
+  - f6d5c00113d626d033547e616aeb51e129fc7412 - merge master - skip
+  - fdafade867dac582260339918bc156d025a152aa - done manually
+
 - Nov 11
-  - 6e84e8d90ef8e3cdbb48e9277865f678bb35523c - in progress
+  - 6e84e8d90ef8e3cdbb48e9277865f678bb35523c - Done
   - ccccfdca228c33ab89448239694b7f992b029f15 - Done
 
 - Nov 7
