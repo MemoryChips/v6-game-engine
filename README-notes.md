@@ -4,7 +4,13 @@
 
 - see core.h and log.h for v6 defines that differ from Hazel
 
-- Dec 8 - ignored
+- Dec 18
+  - a15917c0914ef1dca6e4b1941c3b011ab2011853 - keycodes changed to enum class - NOT DONE yet
+  - 8c3cc55b93a7261f0ae45f56082a05001eebbdec - not done but consider this one
+  - 9b56f9c5b980323bf6bc31cbea6667ecab59c38d - ignored
+  - 7e9792175c646380e535ace711731743b91b3381 - ignored
+
+- Dec 8 - layer stack change done
 
 - Nov 23
   - 749b66558e1295921ceedcef02866b2c43480e75 - ignored
