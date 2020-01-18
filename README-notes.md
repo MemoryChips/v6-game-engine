@@ -4,6 +4,11 @@
 
 - see core.h and log.h for v6 defines that differ from Hazel
 
+- Jan 12
+  - 9095bed5569675f9d54994caa4ebd5ea92cbde47
+  - 554fb3fcad0f7e0cd9f5f690434708e6b098618d
+  - 3531a5061f67a6d199550bf0d125ceb81f0be098
+
 - Dec 18
   - a15917c0914ef1dca6e4b1941c3b011ab2011853 - keycodes changed to enum class - NOT DONE yet
   - 8c3cc55b93a7261f0ae45f56082a05001eebbdec - not done but consider this one
