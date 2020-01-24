@@ -4,6 +4,9 @@
 
 - see core.h and log.h for v6 defines that differ from Hazel
 
+- Jan 13
+  - 0716731c8e274f2e3d83aefef2222fe189a33728
+
 - Jan 12
   - 9095bed5569675f9d54994caa4ebd5ea92cbde47
   - 554fb3fcad0f7e0cd9f5f690434708e6b098618d
